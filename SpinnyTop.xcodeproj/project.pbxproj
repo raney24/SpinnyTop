@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		27953C841F46A95800938C8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27953C831F46A95800938C8E /* AppDelegate.swift */; };
+		27953C861F46A95800938C8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27953C851F46A95800938C8E /* ViewController.swift */; };
+		27953C891F46A95800938C8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27953C871F46A95800938C8E /* Main.storyboard */; };
+		27953C8C1F46A95800938C8E /* SpinnyTop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27953C8A1F46A95800938C8E /* SpinnyTop.xcdatamodeld */; };
+		27953C8E1F46A95800938C8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27953C8D1F46A95800938C8E /* Assets.xcassets */; };
+		27953C911F46A95800938C8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27953C8F1F46A95800938C8E /* LaunchScreen.storyboard */; };
+		27953C9C1F46A95800938C8E /* SpinnyTopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27953C9B1F46A95800938C8E /* SpinnyTopTests.swift */; };
+		27953CA71F46A95800938C8E /* SpinnyTopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27953CA61F46A95800938C8E /* SpinnyTopUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		27953C981F46A95800938C8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27953C781F46A95800938C8E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27953C7F1F46A95800938C8E;
+			remoteInfo = SpinnyTop;
+		};
+		27953CA31F46A95800938C8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 27953C781F46A95800938C8E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27953C7F1F46A95800938C8E;
+			remoteInfo = SpinnyTop;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		27953C801F46A95800938C8E /* SpinnyTop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpinnyTop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		27953C831F46A95800938C8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		27953C851F46A95800938C8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		27953C881F46A95800938C8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		27953C8B1F46A95800938C8E /* SpinnyTop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpinnyTop.xcdatamodel; sourceTree = "<group>"; };
+		27953C8D1F46A95800938C8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		27953C901F46A95800938C8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		27953C921F46A95800938C8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27953C971F46A95800938C8E /* SpinnyTopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpinnyTopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27953C9B1F46A95800938C8E /* SpinnyTopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnyTopTests.swift; sourceTree = "<group>"; };
+		27953C9D1F46A95800938C8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27953CA21F46A95800938C8E /* SpinnyTopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpinnyTopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		27953CA61F46A95800938C8E /* SpinnyTopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnyTopUITests.swift; sourceTree = "<group>"; };
+		27953CA81F46A95800938C8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27953C7D1F46A95800938C8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27953C941F46A95800938C8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27953C9F1F46A95800938C8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		27953C771F46A95800938C8E = {
+			isa = PBXGroup;
+			children = (
+				27953C821F46A95800938C8E /* SpinnyTop */,
+				27953C9A1F46A95800938C8E /* SpinnyTopTests */,
+				27953CA51F46A95800938C8E /* SpinnyTopUITests */,
+				27953C811F46A95800938C8E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		27953C811F46A95800938C8E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				27953C801F46A95800938C8E /* SpinnyTop.app */,
+				27953C971F46A95800938C8E /* SpinnyTopTests.xctest */,
+				27953CA21F46A95800938C8E /* SpinnyTopUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		27953C821F46A95800938C8E /* SpinnyTop */ = {
+			isa = PBXGroup;
+			children = (
+				27953C831F46A95800938C8E /* AppDelegate.swift */,
+				27953C851F46A95800938C8E /* ViewController.swift */,
+				27953C871F46A95800938C8E /* Main.storyboard */,
+				27953C8D1F46A95800938C8E /* Assets.xcassets */,
+				27953C8F1F46A95800938C8E /* LaunchScreen.storyboard */,
+				27953C921F46A95800938C8E /* Info.plist */,
+				27953C8A1F46A95800938C8E /* SpinnyTop.xcdatamodeld */,
+			);
+			path = SpinnyTop;
+			sourceTree = "<group>";
+		};
+		27953C9A1F46A95800938C8E /* SpinnyTopTests */ = {
+			isa = PBXGroup;
+			children = (
+				27953C9B1F46A95800938C8E /* SpinnyTopTests.swift */,
+				27953C9D1F46A95800938C8E /* Info.plist */,
+			);
+			path = SpinnyTopTests;
+			sourceTree = "<group>";
+		};
+		27953CA51F46A95800938C8E /* SpinnyTopUITests */ = {
+			isa = PBXGroup;
+			children = (
+				27953CA61F46A95800938C8E /* SpinnyTopUITests.swift */,
+				27953CA81F46A95800938C8E /* Info.plist */,
+			);
+			path = SpinnyTopUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		27953C7F1F46A95800938C8E /* SpinnyTop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27953CAB1F46A95800938C8E /* Build configuration list for PBXNativeTarget "SpinnyTop" */;
+			buildPhases = (
+				27953C7C1F46A95800938C8E /* Sources */,
+				27953C7D1F46A95800938C8E /* Frameworks */,
+				27953C7E1F46A95800938C8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpinnyTop;
+			productName = SpinnyTop;
+			productReference = 27953C801F46A95800938C8E /* SpinnyTop.app */;
+			productType = "com.apple.product-type.application";
+		};
+		27953C961F46A95800938C8E /* SpinnyTopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27953CAE1F46A95800938C8E /* Build configuration list for PBXNativeTarget "SpinnyTopTests" */;
+			buildPhases = (
+				27953C931F46A95800938C8E /* Sources */,
+				27953C941F46A95800938C8E /* Frameworks */,
+				27953C951F46A95800938C8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27953C991F46A95800938C8E /* PBXTargetDependency */,
+			);
+			name = SpinnyTopTests;
+			productName = SpinnyTopTests;
+			productReference = 27953C971F46A95800938C8E /* SpinnyTopTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		27953CA11F46A95800938C8E /* SpinnyTopUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27953CB11F46A95800938C8E /* Build configuration list for PBXNativeTarget "SpinnyTopUITests" */;
+			buildPhases = (
+				27953C9E1F46A95800938C8E /* Sources */,
+				27953C9F1F46A95800938C8E /* Frameworks */,
+				27953CA01F46A95800938C8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27953CA41F46A95800938C8E /* PBXTargetDependency */,
+			);
+			name = SpinnyTopUITests;
+			productName = SpinnyTopUITests;
+			productReference = 27953CA21F46A95800938C8E /* SpinnyTopUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		27953C781F46A95800938C8E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Kyle Raney";
+				TargetAttributes = {
+					27953C7F1F46A95800938C8E = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+					27953C961F46A95800938C8E = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 27953C7F1F46A95800938C8E;
+					};
+					27953CA11F46A95800938C8E = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 27953C7F1F46A95800938C8E;
+					};
+				};
+			};
+			buildConfigurationList = 27953C7B1F46A95800938C8E /* Build configuration list for PBXProject "SpinnyTop" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 27953C771F46A95800938C8E;
+			productRefGroup = 27953C811F46A95800938C8E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				27953C7F1F46A95800938C8E /* SpinnyTop */,
+				27953C961F46A95800938C8E /* SpinnyTopTests */,
+				27953CA11F46A95800938C8E /* SpinnyTopUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27953C7E1F46A95800938C8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27953C911F46A95800938C8E /* LaunchScreen.storyboard in Resources */,
+				27953C8E1F46A95800938C8E /* Assets.xcassets in Resources */,
+				27953C891F46A95800938C8E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27953C951F46A95800938C8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27953CA01F46A95800938C8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27953C7C1F46A95800938C8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27953C8C1F46A95800938C8E /* SpinnyTop.xcdatamodeld in Sources */,
+				27953C861F46A95800938C8E /* ViewController.swift in Sources */,
+				27953C841F46A95800938C8E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27953C931F46A95800938C8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27953C9C1F46A95800938C8E /* SpinnyTopTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27953C9E1F46A95800938C8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27953CA71F46A95800938C8E /* SpinnyTopUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		27953C991F46A95800938C8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27953C7F1F46A95800938C8E /* SpinnyTop */;
+			targetProxy = 27953C981F46A95800938C8E /* PBXContainerItemProxy */;
+		};
+		27953CA41F46A95800938C8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27953C7F1F46A95800938C8E /* SpinnyTop */;
+			targetProxy = 27953CA31F46A95800938C8E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		27953C871F46A95800938C8E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27953C881F46A95800938C8E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		27953C8F1F46A95800938C8E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27953C901F46A95800938C8E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		27953CA91F46A95800938C8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		27953CAA1F46A95800938C8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		27953CAC1F46A95800938C8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SpinnyTop/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.awesomeinc.SpinnyTop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		27953CAD1F46A95800938C8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SpinnyTop/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.awesomeinc.SpinnyTop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		27953CAF1F46A95800938C8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SpinnyTopTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.awesomeinc.SpinnyTopTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpinnyTop.app/SpinnyTop";
+			};
+			name = Debug;
+		};
+		27953CB01F46A95800938C8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SpinnyTopTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.awesomeinc.SpinnyTopTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpinnyTop.app/SpinnyTop";
+			};
+			name = Release;
+		};
+		27953CB21F46A95800938C8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = SpinnyTopUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.awesomeinc.SpinnyTopUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SpinnyTop;
+			};
+			name = Debug;
+		};
+		27953CB31F46A95800938C8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = SpinnyTopUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.awesomeinc.SpinnyTopUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SpinnyTop;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		27953C7B1F46A95800938C8E /* Build configuration list for PBXProject "SpinnyTop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27953CA91F46A95800938C8E /* Debug */,
+				27953CAA1F46A95800938C8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27953CAB1F46A95800938C8E /* Build configuration list for PBXNativeTarget "SpinnyTop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27953CAC1F46A95800938C8E /* Debug */,
+				27953CAD1F46A95800938C8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		27953CAE1F46A95800938C8E /* Build configuration list for PBXNativeTarget "SpinnyTopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27953CAF1F46A95800938C8E /* Debug */,
+				27953CB01F46A95800938C8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		27953CB11F46A95800938C8E /* Build configuration list for PBXNativeTarget "SpinnyTopUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27953CB21F46A95800938C8E /* Debug */,
+				27953CB31F46A95800938C8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		27953C8A1F46A95800938C8E /* SpinnyTop.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				27953C8B1F46A95800938C8E /* SpinnyTop.xcdatamodel */,
+			);
+			currentVersion = 27953C8B1F46A95800938C8E /* SpinnyTop.xcdatamodel */;
+			path = SpinnyTop.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 27953C781F46A95800938C8E /* Project object */;
+}
