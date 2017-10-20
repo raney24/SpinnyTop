@@ -8,15 +8,31 @@
 
 import UIKit
 import CoreData
+import Firebase
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var storyboard: UIStoryboard?
 
+    private let auth = FIRAuth.auth()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FIRApp.configure()
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        self.storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let currentUser = FIRAuth.auth()?.currentUser
+        
+        if currentUser != nil {
+            AppManager.sharedInstance.showSpinnyNavCon()
+        } else {
+            AppManager.sharedInstance.showWelcomeNavCon()
+        }
+        
         return true
     }
 
@@ -72,6 +88,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        
+        return handled
+    }
 
     // MARK: - Core Data Saving support
 

@@ -7,14 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273F68DB1F4A9CD300D6DD49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 273F68DA1F4A9CD300D6DD49 /* GoogleService-Info.plist */; };
+		273F68DF1F4A9EC900D6DD49 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */; };
 		27953C841F46A95800938C8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27953C831F46A95800938C8E /* AppDelegate.swift */; };
-		27953C861F46A95800938C8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27953C851F46A95800938C8E /* ViewController.swift */; };
 		27953C891F46A95800938C8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27953C871F46A95800938C8E /* Main.storyboard */; };
 		27953C8C1F46A95800938C8E /* SpinnyTop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27953C8A1F46A95800938C8E /* SpinnyTop.xcdatamodeld */; };
 		27953C8E1F46A95800938C8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27953C8D1F46A95800938C8E /* Assets.xcassets */; };
 		27953C911F46A95800938C8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27953C8F1F46A95800938C8E /* LaunchScreen.storyboard */; };
 		27953C9C1F46A95800938C8E /* SpinnyTopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27953C9B1F46A95800938C8E /* SpinnyTopTests.swift */; };
 		27953CA71F46A95800938C8E /* SpinnyTopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27953CA61F46A95800938C8E /* SpinnyTopUITests.swift */; };
+		27B6A8321F4BE59A0052E65D /* SpinnyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A8311F4BE59A0052E65D /* SpinnyViewController.swift */; };
+		27B6A8341F4C184D0052E65D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A8331F4C184D0052E65D /* ProfileViewController.swift */; };
+		27B6A8361F4D40350052E65D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A8351F4D40350052E65D /* RegisterViewController.swift */; };
+		27B6A83E1F4E57AD0052E65D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A83D1F4E57AD0052E65D /* AppManager.swift */; };
+		27B6A83F1F4E58FD0052E65D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A83D1F4E57AD0052E65D /* AppManager.swift */; };
+		27B6A8401F4E58FE0052E65D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A83D1F4E57AD0052E65D /* AppManager.swift */; };
+		27B6A8421F4E7E970052E65D /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */; };
+		27B6A8441F4FB98F0052E65D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A8431F4FB98F0052E65D /* Constants.swift */; };
+		27B6A8461F4FB9E40052E65D /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A8451F4FB9E40052E65D /* DataService.swift */; };
+		3C98502D7BCA5122D15A01E9 /* Pods_SpinnyTopTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF808B9F127B4595B23751D /* Pods_SpinnyTopTests.framework */; };
+		D6F257BD3C8A3384EE9B2C17 /* Pods_SpinnyTopUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBA92687DC6B2BF25D90631 /* Pods_SpinnyTopUITests.framework */; };
+		F3C0D3FBA1F9A6F431E5A31F /* Pods_SpinnyTop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB24192005F79D9F65BE967 /* Pods_SpinnyTop.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,9 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		273F68DA1F4A9CD300D6DD49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		27953C801F46A95800938C8E /* SpinnyTop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpinnyTop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27953C831F46A95800938C8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		27953C851F46A95800938C8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		27953C881F46A95800938C8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27953C8B1F46A95800938C8E /* SpinnyTop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpinnyTop.xcdatamodel; sourceTree = "<group>"; };
 		27953C8D1F46A95800938C8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +63,22 @@
 		27953CA21F46A95800938C8E /* SpinnyTopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpinnyTopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27953CA61F46A95800938C8E /* SpinnyTopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnyTopUITests.swift; sourceTree = "<group>"; };
 		27953CA81F46A95800938C8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27B6A8311F4BE59A0052E65D /* SpinnyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnyViewController.swift; sourceTree = "<group>"; };
+		27B6A8331F4C184D0052E65D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		27B6A8351F4D40350052E65D /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		27B6A83D1F4E57AD0052E65D /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		27B6A8431F4FB98F0052E65D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		27B6A8451F4FB9E40052E65D /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		3DF808B9F127B4595B23751D /* Pods_SpinnyTopTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpinnyTopTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3FD8B8CB2E2F04260693FF9 /* Pods-SpinnyTopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpinnyTopTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpinnyTopTests/Pods-SpinnyTopTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A6FBDCBC8567F994D762F8F2 /* Pods-SpinnyTopTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpinnyTopTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpinnyTopTests/Pods-SpinnyTopTests.release.xcconfig"; sourceTree = "<group>"; };
+		BCB24192005F79D9F65BE967 /* Pods_SpinnyTop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpinnyTop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCBA92687DC6B2BF25D90631 /* Pods_SpinnyTopUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpinnyTopUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDDDB2319ED024A70A6EDEF8 /* Pods-SpinnyTop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpinnyTop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpinnyTop/Pods-SpinnyTop.debug.xcconfig"; sourceTree = "<group>"; };
+		E88887FC0CB61FCB3934D6CD /* Pods-SpinnyTopUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpinnyTopUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpinnyTopUITests/Pods-SpinnyTopUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		ECA614A51F4184DA56AEB9CB /* Pods-SpinnyTopUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpinnyTopUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpinnyTopUITests/Pods-SpinnyTopUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FEA89CB376E2AFCC0FAD922C /* Pods-SpinnyTop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpinnyTop.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpinnyTop/Pods-SpinnyTop.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3C0D3FBA1F9A6F431E5A31F /* Pods_SpinnyTop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C98502D7BCA5122D15A01E9 /* Pods_SpinnyTopTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +102,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6F257BD3C8A3384EE9B2C17 /* Pods_SpinnyTopUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		244BF1F94481FEEA3BD61D7A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDDDB2319ED024A70A6EDEF8 /* Pods-SpinnyTop.debug.xcconfig */,
+				FEA89CB376E2AFCC0FAD922C /* Pods-SpinnyTop.release.xcconfig */,
+				A3FD8B8CB2E2F04260693FF9 /* Pods-SpinnyTopTests.debug.xcconfig */,
+				A6FBDCBC8567F994D762F8F2 /* Pods-SpinnyTopTests.release.xcconfig */,
+				E88887FC0CB61FCB3934D6CD /* Pods-SpinnyTopUITests.debug.xcconfig */,
+				ECA614A51F4184DA56AEB9CB /* Pods-SpinnyTopUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		27953C771F46A95800938C8E = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +129,8 @@
 				27953C9A1F46A95800938C8E /* SpinnyTopTests */,
 				27953CA51F46A95800938C8E /* SpinnyTopUITests */,
 				27953C811F46A95800938C8E /* Products */,
+				244BF1F94481FEEA3BD61D7A /* Pods */,
+				588070F3466664B1801BE60C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,12 +148,20 @@
 			isa = PBXGroup;
 			children = (
 				27953C831F46A95800938C8E /* AppDelegate.swift */,
-				27953C851F46A95800938C8E /* ViewController.swift */,
+				27B6A83D1F4E57AD0052E65D /* AppManager.swift */,
+				27B6A8451F4FB9E40052E65D /* DataService.swift */,
+				27B6A8311F4BE59A0052E65D /* SpinnyViewController.swift */,
+				27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */,
 				27953C871F46A95800938C8E /* Main.storyboard */,
+				27B6A8351F4D40350052E65D /* RegisterViewController.swift */,
+				27B6A8331F4C184D0052E65D /* ProfileViewController.swift */,
+				27B6A8431F4FB98F0052E65D /* Constants.swift */,
+				273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */,
 				27953C8D1F46A95800938C8E /* Assets.xcassets */,
 				27953C8F1F46A95800938C8E /* LaunchScreen.storyboard */,
 				27953C921F46A95800938C8E /* Info.plist */,
 				27953C8A1F46A95800938C8E /* SpinnyTop.xcdatamodeld */,
+				273F68DA1F4A9CD300D6DD49 /* GoogleService-Info.plist */,
 			);
 			path = SpinnyTop;
 			sourceTree = "<group>";
@@ -128,6 +184,16 @@
 			path = SpinnyTopUITests;
 			sourceTree = "<group>";
 		};
+		588070F3466664B1801BE60C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCB24192005F79D9F65BE967 /* Pods_SpinnyTop.framework */,
+				3DF808B9F127B4595B23751D /* Pods_SpinnyTopTests.framework */,
+				CCBA92687DC6B2BF25D90631 /* Pods_SpinnyTopUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27953CAB1F46A95800938C8E /* Build configuration list for PBXNativeTarget "SpinnyTop" */;
 			buildPhases = (
+				56B21F29A7244AC85665B43A /* [CP] Check Pods Manifest.lock */,
 				27953C7C1F46A95800938C8E /* Sources */,
 				27953C7D1F46A95800938C8E /* Frameworks */,
 				27953C7E1F46A95800938C8E /* Resources */,
+				EBD88D5FB85F488F22A845CC /* [CP] Embed Pods Frameworks */,
+				DF17F8957027A0A6BC5D7902 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +221,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27953CAE1F46A95800938C8E /* Build configuration list for PBXNativeTarget "SpinnyTopTests" */;
 			buildPhases = (
+				EB9A670FD1D954EEB7ACB1EF /* [CP] Check Pods Manifest.lock */,
 				27953C931F46A95800938C8E /* Sources */,
 				27953C941F46A95800938C8E /* Frameworks */,
 				27953C951F46A95800938C8E /* Resources */,
+				217378A567AB0903A58B0413 /* [CP] Embed Pods Frameworks */,
+				E3AE2EC7570E1561C4B5DBC5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +242,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27953CB11F46A95800938C8E /* Build configuration list for PBXNativeTarget "SpinnyTopUITests" */;
 			buildPhases = (
+				6C5EE7315D03863ECDD77C0F /* [CP] Check Pods Manifest.lock */,
 				27953C9E1F46A95800938C8E /* Sources */,
 				27953C9F1F46A95800938C8E /* Frameworks */,
 				27953CA01F46A95800938C8E /* Resources */,
+				A8CC9676F3CF400C04F800FA /* [CP] Embed Pods Frameworks */,
+				305ECC7F1CE4F0DE2E224381 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -196,6 +271,7 @@
 				TargetAttributes = {
 					27953C7F1F46A95800938C8E = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 5B356LNH66;
 						ProvisioningStyle = Automatic;
 					};
 					27953C961F46A95800938C8E = {
@@ -235,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				273F68DB1F4A9CD300D6DD49 /* GoogleService-Info.plist in Resources */,
 				27953C911F46A95800938C8E /* LaunchScreen.storyboard in Resources */,
 				27953C8E1F46A95800938C8E /* Assets.xcassets in Resources */,
 				27953C891F46A95800938C8E /* Main.storyboard in Resources */,
@@ -257,14 +334,159 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		217378A567AB0903A58B0413 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpinnyTopTests/Pods-SpinnyTopTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		305ECC7F1CE4F0DE2E224381 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpinnyTopUITests/Pods-SpinnyTopUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		56B21F29A7244AC85665B43A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6C5EE7315D03863ECDD77C0F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A8CC9676F3CF400C04F800FA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpinnyTopUITests/Pods-SpinnyTopUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF17F8957027A0A6BC5D7902 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpinnyTop/Pods-SpinnyTop-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E3AE2EC7570E1561C4B5DBC5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpinnyTopTests/Pods-SpinnyTopTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB9A670FD1D954EEB7ACB1EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EBD88D5FB85F488F22A845CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpinnyTop/Pods-SpinnyTop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		27953C7C1F46A95800938C8E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B6A83E1F4E57AD0052E65D /* AppManager.swift in Sources */,
+				27B6A8361F4D40350052E65D /* RegisterViewController.swift in Sources */,
 				27953C8C1F46A95800938C8E /* SpinnyTop.xcdatamodeld in Sources */,
-				27953C861F46A95800938C8E /* ViewController.swift in Sources */,
+				27B6A8421F4E7E970052E65D /* ResetPasswordViewController.swift in Sources */,
+				273F68DF1F4A9EC900D6DD49 /* LoginViewController.swift in Sources */,
+				27B6A8321F4BE59A0052E65D /* SpinnyViewController.swift in Sources */,
+				27B6A8341F4C184D0052E65D /* ProfileViewController.swift in Sources */,
 				27953C841F46A95800938C8E /* AppDelegate.swift in Sources */,
+				27B6A8441F4FB98F0052E65D /* Constants.swift in Sources */,
+				27B6A8461F4FB9E40052E65D /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +495,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27953C9C1F46A95800938C8E /* SpinnyTopTests.swift in Sources */,
+				27B6A83F1F4E58FD0052E65D /* AppManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +504,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27953CA71F46A95800938C8E /* SpinnyTopUITests.swift in Sources */,
+				27B6A8401F4E58FE0052E65D /* AppManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,8 +638,10 @@
 		};
 		27953CAC1F46A95800938C8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDDDB2319ED024A70A6EDEF8 /* Pods-SpinnyTop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5B356LNH66;
 				INFOPLIST_FILE = SpinnyTop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.awesomeinc.SpinnyTop;
@@ -426,8 +652,10 @@
 		};
 		27953CAD1F46A95800938C8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEA89CB376E2AFCC0FAD922C /* Pods-SpinnyTop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5B356LNH66;
 				INFOPLIST_FILE = SpinnyTop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.awesomeinc.SpinnyTop;
@@ -438,6 +666,7 @@
 		};
 		27953CAF1F46A95800938C8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3FD8B8CB2E2F04260693FF9 /* Pods-SpinnyTopTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -452,6 +681,7 @@
 		};
 		27953CB01F46A95800938C8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6FBDCBC8567F994D762F8F2 /* Pods-SpinnyTopTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -466,6 +696,7 @@
 		};
 		27953CB21F46A95800938C8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E88887FC0CB61FCB3934D6CD /* Pods-SpinnyTopUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = SpinnyTopUITests/Info.plist;
@@ -479,6 +710,7 @@
 		};
 		27953CB31F46A95800938C8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECA614A51F4184DA56AEB9CB /* Pods-SpinnyTopUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = SpinnyTopUITests/Info.plist;
@@ -509,6 +741,7 @@
 				27953CAD1F46A95800938C8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		27953CAE1F46A95800938C8E /* Build configuration list for PBXNativeTarget "SpinnyTopTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +750,7 @@
 				27953CB01F46A95800938C8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		27953CB11F46A95800938C8E /* Build configuration list for PBXNativeTarget "SpinnyTopUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +759,7 @@
 				27953CB31F46A95800938C8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
