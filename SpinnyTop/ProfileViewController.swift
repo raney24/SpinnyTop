@@ -14,28 +14,36 @@ import FirebaseDatabase
 
 class ProfileViewController: UIViewController, UITextFieldDelegate {
     
+    private var _USER_REF = Database.database().reference(withPath: "/users")
+    
     @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordAgainTextField: UITextField!
+    @IBOutlet weak var errorImageView: UIImageView!
     
-    let user = FIRAuth.auth()?.currentUser
+    let user = Auth.auth().currentUser
     var fieldsToChange = [String: String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+
         
         // Set the text fields to the delegate
         self.emailAddressTextField.delegate = self
         self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
         self.passwordAgainTextField.delegate = self
+        
+        // Hide Errors
+        errorImageView.isHidden = true
 
         // Do any additional setup after loading the view.
         let email = user?.email
         emailAddressTextField.text = email
         let uid = user?.uid
-        FIRDatabase.database().reference(withPath: "/users").child("/\(uid!)").observe(.value, with: { (snapshot) in
+        Database.database().reference(withPath: "/users").child("/\(uid!)").observe(.value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
             guard let username = value?["username"] as? String else {
                 return
@@ -54,21 +62,31 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldEndEditing(_ textFieldToChange: UITextField) -> Bool {
         
-        if textFieldToChange == emailAddressTextField {
-            fieldsToChange["email"] = emailAddressTextField.text
-        } else if textFieldToChange == usernameTextField {
+        if textFieldToChange == usernameTextField {
             fieldsToChange["username"] = usernameTextField.text
+            if usernameTextField.text != "" {
+                let uid = user?.uid
+                _USER_REF.child("/\(uid!)").observeSingleEvent(of: .value, with: {(snapshot: DataSnapshot) in
+                    let value = snapshot.value as? NSDictionary
+                    let currentUsername = value?["username"] as? String ?? "nothing"
+                    if ( currentUsername == self.usernameTextField.text ) {
+                        self.errorImageView.isHidden = true // Hide the error message
+                    } else if snapshot.value != nil {
+                        self.errorImageView.isHidden = true
+                    } else {
+                        self.errorImageView.isHidden = false
+                    }
+                    
+                })
+            }
+
         } else if textFieldToChange == passwordTextField {
             
         }
         
-        
-        
         return true
     }
     
-    @IBAction func updateProfileButtonAction(_ sender: Any) {
-    }
     @IBAction func updateUsernameButtonAction(_ sender: Any) {
         DataService.sharedInstance.updateUser(uid: (self.user?.uid)!, fields: fieldsToChange)
         
@@ -84,4 +102,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
     }
     */
 
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

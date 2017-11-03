@@ -14,34 +14,24 @@ import FirebaseDatabase
 class DataService {
     static let sharedInstance = DataService()
     
-    private var _BASE_REF = FIRDatabase.database().reference()
-    private var _USER_REF = FIRDatabase.database().reference(withPath: "/users")
+    private var _BASE_REF = Database.database().reference()
+    private var _USER_REF = Database.database().reference(withPath: "/users")
     
-    func createNewAccount(uid: String, user: Dictionary<String, String>) {
+    func createNewAccount(uid: String, user: Dictionary<String, Any>) {
         _USER_REF.child("/\(uid)").setValue(user)
     }
     
     func updateUser(uid: String, fields: Dictionary<String, String>) {
-        let user = FIRAuth.auth()?.currentUser
+        let user = Auth.auth().currentUser
         if fields["username"] != nil {
-            _USER_REF.queryOrdered(byChild: "username").queryEqual(toValue: fields["username"]).observeSingleEvent(of: .value, with: {(snapshot: FIRDataSnapshot) in
+            _USER_REF.queryOrdered(byChild: "username").queryEqual(toValue: fields["username"]).observeSingleEvent(of: .value, with: {(snapshot: DataSnapshot) in
                 if snapshot.exists() {
                     let alertController = UIAlertController(title: "Error", message: "Username already exists", preferredStyle: .alert)
-                    
                 } else {
-                    self._USER_REF.child("/\(uid)").updateChildValues(["username" : fields["username"]])
+                    self._USER_REF.child("/\(uid)").updateChildValues(["username" : fields["username"] ?? "Provide a username"])
                 }
             })
         }
-        if fields["email"] != nil {
-            user?.updateEmail(fields["email"]!) { (error) in
-                
-            }
-        }
-        
-        
-
-        
     }
 //    func getUsername(uid: String) -> String {
 //        _USER_REF.child("/\(uid)").observe(.value, with: { (snapshot) in

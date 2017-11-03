@@ -17,15 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var storyboard: UIStoryboard?
 
-    private let auth = FIRAuth.auth()
+    private let auth = Auth.auth()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FIRApp.configure()
+        FirebaseApp.configure()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         self.storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let currentUser = FIRAuth.auth()?.currentUser
+        let currentUser = Auth.auth().currentUser
         
         if currentUser != nil {
             AppManager.sharedInstance.showSpinnyNavCon()

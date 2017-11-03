@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
             
             self.present(alertController, animated: true, completion: nil)
         } else {
-            FIRAuth.auth()?.signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
+            Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
                 
                 if error == nil {
                     AppManager.sharedInstance.showSpinnyNavCon()
@@ -66,9 +66,9 @@ class LoginViewController: UIViewController {
                 return
             }
             
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+            let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
             
-            FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
+            Auth.auth().signIn(with: credential, completion: { (user, error) in
                 if let error = error {
                     print("Login Error: \(error.localizedDescription)")
                     let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)

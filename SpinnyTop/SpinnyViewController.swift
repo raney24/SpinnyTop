@@ -17,19 +17,29 @@ class SpinnyViewController: UIViewController {
     @IBOutlet weak var gForceLabel: UILabel!
     @IBOutlet weak var maxForceLabel: UILabel!
     
+    private var _BASE_REF = Database.database().reference()
+    private var _USER_REF = Database.database().reference(withPath: "/users")
+    
+    let user = Auth.auth().currentUser
     
     var motionManager = CMMotionManager()
     var timer: Timer!
-    var gForceMax = 0.0
+    var gForceMax: Double?
     
-    let user = FIRAuth.auth()?.currentUser
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // get maximum force from db
+        self._USER_REF.child((self.user?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            self.gForceMax = value?["high_score"] as? Double
+            self.startUpdates()
+        })
+        
         // Do any additional setup after loading the view.
         self.motionManager.startAccelerometerUpdates()
-        startUpdates()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,24 +59,44 @@ class SpinnyViewController: UIViewController {
             let gForce = (pow(acceleration.x, 2) + pow(acceleration.y, 2) + pow(acceleration.z, 2) / 9.81).squareRoot()
             self.gForceLabel.text = String(format: "%.5f", gForce)
             
-            if (gForce > self.gForceMax) {
+            
+            // check if current gforce is greater than max
+            if (gForce > self.gForceMax ?? 0) {
                 self.gForceMax = gForce
-//                print(self.gForceMax)
-                self.maxForceLabel.text = String(format: "Max: %.5f", self.gForceMax)
+                
+                self._USER_REF.child((self.user?.uid)!).updateChildValues(["high_score": gForce])
             }
+            
+            self.maxForceLabel.text = String(format: "%.5", self.gForceMax ?? 0.0) // or say "not scored yet"
+            
+            
         }
+        if motionManager.isDeviceMotionAvailable == true {
+            motionManager.deviceMotionUpdateInterval = 0.01
+            motionManager.startDeviceMotionUpdates(to: .main) { motion, error in
+                if let attitude = motion?.attitude {
+                    self.gForceLabel.transform = CGAffineTransform(rotationAngle: CGFloat(attitude.yaw))
+                }
+            }
+            
+        }
+        
     }
 
     @IBAction func logoutButtonAction(_ sender: Any) {
-        if FIRAuth.auth()?.currentUser != nil {
+        if Auth.auth().currentUser != nil {
             do {
-                try FIRAuth.auth()?.signOut()
+                try Auth.auth().signOut()
                 // Change Root view controller to spinny navigation controller
                 AppManager.sharedInstance.showWelcomeNavCon()
             } catch let error as NSError {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func degrees(radians: Double) -> Double {
+        return 180 * M_PI * radians
     }
 
     /*

@@ -42,15 +42,16 @@ class RegisterViewController: UIViewController {
             let username = usernameTextField.text!
             let email = emailTextField.text!
             let password = passwordTextField.text!
-            FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
+            let high_score = 0.0 as Double
+            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                 
                 if error == nil {
                     AppManager.sharedInstance.showSpinnyNavCon()
                     
                     let userID = user!.uid
-                    let myUser = ["provider": user?.providerID, "email": email, "username": username]
+                    let myUser = ["provider": user?.providerID ?? "No ID", "email": email, "username": username, "high_score": high_score] as [String : Any]
                     
-                    DataService.sharedInstance.createNewAccount(uid: userID, user: myUser as! Dictionary<String, String>)
+                    DataService.sharedInstance.createNewAccount(uid: userID, user: myUser )
                 } else {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     
