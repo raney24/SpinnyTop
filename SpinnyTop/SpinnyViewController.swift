@@ -64,7 +64,8 @@ class SpinnyViewController: UIViewController {
             if (gForce > self.gForceMax ?? 0) {
                 self.gForceMax = gForce
                 
-                self._USER_REF.child((self.user?.uid)!).updateChildValues(["high_score": gForce])
+//                self._USER_REF.child((self.user?.uid)!).updateChildValues(["high_score": gForce])
+                self._BASE_REF.child("/spin").childByAutoId().setValue(["top_speed": gForce, "user_id": (self.user?.uid)!])
             }
             
             self.maxForceLabel.text = String(format: "%.5", self.gForceMax ?? 0.0) // or say "not scored yet"

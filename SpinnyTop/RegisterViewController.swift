@@ -10,7 +10,7 @@ import UIKit
 
 import Firebase
 import FirebaseAuth
-import FBSDKLoginKit
+//import FBSDKLoginKit
 
 
 class RegisterViewController: UIViewController {

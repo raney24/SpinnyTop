@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		273F68DB1F4A9CD300D6DD49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 273F68DA1F4A9CD300D6DD49 /* GoogleService-Info.plist */; };
 		273F68DF1F4A9EC900D6DD49 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */; };
+		2789DA4F1FB03C860078351E /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789DA4E1FB03C860078351E /* Score.swift */; };
 		27953C841F46A95800938C8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27953C831F46A95800938C8E /* AppDelegate.swift */; };
 		27953C891F46A95800938C8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27953C871F46A95800938C8E /* Main.storyboard */; };
 		27953C8C1F46A95800938C8E /* SpinnyTop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27953C8A1F46A95800938C8E /* SpinnyTop.xcdatamodeld */; };
@@ -25,6 +26,7 @@
 		27B6A8421F4E7E970052E65D /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */; };
 		27B6A8441F4FB98F0052E65D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A8431F4FB98F0052E65D /* Constants.swift */; };
 		27B6A8461F4FB9E40052E65D /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A8451F4FB9E40052E65D /* DataService.swift */; };
+		27E48FB71FAD147500EC6C90 /* LeaderboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */; };
 		27FEE47E1F9AAB5500C3C596 /* error.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FEE47D1F9AAB5500C3C596 /* error.png */; };
 		3C98502D7BCA5122D15A01E9 /* Pods_SpinnyTopTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF808B9F127B4595B23751D /* Pods_SpinnyTopTests.framework */; };
 		D6F257BD3C8A3384EE9B2C17 /* Pods_SpinnyTopUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCBA92687DC6B2BF25D90631 /* Pods_SpinnyTopUITests.framework */; };
@@ -51,6 +53,7 @@
 /* Begin PBXFileReference section */
 		273F68DA1F4A9CD300D6DD49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2789DA4E1FB03C860078351E /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		27953C801F46A95800938C8E /* SpinnyTop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpinnyTop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27953C831F46A95800938C8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27953C881F46A95800938C8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +74,7 @@
 		27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		27B6A8431F4FB98F0052E65D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		27B6A8451F4FB9E40052E65D /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewController.swift; sourceTree = "<group>"; };
 		27FEE47D1F9AAB5500C3C596 /* error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = error.png; path = SpinnyTop/error.png; sourceTree = "<group>"; };
 		3DF808B9F127B4595B23751D /* Pods_SpinnyTopTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpinnyTopTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3FD8B8CB2E2F04260693FF9 /* Pods-SpinnyTopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpinnyTopTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpinnyTopTests/Pods-SpinnyTopTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +128,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2789DA4D1FB03C580078351E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2789DA4E1FB03C860078351E /* Score.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		27953C771F46A95800938C8E = {
 			isa = PBXGroup;
 			children = (
@@ -154,9 +166,11 @@
 				27B6A83D1F4E57AD0052E65D /* AppManager.swift */,
 				27B6A8451F4FB9E40052E65D /* DataService.swift */,
 				27B6A8311F4BE59A0052E65D /* SpinnyViewController.swift */,
+				2789DA4D1FB03C580078351E /* Models */,
 				27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */,
 				27953C871F46A95800938C8E /* Main.storyboard */,
 				27B6A8351F4D40350052E65D /* RegisterViewController.swift */,
+				27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */,
 				27B6A8331F4C184D0052E65D /* ProfileViewController.swift */,
 				27B6A8431F4FB98F0052E65D /* Constants.swift */,
 				273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */,
@@ -495,7 +509,9 @@
 			files = (
 				27B6A83E1F4E57AD0052E65D /* AppManager.swift in Sources */,
 				27B6A8361F4D40350052E65D /* RegisterViewController.swift in Sources */,
+				27E48FB71FAD147500EC6C90 /* LeaderboardTableViewController.swift in Sources */,
 				27953C8C1F46A95800938C8E /* SpinnyTop.xcdatamodeld in Sources */,
+				2789DA4F1FB03C860078351E /* Score.swift in Sources */,
 				27B6A8421F4E7E970052E65D /* ResetPasswordViewController.swift in Sources */,
 				273F68DF1F4A9EC900D6DD49 /* LoginViewController.swift in Sources */,
 				27B6A8321F4BE59A0052E65D /* SpinnyViewController.swift in Sources */,
