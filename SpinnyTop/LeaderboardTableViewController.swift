@@ -76,7 +76,6 @@ class LeaderboardTableViewController: UITableViewController {
         
         let currentScore = scores[indexPath.row]
         cell.textLabel?.text = currentScore.username
-//        let username = currentScore.getUsername()
         cell.detailTextLabel?.text = String(currentScore.topSpeed)
 
         return cell
