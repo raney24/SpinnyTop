@@ -6,6 +6,8 @@ target 'SpinnyTop' do
   use_frameworks!
 
   # Pods for SpinnyTop
+  pod 'Alamofire', '~> 4.5'
+  pod 'AlamofireObjectMapper', '~> 5.0'
   
   # Pods for Firebase
   pod 'Firebase/Core'

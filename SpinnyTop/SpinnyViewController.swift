@@ -11,6 +11,7 @@ import CoreMotion
 import simd
 import Firebase
 import FirebaseAuth
+import Alamofire
 
 class SpinnyViewController: UIViewController {
     
@@ -36,6 +37,15 @@ class SpinnyViewController: UIViewController {
             self.gForceMax = value?["high_score"] as? Double
             self.startUpdates()
         })
+        
+        Alamofire.request("https://spinny-top.herokuapp.com/api/spins/").responseJSON { response in
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+            }
+        }
         
         // Do any additional setup after loading the view.
         self.motionManager.startAccelerometerUpdates()

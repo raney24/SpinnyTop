@@ -9,7 +9,9 @@
 import Foundation
 import Firebase
 import FirebaseAuth
-import FBSDKLoginKit
+//import FBSDKLoginKit
+import Alamofire
+import ObjectMapper
 
 class LoginViewController: UIViewController {
     
@@ -37,52 +39,76 @@ class LoginViewController: UIViewController {
             
             self.present(alertController, animated: true, completion: nil)
         } else {
-            Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
-                
-                if error == nil {
-                    AppManager.sharedInstance.showSpinnyNavCon()
-                } else {
-                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    
-                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    alertController.addAction(defaultAction)
-                    
-                    self.present(alertController, animated: true, completion: nil)
-                }
+            let username = self.emailTextField.text!
+            let password = self.passwordTextField.text!
+            
+//            var headers: HTTPHeaders = [:]
+//
+//            if let authorizationHeader = Request.authorizationHeader(user: username, password: password) {
+//                headers[authorizationHeader.key] = authorizationHeader.value
+//            }
+            
+            let parameters: Parameters = [
+                "username" : username,
+                "password" : password
+            ]
+            
+            Alamofire.request("https://spinny-top.herokuapp.com/api/get-token/", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+                debugPrint(response)
+                let objResponse = response.result.value
+                print(objResponse)
+//                if let username = objResponse?.username {
+//                    print(username)
+//                }
                 
             }
+            
+//            Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
+//
+//                if error == nil {
+//                    AppManager.sharedInstance.showSpinnyNavCon()
+//                } else {
+//                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+//
+//                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//                    alertController.addAction(defaultAction)
+//
+//                    self.present(alertController, animated: true, completion: nil)
+//                }
+//
+//            }
         }
     }
     
-    @IBAction func loginWithFacebookAction(_ sender: Any) {
-        let fbLoginManager = FBSDKLoginManager()
-        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
-            if let error = error {
-                print("Failed to login: \(error.localizedDescription)")
-                return
-            }
-            guard let accessToken = FBSDKAccessToken.current() else {
-                print("Failed to get access token")
-                return
-            }
-            
-            let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
-            
-            Auth.auth().signIn(with: credential, completion: { (user, error) in
-                if let error = error {
-                    print("Login Error: \(error.localizedDescription)")
-                    let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
-                    let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    
-                    alertController.addAction(okayAction)
-                    self.present(alertController, animated: true, completion: nil)
-                    
-                    return
-                }
-                AppManager.sharedInstance.showSpinnyNavCon()
-            })
-        }
-    }
+//    @IBAction func loginWithFacebookAction(_ sender: Any) {
+//        let fbLoginManager = FBSDKLoginManager()
+//        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
+//            if let error = error {
+//                print("Failed to login: \(error.localizedDescription)")
+//                return
+//            }
+//            guard let accessToken = FBSDKAccessToken.current() else {
+//                print("Failed to get access token")
+//                return
+//            }
+//
+//            let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+//
+//            Auth.auth().signIn(with: credential, completion: { (user, error) in
+//                if let error = error {
+//                    print("Login Error: \(error.localizedDescription)")
+//                    let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
+//                    let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//
+//                    alertController.addAction(okayAction)
+//                    self.present(alertController, animated: true, completion: nil)
+//
+//                    return
+//                }
+//                AppManager.sharedInstance.showSpinnyNavCon()
+//            })
+//        }
+//    }
     
     
     
