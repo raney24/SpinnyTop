@@ -81,37 +81,39 @@ class SpinnyViewController: UIViewController {
                         self.spin?.maxSpeed = gForce
                     }
                 }
-            } else {
+            } else { // Spin has finished (reached less than G_FORCE_MIN)
                 if (self.spin != nil) {
                     // finalize duration
                     self.spin?.duration = Date().timeIntervalSince((self.spin?.startTime)!)
-                    // call api and save spin
-                    let parameters: Parameters = [
-                        "username" : UserDefaults.standard.string(forKey: "username") ?? "invalid",
-                        "speed" : Double(round(10 * (self.spin?.maxSpeed)!)/10),
-                        "duration" : Double(round(100 * (self.spin?.duration)!)/100),
-                        "rotations" : 3// self.spin?.duration,
-                    ]
-                    APIController.sharedController.request(method:.post, URLString: "spins/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
-                        guard let jsonResponse = response.result.value else {
-                            print("No response from post")
-                            return
-                        }
-                        print(jsonResponse)
-                    })
+                    if (self.spin!.duration! > 1) {
                         
-                    // Display last spin
-                        // TODO: Make db call to get last spin
-                    self.durationLabel.text = String(format: "%.2f", (self.spin?.duration)!)
-                    self.maxForceLabel.text = String(format: "%.2f", (self.spin?.maxSpeed)!)
                     
+                        // call api and save spin
+                        let parameters: Parameters = [
+                            "username" : UserDefaults.standard.string(forKey: "username") ?? "invalid",
+                            "speed" : Double(round(100 * (self.spin?.maxSpeed)!)/100),
+                            "duration" : Double(round(100 * (self.spin?.duration)!)/100),
+                            "rotations" : 3// self.spin?.duration,
+                        ]
+                        APIController.sharedController.request(method:.post, URLString: "spins/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
+                            guard let jsonResponse = response.result.value else {
+                                print("No response from post")
+                                return
+                            }
+                        })
+                        
+                        // Display last spin
+                            // TODO: Make db call to get last spin
+                        self.durationLabel.text = String(format: "%.2f", (self.spin?.duration)!)
+                        self.maxForceLabel.text = String(format: "%.2f", (self.spin?.maxSpeed)!)
                     
+                    }
                     self.spin = nil
                     
                 }
             }
             
-            self.userTopSpeedLabel.text = String(format: "%.1", self.maxGForce ?? 0.0) // or say "not scored yet"
+            self.userTopSpeedLabel.text = String(format: "%.2", self.maxGForce ?? 0.0) // or say "not scored yet"
             
             
         }
