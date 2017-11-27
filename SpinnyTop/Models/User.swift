@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class User {
 //    var userId: Int
@@ -19,7 +20,17 @@ class User {
         self.token = token
     }
     
-    func loginWithUsername(username: String, password: String) {
-        
-    }
+//    func loginWithUsername(username: String, password: String, completion: @escaping ) {
+//        let parameters: Parameters = [
+//            "username" : username,
+//            "password" : password
+//        ]
+//
+//        Alamofire.request("https://spinny-top.herokuapp.com/api/get-token/", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+//            debugPrint(response)
+//            let objResponse = response.result.value
+//            print(objResponse)
+//
+//        }
+//    }
 }

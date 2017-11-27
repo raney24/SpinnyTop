@@ -42,41 +42,25 @@ class LoginViewController: UIViewController {
             let username = self.emailTextField.text!
             let password = self.passwordTextField.text!
             
-//            var headers: HTTPHeaders = [:]
-//
-//            if let authorizationHeader = Request.authorizationHeader(user: username, password: password) {
-//                headers[authorizationHeader.key] = authorizationHeader.value
-//            }
-            
             let parameters: Parameters = [
                 "username" : username,
                 "password" : password
             ]
             
-            Alamofire.request("https://spinny-top.herokuapp.com/api/get-token/", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
-                debugPrint(response)
-                let objResponse = response.result.value
-                print(objResponse)
-//                if let username = objResponse?.username {
-//                    print(username)
-//                }
+            APIController.sharedController.request(method:.post, URLString: "get-token/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
+                guard let objResponse = response.result.value as? [String: Any] else {
+                    print("Didn't get object")
+                    return
+                }
+                guard let token = objResponse["token"] as? String else {
+                    print("No token returned")
+                    return
+                }
+                UserDefaults.standard.set(token, forKey: "token")
+                UserDefaults.standard.set(username, forKey: "username")
                 
-            }
-            
-//            Auth.auth().signIn(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { (user, error) in
-//
-//                if error == nil {
-//                    AppManager.sharedInstance.showSpinnyNavCon()
-//                } else {
-//                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-//
-//                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//                    alertController.addAction(defaultAction)
-//
-//                    self.present(alertController, animated: true, completion: nil)
-//                }
-//
-//            }
+                AppManager.sharedInstance.showSpinnyNavCon()
+            })
         }
     }
     

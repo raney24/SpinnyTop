@@ -8,11 +8,12 @@
 
 import Foundation
 
-class AFObjectManager {
-    static let sharedInstance = AFObjectManager()
-    
-    func setup() {
-        let url: NSURL = APIController.URLPaths.base as! NSURL
-        
-    }
-}
+//class AFObjectManager {
+//    static let sharedInstance = AFObjectManager()
+//    
+//    func setup() {
+//        let url: NSURL = APIController.URLPaths.base as! NSURL
+//        
+//    }
+//}
+

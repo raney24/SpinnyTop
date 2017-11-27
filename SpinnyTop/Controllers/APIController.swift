@@ -7,34 +7,100 @@
 //
 
 import Foundation
+import Alamofire
 
 class APIController {
-    func createURLWithString(date: NSDate) -> NSURL? {
-        var urlString: String = "https://spinny-top.herokuapp.com/api/"
+    static let sharedController: APIController = APIController()
+    var manager: Alamofire.SessionManager = Alamofire.SessionManager(configuration: URLSessionConfiguration.default)
+    
+    var requestDictionary: Dictionary<String, Date> = Dictionary()
+    
+    required init() {
         
-        // append params
-        urlString += "spins"
-        
-        return NSURL(string: urlString)
     }
     
-    func createURLWithComponents(components: [String: String]) -> NSURL? {
-        let urlComponents = NSURLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "spinny-top.herokuapp.com"
-        urlComponents.path = "/api"
-        
-        // add params
-        for path in components {
-            
+    func request(
+        method: HTTPMethod,
+        URLString: String,
+        parameters: [String : Any]? = nil,
+        encoding: ParameterEncoding = JSONEncoding.default,
+        headers: [String : String]? = nil,
+        debugPrintFullResponse: Bool = false,
+        debugPrintFullRequest: Bool = false
+    ) -> Alamofire.DataRequest
+    {
+        var URLStringToUse: String
+        if URLString.lowercased().range(of: "Constants.BASE_URL") == nil {
+            URLStringToUse = BASE_URL + URLString
+        } else {
+            URLStringToUse = URLString
         }
-        return urlComponents.url as! NSURL
+        let URLConvertibleToUse: URLConvertible = URLStringToUse
+        
+        print(String(format: "requesting %@", URLStringToUse))
+        
+        if parameters != nil {
+            print(String(format: "params: %@", parameters!))
+        }
+        
+        let headersToUse: [String : String] = self.headersWithUserSettings(headers: headers)
+        
+        let backgroundQueue: DispatchQueue = APIController.getBackgroundQueue()
+        
+        let request: Alamofire.DataRequest = manager.request(URLConvertibleToUse, method: method, parameters: parameters, encoding: encoding, headers: headersToUse).responseString(queue: backgroundQueue, completionHandler: {
+            (response: DataResponse<String>) in
+            
+            if (response.result.isSuccess) {
+                if let value = response.result.value {
+                    let maxOutputLength: Int = (debugPrintFullResponse ? Int.max : 30)
+                    
+//                    print(String(format: "request %@ successful. Response (%i chars):\n%@\n", URLStringToUse, value.length(), (value.length() > maxOutputLength ? value[0...maxOutputLength-2] + "..." : value)))
+                } else {
+                    print(String(format: "request %@ successful. NO VALUE", URLStringToUse))
+                }
+            } else {
+                if let error = response.result.error {
+                    print(String(format: "request %@ failed. Error:\n%@", URLStringToUse, error.localizedDescription))
+                } else {
+                    print(String(format: "request %@ failed. NO ERROR SPECIFIED", URLStringToUse))
+                }
+            }
+        })
+        if debugPrintFullRequest {
+            print("request: " + URLString + "\nBody: ")
+            if let httpBodyData: Data = request.request?.httpBody {
+                let string = String(data: httpBodyData, encoding: String.Encoding.utf8)
+                print(string ?? "encoding error")
+            } else {
+                print("no request body")
+            }
+        }
+        
+        return request
     }
     
-    enum URLPaths: String {
-        case base = "https://spinny-top.herokuapp.com/api/"
-        case spins = "https://spinny-top.herokuapp.com/api/spins/"
-        case login = "https://spinny-top.herokuapp.com/api/auth/login/"
-        case register = "https://spinny-top.herokuapp.com/users/register/"
+    func headersWithUserSettings(headers: [String: String]? = nil) -> [String : String] {
+        // add user setting headers
+        //var headersToUse: [String : String] = ["header1" : UserSettings.defaultSettings.header1()]
+        var headersToUse: HTTPHeaders = [:]
+        if let token = UserDefaults.standard.string(forKey: "token") {
+            headersToUse["Authorization"] = "Token \(String(describing: token))"
+        }
+        
+//        if let unwrappedHeaders = headers {
+//            for tuple in unwrappedHeaders {
+//                headersToUse[tuple.0] = tuple.1
+//            }
+//        }
+        return headersToUse
+    }
+    
+    class func getBackgroundQueue() -> DispatchQueue {
+        return DispatchQueue.global(qos: .background)
     }
 }
+
+
+
+
+

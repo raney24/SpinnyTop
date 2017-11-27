@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		273F68DB1F4A9CD300D6DD49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 273F68DA1F4A9CD300D6DD49 /* GoogleService-Info.plist */; };
 		273F68DF1F4A9EC900D6DD49 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */; };
+		275C2A631FC3F30700201F86 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275C2A621FC3F30700201F86 /* UserSettings.swift */; };
 		2773B2B91FBA63AA00754429 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2B81FBA63AA00754429 /* APIController.swift */; };
-		2773B2BB1FBAC80100754429 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2BA1FBAC80100754429 /* AppController.swift */; };
 		2773B2BD1FBAC86F00754429 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2BC1FBAC86F00754429 /* User.swift */; };
 		2773B2BF1FBB8E5400754429 /* AFObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2BE1FBB8E5400754429 /* AFObjectManager.swift */; };
 		2789DA4F1FB03C860078351E /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789DA4E1FB03C860078351E /* Score.swift */; };
@@ -56,8 +56,8 @@
 /* Begin PBXFileReference section */
 		273F68DA1F4A9CD300D6DD49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		275C2A621FC3F30700201F86 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		2773B2B81FBA63AA00754429 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
-		2773B2BA1FBAC80100754429 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		2773B2BC1FBAC86F00754429 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2773B2BE1FBB8E5400754429 /* AFObjectManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFObjectManager.swift; sourceTree = "<group>"; };
 		2789DA4E1FB03C860078351E /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
@@ -138,11 +138,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		276A89701FBF763700A718BB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */,
+				27B6A8311F4BE59A0052E65D /* SpinnyViewController.swift */,
+				27B6A8331F4C184D0052E65D /* ProfileViewController.swift */,
+				27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */,
+				273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */,
+				27B6A8351F4D40350052E65D /* RegisterViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		2773B2B71FBA639300754429 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				2773B2B81FBA63AA00754429 /* APIController.swift */,
-				2773B2BA1FBAC80100754429 /* AppController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,18 +197,14 @@
 				27FEE47F1F9AAB6400C3C596 /* images */,
 				27953C831F46A95800938C8E /* AppDelegate.swift */,
 				27B6A83D1F4E57AD0052E65D /* AppManager.swift */,
+				275C2A621FC3F30700201F86 /* UserSettings.swift */,
 				27B6A8451F4FB9E40052E65D /* DataService.swift */,
-				27B6A8311F4BE59A0052E65D /* SpinnyViewController.swift */,
 				2773B2BE1FBB8E5400754429 /* AFObjectManager.swift */,
-				2789DA4D1FB03C580078351E /* Models */,
-				27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */,
 				27953C871F46A95800938C8E /* Main.storyboard */,
-				27B6A8351F4D40350052E65D /* RegisterViewController.swift */,
+				2789DA4D1FB03C580078351E /* Models */,
+				276A89701FBF763700A718BB /* ViewControllers */,
 				2773B2B71FBA639300754429 /* Controllers */,
-				27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */,
-				27B6A8331F4C184D0052E65D /* ProfileViewController.swift */,
 				27B6A8431F4FB98F0052E65D /* Constants.swift */,
-				273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */,
 				27953C8D1F46A95800938C8E /* Assets.xcassets */,
 				27953C8F1F46A95800938C8E /* LaunchScreen.storyboard */,
 				27953C921F46A95800938C8E /* Info.plist */,
@@ -536,6 +544,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SpinnyTop/Pods-SpinnyTop-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
@@ -543,12 +552,14 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-f0850809/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
@@ -556,6 +567,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -586,7 +598,7 @@
 				27953C841F46A95800938C8E /* AppDelegate.swift in Sources */,
 				27B6A8441F4FB98F0052E65D /* Constants.swift in Sources */,
 				27B6A8461F4FB9E40052E65D /* DataService.swift in Sources */,
-				2773B2BB1FBAC80100754429 /* AppController.swift in Sources */,
+				275C2A631FC3F30700201F86 /* UserSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

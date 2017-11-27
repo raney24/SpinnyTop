@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import Alamofire
+import SwiftyJSON
 
 class LeaderboardTableViewController: UITableViewController {
     
@@ -49,25 +51,43 @@ class LeaderboardTableViewController: UITableViewController {
     
     private func loadHighScoreData() {
         
-        _BASE_REF.child("/spin").queryOrdered(byChild: "/top_speed").observeSingleEvent(of: .value, with: { (snapshot) in
-            for child in snapshot.children {
-                if let scoreDict = (child as! DataSnapshot).value as? [String: AnyObject] {
-                    let uid = scoreDict["user_id"] as? String
-                    let topspd = (scoreDict["top_speed"] as? NSNumber)?.doubleValue
-//                    self.scoresDict[userId!] = topSpeed
-                    let score = Score(userId: uid!, topSpeed: topspd!)
+        Alamofire.request("https://spinny-top.herokuapp.com/api/spins/").responseJSON { response in
+            
+            if let jsonValue = response.result.value {
+                let json = JSON(jsonValue)
+                for (_,spin) in json {
+                    let speed = spin["speed"].doubleValue
+                    let username = spin["owner"].string
+                    // Fix startTime
+                    let score = Score(username: username!, startTime: Date(), maxSpeed: speed)
                     self.scores.append(score)
-                    
-                    score.fetchUsername() {
-                        (username: String) in
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    }
                 }
+                self.tableView.reloadData()
+
+            } else {
+                print("no JSON object")
             }
-            self.tableView.reloadData()
-        })
+        }
+        
+//        _BASE_REF.child("/spin").queryOrdered(byChild: "/top_speed").observeSingleEvent(of: .value, with: { (snapshot) in
+//            for child in snapshot.children {
+//                if let scoreDict = (child as! DataSnapshot).value as? [String: AnyObject] {
+//                    let uid = scoreDict["user_id"] as? String
+//                    let topspd = (scoreDict["top_speed"] as? NSNumber)?.doubleValue
+////                    self.scoresDict[userId!] = topSpeed
+//                    let score = Score(userId: uid!, topSpeed: topspd!)
+//                    self.scores.append(score)
+//
+//                    score.fetchUsername() {
+//                        (username: String) in
+//                        DispatchQueue.main.async {
+//                            self.tableView.reloadData()
+//                        }
+//                    }
+//                }
+//            }
+//            self.tableView.reloadData()
+//        })
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,7 +96,7 @@ class LeaderboardTableViewController: UITableViewController {
         
         let currentScore = scores[indexPath.row]
         cell.textLabel?.text = currentScore.username
-        cell.detailTextLabel?.text = String(currentScore.topSpeed)
+        cell.detailTextLabel?.text = String(currentScore.maxSpeed)
 
         return cell
     }
