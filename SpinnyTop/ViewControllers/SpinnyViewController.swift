@@ -23,6 +23,8 @@ class SpinnyViewController: UIViewController {
     var motionManager = CMMotionManager()
     var timer: Timer!
     var maxGForce: Double?
+    var avgSpinSpeedArray = [Double]()
+    var avgRPSArray = [Double]()
     
     var spin: Score? = nil
 
@@ -60,7 +62,8 @@ class SpinnyViewController: UIViewController {
             
             let acceleration: double3 = [accelerometerData.acceleration.x, accelerometerData.acceleration.y, accelerometerData.acceleration.z]
             
-            let gForce = (pow(acceleration.x, 2) + pow(acceleration.y, 2) + pow(acceleration.z, 2) / 9.81).squareRoot()
+//            let gForce = ( ( pow(acceleration.x, 2) + pow(acceleration.y, 2) + pow(acceleration.z, 2) ) / 9.81 ).squareRoot()
+            let gForce = (pow(acceleration.x, 2) + pow(acceleration.y, 2) + pow(acceleration.z, 2)).squareRoot()
             
 //            let attitude = accelerometerData.attitude
             self.gForceLabel.text = String(format: "%.2f", gForce)
@@ -73,8 +76,21 @@ class SpinnyViewController: UIViewController {
                     self.spin = Score(username: "admin", startTime: Date())
                     self.spin?.maxSpeed = gForce
                 } else {
-                    print("continuing spin " + String(describing: Date().timeIntervalSince((self.spin?.startTime)!)))
-                    // calc revolutions here
+//                    print("continuing spin " + String(describing: Date().timeIntervalSince((self.spin?.startTime)!)))
+                    // calc avg spin speed
+                    self.avgSpinSpeedArray.append(gForce)
+                    
+                    let phone_radius = 3.35
+                    var rpm: Double
+                    if (gForce > 3) {
+                        rpm = (gForce / (0.00001118 * phone_radius) ).squareRoot() * (gForce / 2)
+                    } else {
+                        rpm = (gForce / (0.00001118 * phone_radius) ).squareRoot()
+                    }
+                    
+                    
+                    let rps = rpm / 60
+                    self.avgRPSArray.append(rps)
                     
                     // update gForce for the spin
                     if (gForce > self.spin!.maxSpeed) {
@@ -86,6 +102,25 @@ class SpinnyViewController: UIViewController {
                     // finalize duration
                     self.spin?.duration = Date().timeIntervalSince((self.spin?.startTime)!)
                     if (self.spin!.duration! > 1) {
+                        
+                        // calc rpm here
+//                        let sumSpeed = self.avgSpinSpeedArray.reduce(0, +)
+//                        let avgSpeed = Double(sumSpeed) / Double(self.avgSpinSpeedArray.count)
+//                        print("Averge: \(avgSpeed)")
+                        let avgSpeed = self.avgSpinSpeedArray.average
+                        print("Averge (old): \(avgSpeed)")
+                        
+//                        let phone_radius = 7.9
+                        let phone_radius = 3.35
+                        let rpm = (avgSpeed / (0.00001118 * phone_radius) ).squareRoot()
+                        print("RPM: \(rpm)")
+                        let rps = rpm / 60 // revs per second
+                        let revs = rps * self.spin!.duration!
+                        print("Revs: \(revs)")
+                        
+                        let avgRPS = self.avgRPSArray.average
+                        let better_revs = avgRPS * self.spin!.duration!
+                        self.spin!.revolutions = Int(better_revs)
                         
                     
                         // call api and save spin
@@ -103,9 +138,10 @@ class SpinnyViewController: UIViewController {
                         })
                         
                         // Display last spin
-                            // TODO: Make db call to get last spin
+                        // TODO: Make db call to get last spin
                         self.durationLabel.text = String(format: "%.2f", (self.spin?.duration)!)
                         self.maxForceLabel.text = String(format: "%.2f", (self.spin?.maxSpeed)!)
+                        self.rotationLabel.text = "\(String(describing: (self.spin?.revolutions)!))"
                     
                     }
                     self.spin = nil
@@ -122,6 +158,7 @@ class SpinnyViewController: UIViewController {
             motionManager.startDeviceMotionUpdates(to: .main) { motion, error in
                 if let attitude = motion?.attitude {
                     self.gForceLabel.transform = CGAffineTransform(rotationAngle: CGFloat(attitude.yaw))
+//                    print(CGFloat(attitude.yaw))
                 }
             }
         }
