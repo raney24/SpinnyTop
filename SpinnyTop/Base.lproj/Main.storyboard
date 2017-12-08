@@ -146,6 +146,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0P6-9U-in2" userLabel="Circle">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKB-Ec-qcs">
                                 <rect key="frame" x="94" y="94" width="187.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -214,6 +219,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPG-f9-Ecm">
+                                <rect key="frame" x="244" y="566" width="79" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Draw Circle"/>
+                                <connections>
+                                    <action selector="drawCircleButtonTapped:" destination="kAP-1c-8Lr" eventType="touchUpInside" id="Zzl-FL-5Ys"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zC7-DL-W9a">
+                                <rect key="frame" x="246" y="521" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Hide Circle"/>
+                                <connections>
+                                    <action selector="hideCircleButtonTapped:" destination="kAP-1c-8Lr" eventType="touchUpInside" id="Khi-6Y-l9S"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DW3-Pk-ZGg">
+                                <rect key="frame" x="220" y="466" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Animate Circle"/>
+                                <connections>
+                                    <action selector="animateCircleButtonTapped:" destination="kAP-1c-8Lr" eventType="touchUpInside" id="skl-nO-SFm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -269,6 +298,7 @@
                         <outlet property="gForceLabel" destination="YUK-7y-fd0" id="mSe-Kz-61f"/>
                         <outlet property="maxForceLabel" destination="gFZ-lg-ahS" id="4Rn-WJ-ofH"/>
                         <outlet property="rotationLabel" destination="VU7-by-nL1" id="Z4d-XE-l4N"/>
+                        <outlet property="shapeView" destination="0P6-9U-in2" id="1FU-d7-Mud"/>
                         <outlet property="userTopSpeedLabel" destination="rVq-w0-gC4" id="TiW-HA-aRL"/>
                     </connections>
                 </viewController>

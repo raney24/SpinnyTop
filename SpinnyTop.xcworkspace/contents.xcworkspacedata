@@ -4,6 +4,9 @@
    <Group
       location = "container:"
       name = "images">
+      <FileRef
+         location = "group:/Users/Kyle/Documents/Kyle/Apps/Swift Apps/SpinnyTop/Logo.png">
+      </FileRef>
    </Group>
    <FileRef
       location = "group:SpinnyTop.xcodeproj">

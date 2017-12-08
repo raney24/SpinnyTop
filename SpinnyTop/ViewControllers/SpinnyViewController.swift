@@ -19,18 +19,33 @@ class SpinnyViewController: UIViewController {
     @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var rotationLabel: UILabel!
     @IBOutlet weak var userTopSpeedLabel: UILabel!
+    @IBOutlet weak var shapeView: UIView!
+    
+    
+    var circlePath = UIBezierPath()
+    var circleLayer = CAShapeLayer()
+    var currentCirclePath: UIBezierPath!
+    var nextCirclePath: UIBezierPath!
+    
+    
+    @IBAction func hideCircleButtonTapped(_ sender: Any) {
+        shapeView.isHidden = true
+    }
     
     var motionManager = CMMotionManager()
     var timer: Timer!
     var maxGForce: Double?
     var avgSpinSpeedArray = [Double]()
     var avgRPSArray = [Double]()
+    var avgLinVelArray = [Double]()
     
+    @IBOutlet weak var angularRotationsLabel: UILabel!
     var spin: Score? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        shapeView.isHidden = true
+        self.drawCircle()
         // get maximum force from db
         let username = UserDefaults.standard.string(forKey: "username")
         APIController.sharedController.request(method:.get, URLString: "users/\(username!)/", encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
@@ -63,7 +78,11 @@ class SpinnyViewController: UIViewController {
             let acceleration: double3 = [accelerometerData.acceleration.x, accelerometerData.acceleration.y, accelerometerData.acceleration.z]
             
 //            let gForce = ( ( pow(acceleration.x, 2) + pow(acceleration.y, 2) + pow(acceleration.z, 2) ) / 9.81 ).squareRoot()
-            let gForce = (pow(acceleration.x, 2) + pow(acceleration.y, 2) + pow(acceleration.z, 2)).squareRoot()
+//            let gForce = (pow(acceleration.x, 2) + pow(acceleration.y, 2) + pow(acceleration.z, 2)).squareRoot()
+            let rad = (80 * Double.pi * 2) / 180
+            let accelX = cos(rad) * acceleration.x
+            let accelY = sin(rad) * acceleration.y
+            let gForce = ( pow(accelX, 2) + pow(accelY, 2) ).squareRoot()
             
 //            let attitude = accelerometerData.attitude
             self.gForceLabel.text = String(format: "%.2f", gForce)
@@ -76,21 +95,22 @@ class SpinnyViewController: UIViewController {
                     self.spin = Score(username: "admin", startTime: Date())
                     self.spin?.maxSpeed = gForce
                 } else {
-//                    print("continuing spin " + String(describing: Date().timeIntervalSince((self.spin?.startTime)!)))
-                    // calc avg spin speed
-                    self.avgSpinSpeedArray.append(gForce)
                     
-                    let phone_radius = 3.35
-                    var rpm: Double
-                    if (gForce > 3) {
-                        rpm = (gForce / (0.00001118 * phone_radius) ).squareRoot() * (gForce / 2)
-                    } else {
-                        rpm = (gForce / (0.00001118 * phone_radius) ).squareRoot()
+                    // calc avg spin speed
+                    let accel = gForce * 9.80665
+                    let linVel = (accel * PHONE_RADIUS).squareRoot()
+                    let rps = linVel / (2 * Double.pi * PHONE_RADIUS)
+                    print(rps)
+                    self.avgRPSArray.append(rps)
+                    
+                    // Draw the circle
+                    if gForce > 1.5 {
+                        self.shapeView.isHidden = false
+                        self.animateCircle(radius: Int(gForce))
                     }
                     
-                    
-                    let rps = rpm / 60
-                    self.avgRPSArray.append(rps)
+//                    let rps = rpm / 60
+//                    self.avgRPSArray.append(rps)
                     
                     // update gForce for the spin
                     if (gForce > self.spin!.maxSpeed) {
@@ -98,37 +118,24 @@ class SpinnyViewController: UIViewController {
                     }
                 }
             } else { // Spin has finished (reached less than G_FORCE_MIN)
+                self.shapeView.isHidden = true
                 if (self.spin != nil) {
                     // finalize duration
                     self.spin?.duration = Date().timeIntervalSince((self.spin?.startTime)!)
                     if (self.spin!.duration! > 1) {
                         
                         // calc rpm here
-//                        let sumSpeed = self.avgSpinSpeedArray.reduce(0, +)
-//                        let avgSpeed = Double(sumSpeed) / Double(self.avgSpinSpeedArray.count)
-//                        print("Averge: \(avgSpeed)")
-                        let avgSpeed = self.avgSpinSpeedArray.average
-                        print("Averge (old): \(avgSpeed)")
-                        
-//                        let phone_radius = 7.9
-                        let phone_radius = 3.35
-                        let rpm = (avgSpeed / (0.00001118 * phone_radius) ).squareRoot()
-                        print("RPM: \(rpm)")
-                        let rps = rpm / 60 // revs per second
-                        let revs = rps * self.spin!.duration!
-                        print("Revs: \(revs)")
-                        
-                        let avgRPS = self.avgRPSArray.average
-                        let better_revs = avgRPS * self.spin!.duration!
-                        self.spin!.revolutions = Int(better_revs)
-                        
+                        let avgLinVel = self.avgRPSArray.average
+                        let revs = avgLinVel * self.spin!.duration!
+//                        self.spin!.revolutions = Int(revs * 1.5) // need to fix this
+                        self.spin!.revolutions = Int(revs)
                     
                         // call api and save spin
                         let parameters: Parameters = [
                             "username" : UserDefaults.standard.string(forKey: "username") ?? "invalid",
                             "speed" : Double(round(100 * (self.spin?.maxSpeed)!)/100),
                             "duration" : Double(round(100 * (self.spin?.duration)!)/100),
-                            "rotations" : 3// self.spin?.duration,
+                            "rotations" : self.spin?.revolutions
                         ]
                         APIController.sharedController.request(method:.post, URLString: "spins/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
                             guard let jsonResponse = response.result.value else {
@@ -169,7 +176,43 @@ class SpinnyViewController: UIViewController {
     }
     
     func degrees(radians: Double) -> Double {
-        return 180 * M_PI * radians
+        return 180 * Double.pi * radians
+    }
+    
+    func drawCirclePath(radius: Int) -> UIBezierPath {
+        let centerX = shapeView.bounds.width / 2
+        let centerY = shapeView.bounds.height / 2
+        
+        let path = UIBezierPath(arcCenter: CGPoint(x: centerX, y: centerY), radius: CGFloat(radius), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+        
+        return path
+    }
+    
+    func animateCircle(radius: Int) {
+        
+        let newPath = drawCirclePath(radius: radius * 35)
+        let animation = CABasicAnimation(keyPath: "path")
+        
+        //        animation.fromValue = circlePath.cgPath
+        animation.toValue = newPath.cgPath
+        
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = false
+        
+        circleLayer.add(animation, forKey: nil)
+        
+    }
+    
+    func drawCircle() {
+        circleLayer.fillColor = UIColor.blue.cgColor
+        
+        let centerX = shapeView.bounds.width / 2
+        let centerY = shapeView.bounds.height / 2
+        let circleRadius = 55
+        circlePath = UIBezierPath(arcCenter: CGPoint(x: centerX, y: centerY), radius: CGFloat(circleRadius), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+        circleLayer.path = circlePath.cgPath
+        shapeView.layer.addSublayer(circleLayer)
+        
     }
 
     /*
