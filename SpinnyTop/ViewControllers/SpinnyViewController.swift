@@ -46,14 +46,19 @@ class SpinnyViewController: UIViewController {
         super.viewDidLoad()
         shapeView.isHidden = true
         self.drawCircle()
-        // get maximum force from db
-        let username = UserDefaults.standard.string(forKey: "username")
-        APIController.sharedController.request(method:.get, URLString: "users/\(username!)/", encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
+        // get maximum force from db if username exists (logged in)
+        guard let username = UserDefaults.standard.string(forKey: "username") else {
+            AppManager.sharedInstance.showWelcomeNavCon()
+            return
+        }
+        APIController.sharedController.request(method:.get, URLString: "users/\(username)/", encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
             if let jsonValue = response.result.value as? [String: Any] {
                 let json = JSON(jsonValue)
                 let max_spin = json["max_spin"]["speed__max"].doubleValue
                 self.maxGForce = max_spin
                 self.startUpdates()
+            } else {
+                print("no speed logged")
             }
             
         })
@@ -88,7 +93,7 @@ class SpinnyViewController: UIViewController {
             self.gForceLabel.text = String(format: "%.2f", gForce)
             
             // start tracking current spin
-            if (gForce > G_FORCE_MIN) {
+            if (gForce > G_FORCE_MIN && abs(acceleration.z) > 0.8) {
                 // initialize spin
                 if (self.spin == nil) {
                     
@@ -100,17 +105,13 @@ class SpinnyViewController: UIViewController {
                     let accel = gForce * 9.80665
                     let linVel = (accel * PHONE_RADIUS).squareRoot()
                     let rps = linVel / (2 * Double.pi * PHONE_RADIUS)
-                    print(rps)
                     self.avgRPSArray.append(rps)
                     
                     // Draw the circle
                     if gForce > 1.5 {
                         self.shapeView.isHidden = false
-                        self.animateCircle(radius: Int(gForce))
+                        self.animateCircle(radius: Double(gForce))
                     }
-                    
-//                    let rps = rpm / 60
-//                    self.avgRPSArray.append(rps)
                     
                     // update gForce for the spin
                     if (gForce > self.spin!.maxSpeed) {
@@ -172,6 +173,8 @@ class SpinnyViewController: UIViewController {
     }
 
     @IBAction func logoutButtonAction(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "username")
+        UserDefaults.standard.removeObject(forKey: "token")
         AppManager.sharedInstance.showWelcomeNavCon()
     }
     
@@ -179,7 +182,7 @@ class SpinnyViewController: UIViewController {
         return 180 * Double.pi * radians
     }
     
-    func drawCirclePath(radius: Int) -> UIBezierPath {
+    func drawCirclePath(radius: Double) -> UIBezierPath {
         let centerX = shapeView.bounds.width / 2
         let centerY = shapeView.bounds.height / 2
         
@@ -188,7 +191,7 @@ class SpinnyViewController: UIViewController {
         return path
     }
     
-    func animateCircle(radius: Int) {
+    func animateCircle(radius: Double) {
         
         let newPath = drawCirclePath(radius: radius * 35)
         let animation = CABasicAnimation(keyPath: "path")

@@ -8,7 +8,7 @@
 
 import Foundation
 import Firebase
-import FirebaseAuth
+//import FirebaseAuth
 //import FBSDKLoginKit
 import Alamofire
 import ObjectMapper
@@ -56,8 +56,6 @@ class LoginViewController: UIViewController {
                     print("No token returned")
                     return
                 }
-                UserDefaults.standard.set(token, forKey: "token")
-                UserDefaults.standard.set(username, forKey: "username")
                 
                 AppManager.sharedInstance.showSpinnyNavCon()
             })
