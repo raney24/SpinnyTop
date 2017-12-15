@@ -32,6 +32,8 @@
 		27B6A8441F4FB98F0052E65D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A8431F4FB98F0052E65D /* Constants.swift */; };
 		27BB18991FDFAA5000604BD6 /* String+AlphaNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB18981FDFAA5000604BD6 /* String+AlphaNumeric.swift */; };
 		27BB189B1FDFACAD00604BD6 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB189A1FDFACAD00604BD6 /* UIViewController+Alert.swift */; };
+		27BC29D51FE46F63001596DC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC29D41FE46F63001596DC /* ProfileViewController.swift */; };
+		27BC29D81FE470B3001596DC /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC29D71FE470B3001596DC /* RoundedButton.swift */; };
 		27E48FB71FAD147500EC6C90 /* LeaderboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */; };
 		27FAACC21FCE807F00B86B8E /* Array+Average.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAACC11FCE807F00B86B8E /* Array+Average.swift */; };
 		27FAACC41FCFA0B600B86B8E /* UIColor+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FAACC31FCFA0B600B86B8E /* UIColor+Convenience.swift */; };
@@ -91,6 +93,8 @@
 		27B6A8431F4FB98F0052E65D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		27BB18981FDFAA5000604BD6 /* String+AlphaNumeric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AlphaNumeric.swift"; sourceTree = "<group>"; };
 		27BB189A1FDFACAD00604BD6 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		27BC29D41FE46F63001596DC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = /Users/Kyle/Documents/Kyle/SpinnyTop/Mobile/iOS/SpinnyTop/SpinnyTop/ViewControllers/ProfileViewController.swift; sourceTree = "<absolute>"; };
+		27BC29D71FE470B3001596DC /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewController.swift; sourceTree = "<group>"; };
 		27FAACC11FCE807F00B86B8E /* Array+Average.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Average.swift"; sourceTree = "<group>"; };
 		27FAACC31FCFA0B600B86B8E /* UIColor+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Convenience.swift"; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 				27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */,
 				273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */,
 				27B6A8351F4D40350052E65D /* RegisterViewController.swift */,
+				27BC29D41FE46F63001596DC /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -206,7 +211,7 @@
 			children = (
 				27FEE47F1F9AAB6400C3C596 /* images */,
 				27953C871F46A95800938C8E /* Main.storyboard */,
-				278E37DF1FE32C3600D8A13F /* UIImageViewRounded.swift */,
+				27BC29D61FE47098001596DC /* Classes */,
 				27953C831F46A95800938C8E /* AppDelegate.swift */,
 				27B6A83D1F4E57AD0052E65D /* AppManager.swift */,
 				275C2A621FC3F30700201F86 /* UserSettings.swift */,
@@ -240,6 +245,15 @@
 				27953CA81F46A95800938C8E /* Info.plist */,
 			);
 			path = SpinnyTopUITests;
+			sourceTree = "<group>";
+		};
+		27BC29D61FE47098001596DC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				278E37DF1FE32C3600D8A13F /* UIImageViewRounded.swift */,
+				27BC29D71FE470B3001596DC /* RoundedButton.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		27FAACC01FCE805600B86B8E /* Extensions */ = {
@@ -610,7 +624,9 @@
 			files = (
 				27B6A83E1F4E57AD0052E65D /* AppManager.swift in Sources */,
 				27B6A8361F4D40350052E65D /* RegisterViewController.swift in Sources */,
+				27BC29D51FE46F63001596DC /* ProfileViewController.swift in Sources */,
 				27E48FB71FAD147500EC6C90 /* LeaderboardTableViewController.swift in Sources */,
+				27BC29D81FE470B3001596DC /* RoundedButton.swift in Sources */,
 				2773B2B91FBA63AA00754429 /* APIController.swift in Sources */,
 				27953C8C1F46A95800938C8E /* SpinnyTop.xcdatamodeld in Sources */,
 				2789DA4F1FB03C860078351E /* Score.swift in Sources */,

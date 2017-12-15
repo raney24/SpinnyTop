@@ -48,22 +48,43 @@ class SpinnyViewController: UIViewController {
 //        shapeView.isHidden = true
         shapeView.alpha = 0
         self.drawCircle()
-        // get maximum force from db if username exists (logged in)
-        guard let username = UserDefaults.standard.string(forKey: "username") else {
-            AppManager.sharedInstance.showWelcomeNavCon()
-            return
-        }
-        APIController.sharedController.request(method:.get, URLString: "users/\(username)/", encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
-            if let jsonValue = response.result.value as? [String: Any] {
-                let json = JSON(jsonValue)
-                let max_spin = json["max_spin"]["speed__max"].doubleValue
-                self.maxGForce = max_spin
-                self.startUpdates()
-            } else {
-                print("no speed logged")
-            }
+        
+        var user = User(
+            username: UserDefaults.standard.string(forKey: "username")!,
+            token: UserDefaults.standard.string(forKey: "token"),
+            email: UserDefaults.standard.string(forKey: "email")
+            )
+        if user.username != nil {
+            APIController.sharedController.request(method:.get, URLString: "users/\(user.username)/", encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
+                if let jsonValue = response.result.value as? [String: Any] {
+                    let json = JSON(jsonValue)
+                    
+                    let max_spin_rps = json["max_spin_rps"]["speed__max"].doubleValue
+                    let max_spin_duration = json["max_spin_duration"]["duration__max"].doubleValue
+                    let max_spin_rotations = json["max_spin_rotations"]["rotations__max"].intValue
+                    
+                    user.max_spin_rps = max_spin_rps
+                    user.max_spin_rotations = max_spin_rotations
+                    user.max_spin_duration = max_spin_duration
+                    
+                    self.recordRPSLabel.text = String(format: "%.2f", (user.max_spin_rps) ?? 0.0)
+                    self.recordRotationsLabel.text = String(format: "%d", (user.max_spin_rotations) ?? 0)
+                    self.recordDurationsLabel.text = String(format: "%.2f", (user.max_spin_duration) ?? 0.0)
+                } else {
+                    print("no spins logged")
+                }
+                
+            })
             
-        })
+//            user.getUserMax { () in
+//                print("all data loaded")
+//            }
+//
+        } else {
+            self.alert(message: "Users must be logged in to spin", title: "Please Log in")
+            AppManager.sharedInstance.showWelcomeNavCon()
+        }
+        
         
         // Do any additional setup after loading the view.
         self.motionManager.startAccelerometerUpdates()
@@ -184,6 +205,7 @@ class SpinnyViewController: UIViewController {
     @IBAction func logoutButtonAction(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: "username")
         UserDefaults.standard.removeObject(forKey: "token")
+        UserDefaults.standard.removeObject(forKey: "email")
         AppManager.sharedInstance.showWelcomeNavCon()
     }
     

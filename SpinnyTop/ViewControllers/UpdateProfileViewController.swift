@@ -119,7 +119,7 @@ class UpdateProfileViewController: UIViewController, UITextFieldDelegate {
         let parameters: Parameters = [
             "username" : user.username,
             "email" : user.email ?? "",
-            "password" : self.passwordTextField.text ?? nil
+            "password" : ""
         ]
             APIController.sharedController.request(method: .put, URLString: "users/\(user.username)/", parameters: parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response: DataResponse<Any>) in
                 guard let objResponse = response.result.value as? [String : Any] else {

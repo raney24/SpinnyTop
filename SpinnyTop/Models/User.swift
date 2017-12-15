@@ -9,12 +9,16 @@
 import Foundation
 import Alamofire
 import ObjectMapper
+import SwiftyJSON
 
 class User {
 //    var userId: Int
     var username: String
     var token: String?
     var email: String?
+    var max_spin_rps: Double?
+    var max_spin_duration: Double?
+    var max_spin_rotations: Int?
     
     init(username: String, token: String?, email: String?) {
 //        self.userId = userId
@@ -52,6 +56,25 @@ class User {
             }
             
             UserDefaults.standard.set(token, forKey: "token")
+        })
+    }
+    
+    func getUserMax(completion: () -> Void) {
+        APIController.sharedController.request(method:.get, URLString: "users/\(username)/", encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
+            if let jsonValue = response.result.value as? [String: Any] {
+                let json = JSON(jsonValue)
+                
+                let max_spin_rps = json["max_spin_rps"]["speed__max"].doubleValue
+                let max_spin_duration = json["max_spin_duration"]["duration__max"].doubleValue
+                let max_spin_rotations = json["max_spin_rotations"]["rotations__max"].intValue
+                
+                self.max_spin_rps = max_spin_rps
+                self.max_spin_rotations = max_spin_rotations
+                self.max_spin_duration = max_spin_duration
+            } else {
+                print("no speed logged")
+            }
+            
         })
     }
 //    func loginWithUsername(username: String, password: String, completion: @escaping ) {

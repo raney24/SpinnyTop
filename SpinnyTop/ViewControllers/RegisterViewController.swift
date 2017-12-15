@@ -52,7 +52,8 @@ class RegisterViewController: UIViewController {
             
             let parameters = [
                 "username" : username,
-                "password" : password
+                "password" : password,
+                "email" : email
             ]
             
             APIController.sharedController.request(method: .post, URLString: "register/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response: DataResponse<Any>) in
@@ -61,6 +62,7 @@ class RegisterViewController: UIViewController {
                     return
                 }
                 UserDefaults.standard.set(username, forKey: "username")
+                UserDefaults.standard.set(username, forKey: "email")
             })
             
             APIController.sharedController.request(method:.post, URLString: "get-token/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in

@@ -7,16 +7,11 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 import FirebaseDatabase
 import Alamofire
 import SwiftyJSON
 
 class LeaderboardTableViewController: UITableViewController {
-    
-    private var _USER_REF = Database.database().reference(withPath: "/users")
-    private var _BASE_REF = Database.database().reference()
     
     var scores = [Score]() // userId, topSpeed
 
