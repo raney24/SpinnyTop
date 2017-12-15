@@ -21,8 +21,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        //        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
+        if ((UserDefaults.standard.string(forKey: "token")) != nil) {
+            AppManager.sharedInstance.showSpinnyNavCon()
+        }
+        emailTextField.autocorrectionType = .no
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,7 +58,8 @@ class LoginViewController: UIViewController {
                     print("No token returned")
                     return
                 }
-                
+                UserDefaults.standard.set(token, forKey: "token")
+                UserDefaults.standard.set(username, forKey: "username")
                 AppManager.sharedInstance.showSpinnyNavCon()
             })
         }

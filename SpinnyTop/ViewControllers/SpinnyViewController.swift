@@ -14,23 +14,26 @@ import SwiftyJSON
 
 class SpinnyViewController: UIViewController {
     
-    @IBOutlet weak var gForceLabel: UILabel!
-    @IBOutlet weak var maxForceLabel: UILabel!
-    @IBOutlet weak var durationLabel: UILabel!
-    @IBOutlet weak var rotationLabel: UILabel!
-    @IBOutlet weak var userTopSpeedLabel: UILabel!
+    
+    @IBOutlet weak var lifetimeRotationsLabel: UILabel!
+    
+    @IBOutlet weak var currentRPSLabel: UILabel!
+    
     @IBOutlet weak var shapeView: UIView!
     
+    @IBOutlet weak var lastSpinRotationsLabel: UILabel!
+    @IBOutlet weak var recordRotationsLabel: UILabel!
+    
+    @IBOutlet weak var lastSpinDurationLabel: UILabel!
+    @IBOutlet weak var recordDurationsLabel: UILabel!
+    
+    @IBOutlet weak var lastSpinRPSLabel: UILabel!
+    @IBOutlet weak var recordRPSLabel: UILabel!
     
     var circlePath = UIBezierPath()
     var circleLayer = CAShapeLayer()
     var currentCirclePath: UIBezierPath!
     var nextCirclePath: UIBezierPath!
-    
-    
-    @IBAction func hideCircleButtonTapped(_ sender: Any) {
-        shapeView.isHidden = true
-    }
     
     var motionManager = CMMotionManager()
     var timer: Timer!
@@ -38,13 +41,12 @@ class SpinnyViewController: UIViewController {
     var avgSpinSpeedArray = [Double]()
     var avgRPSArray = [Double]()
     var avgLinVelArray = [Double]()
-    
-    @IBOutlet weak var angularRotationsLabel: UILabel!
     var spin: Score? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        shapeView.isHidden = true
+//        shapeView.isHidden = true
+        shapeView.alpha = 0
         self.drawCircle()
         // get maximum force from db if username exists (logged in)
         guard let username = UserDefaults.standard.string(forKey: "username") else {
@@ -87,39 +89,46 @@ class SpinnyViewController: UIViewController {
             let rad = (80 * Double.pi * 2) / 180
             let accelX = cos(rad) * acceleration.x
             let accelY = sin(rad) * acceleration.y
-            let gForce = ( pow(accelX, 2) + pow(accelY, 2) ).squareRoot()
+            let rps = ( pow(accelX, 2) + pow(accelY, 2) ).squareRoot()
             
 //            let attitude = accelerometerData.attitude
-            self.gForceLabel.text = String(format: "%.2f", gForce)
+            self.currentRPSLabel.text = String(format: "%.2f", rps)
             
             // start tracking current spin
-            if (gForce > G_FORCE_MIN && abs(acceleration.z) > 0.8) {
+            if (rps > G_FORCE_MIN && abs(acceleration.z) > 0.8) {
                 // initialize spin
                 if (self.spin == nil) {
                     
                     self.spin = Score(username: "admin", startTime: Date())
-                    self.spin?.maxSpeed = gForce
+                    self.spin?.maxSpeed = rps
                 } else {
                     
                     // calc avg spin speed
-                    let accel = gForce * 9.80665
+                    let accel = rps * 9.80665
                     let linVel = (accel * PHONE_RADIUS).squareRoot()
-                    let rps = linVel / (2 * Double.pi * PHONE_RADIUS)
-                    self.avgRPSArray.append(rps)
+                    let rps_fromLinVel = linVel / (2 * Double.pi * PHONE_RADIUS)
+                    self.avgRPSArray.append(rps_fromLinVel * 1.5)
                     
                     // Draw the circle
-                    if gForce > 1.5 {
-                        self.shapeView.isHidden = false
-                        self.animateCircle(radius: Double(gForce))
+                    if rps > 1.5 {
+                        UIView.transition(with: self.shapeView, duration: 0.75, animations: {
+                            self.shapeView.alpha = 1
+                        }, completion: nil)
+                        
+//                        self.shapeView.isHidden = false
+                        self.animateCircle(radius: Double(rps))
                     }
                     
                     // update gForce for the spin
-                    if (gForce > self.spin!.maxSpeed) {
-                        self.spin?.maxSpeed = gForce
+                    if (rps > self.spin!.maxSpeed) {
+                        self.spin?.maxSpeed = rps
                     }
                 }
             } else { // Spin has finished (reached less than G_FORCE_MIN)
-                self.shapeView.isHidden = true
+                self.hideCircle()
+//                UIView.transition(with: self.shapeView, duration: 1, animations: {
+//                    self.shapeView.alpha = 0
+//                }, completion: nil)
                 if (self.spin != nil) {
                     // finalize duration
                     self.spin?.duration = Date().timeIntervalSince((self.spin?.startTime)!)
@@ -136,7 +145,7 @@ class SpinnyViewController: UIViewController {
                             "username" : UserDefaults.standard.string(forKey: "username") ?? "invalid",
                             "speed" : Double(round(100 * (self.spin?.maxSpeed)!)/100),
                             "duration" : Double(round(100 * (self.spin?.duration)!)/100),
-                            "rotations" : self.spin?.revolutions
+                            "rotations" : Int(self.spin?.revolutions ?? 0)
                         ]
                         APIController.sharedController.request(method:.post, URLString: "spins/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
                             guard let jsonResponse = response.result.value else {
@@ -147,9 +156,9 @@ class SpinnyViewController: UIViewController {
                         
                         // Display last spin
                         // TODO: Make db call to get last spin
-                        self.durationLabel.text = String(format: "%.2f", (self.spin?.duration)!)
-                        self.maxForceLabel.text = String(format: "%.2f", (self.spin?.maxSpeed)!)
-                        self.rotationLabel.text = "\(String(describing: (self.spin?.revolutions)!))"
+                        self.lastSpinDurationLabel.text = String(format: "%.2f", (self.spin?.duration)!)
+                        self.lastSpinRPSLabel.text = String(format: "%.2f", (self.spin?.maxSpeed)!)
+                        self.lastSpinRotationsLabel.text = "\(String(describing: (self.spin?.revolutions)!))"
                     
                     }
                     self.spin = nil
@@ -157,7 +166,7 @@ class SpinnyViewController: UIViewController {
                 }
             }
             
-            self.userTopSpeedLabel.text = String(format: "%.2", self.maxGForce ?? 0.0) // or say "not scored yet"
+            self.recordRPSLabel.text = String(format: "%.2", self.maxGForce ?? 0.0) // or say "not scored yet"
             
             
         }
@@ -165,7 +174,7 @@ class SpinnyViewController: UIViewController {
             motionManager.deviceMotionUpdateInterval = UPDATE_INTERVAL
             motionManager.startDeviceMotionUpdates(to: .main) { motion, error in
                 if let attitude = motion?.attitude {
-                    self.gForceLabel.transform = CGAffineTransform(rotationAngle: CGFloat(attitude.yaw))
+                    self.currentRPSLabel.transform = CGAffineTransform(rotationAngle: CGFloat(attitude.yaw))
 //                    print(CGFloat(attitude.yaw))
                 }
             }
@@ -206,9 +215,23 @@ class SpinnyViewController: UIViewController {
         
     }
     
-    func drawCircle() {
-        circleLayer.fillColor = UIColor.blue.cgColor
+    func hideCircle() {
+        let newPath = drawCirclePath(radius: 0)
+        let animation = CABasicAnimation(keyPath: "path")
         
+        animation.toValue = newPath.cgPath
+        
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = true
+        animation.duration = 1
+        
+        circleLayer.add(animation, forKey: nil)
+//        shapeView.alpha = 0
+    }
+    
+    func drawCircle() {
+//        circleLayer.fillColor = UIColor.blue.cgColor
+        circleLayer.fillColor = UIColor.init(hex: "25AADC").cgColor
         let centerX = shapeView.bounds.width / 2
         let centerY = shapeView.bounds.height / 2
         let circleRadius = 55

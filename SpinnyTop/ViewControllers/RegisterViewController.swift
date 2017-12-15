@@ -25,6 +25,8 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.emailTextField.autocorrectionType = .no
+        self.usernameTextField.autocorrectionType = .no
     }
     
     override func didReceiveMemoryWarning() {
