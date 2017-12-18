@@ -155,13 +155,13 @@
 		276A89701FBF763700A718BB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */,
 				27B6A8311F4BE59A0052E65D /* SpinnyViewController.swift */,
+				27BC29D41FE46F63001596DC /* ProfileViewController.swift */,
 				27B6A8331F4C184D0052E65D /* UpdateProfileViewController.swift */,
-				27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */,
 				273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */,
 				27B6A8351F4D40350052E65D /* RegisterViewController.swift */,
-				27BC29D41FE46F63001596DC /* ProfileViewController.swift */,
+				27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */,
+				27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

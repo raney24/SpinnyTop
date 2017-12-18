@@ -20,6 +20,7 @@ class SpinnyViewController: UIViewController {
     @IBOutlet weak var currentRPSLabel: UILabel!
     
     @IBOutlet weak var shapeView: UIView!
+    @IBOutlet weak var scoreLabelView: UIView!
     
     @IBOutlet weak var lastSpinRotationsLabel: UILabel!
     @IBOutlet weak var recordRotationsLabel: UILabel!
@@ -48,12 +49,18 @@ class SpinnyViewController: UIViewController {
 //        shapeView.isHidden = true
         shapeView.alpha = 0
         self.drawCircle()
+//        self.drawBorderLines()
         
+        guard let username = UserDefaults.standard.string(forKey: "username") else {
+            AppManager.sharedInstance.showWelcomeNavCon()
+            return
+        }
         var user = User(
             username: UserDefaults.standard.string(forKey: "username")!,
             token: UserDefaults.standard.string(forKey: "token"),
             email: UserDefaults.standard.string(forKey: "email")
             )
+            
         if user.username != nil {
             APIController.sharedController.request(method:.get, URLString: "users/\(user.username)/", encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
                 if let jsonValue = response.result.value as? [String: Any] {
@@ -67,9 +74,11 @@ class SpinnyViewController: UIViewController {
                     user.max_spin_rotations = max_spin_rotations
                     user.max_spin_duration = max_spin_duration
                     
-                    self.recordRPSLabel.text = String(format: "%.2f", (user.max_spin_rps) ?? 0.0)
+                    self.recordRPSLabel.text = String(format: "%.2f", (user.max_spin_rps!) ?? 0.0)
                     self.recordRotationsLabel.text = String(format: "%d", (user.max_spin_rotations) ?? 0)
                     self.recordDurationsLabel.text = String(format: "%.2f", (user.max_spin_duration) ?? 0.0)
+                    
+                    self.startUpdates()
                 } else {
                     print("no spins logged")
                 }
@@ -113,7 +122,8 @@ class SpinnyViewController: UIViewController {
             let rps = ( pow(accelX, 2) + pow(accelY, 2) ).squareRoot()
             
 //            let attitude = accelerometerData.attitude
-            self.currentRPSLabel.text = String(format: "%.2f", rps)
+            self.currentRPSLabel.text = "SPIN"
+            
             
             // start tracking current spin
             if (rps > G_FORCE_MIN && abs(acceleration.z) > 0.8) {
@@ -130,12 +140,15 @@ class SpinnyViewController: UIViewController {
                     let rps_fromLinVel = linVel / (2 * Double.pi * PHONE_RADIUS)
                     self.avgRPSArray.append(rps_fromLinVel * 1.5)
                     
+                    // Display speed label
+                    self.currentRPSLabel.text = String(format: "%.1f", rps)
+                    
                     // Draw the circle
-                    if rps > 1.5 {
+                    if rps > 1 {
                         UIView.transition(with: self.shapeView, duration: 0.75, animations: {
                             self.shapeView.alpha = 1
                         }, completion: nil)
-                        
+//                        self.scoreLabelView.isHidden = true
 //                        self.shapeView.isHidden = false
                         self.animateCircle(radius: Double(rps))
                     }
@@ -147,9 +160,10 @@ class SpinnyViewController: UIViewController {
                 }
             } else { // Spin has finished (reached less than G_FORCE_MIN)
                 self.hideCircle()
-//                UIView.transition(with: self.shapeView, duration: 1, animations: {
-//                    self.shapeView.alpha = 0
-//                }, completion: nil)
+//                self.borderView.isHidden = false
+                UIView.transition(with: self.shapeView, duration: 1, animations: {
+                    self.shapeView.alpha = 0
+                }, completion: nil)
                 if (self.spin != nil) {
                     // finalize duration
                     self.spin?.duration = Date().timeIntervalSince((self.spin?.startTime)!)
@@ -187,9 +201,6 @@ class SpinnyViewController: UIViewController {
                 }
             }
             
-            self.recordRPSLabel.text = String(format: "%.2", self.maxGForce ?? 0.0) // or say "not scored yet"
-            
-            
         }
         if motionManager.isDeviceMotionAvailable == true {
             motionManager.deviceMotionUpdateInterval = UPDATE_INTERVAL
@@ -213,6 +224,7 @@ class SpinnyViewController: UIViewController {
         return 180 * Double.pi * radians
     }
     
+    // helper function to return new circle path based on radius
     func drawCirclePath(radius: Double) -> UIBezierPath {
         let centerX = shapeView.bounds.width / 2
         let centerY = shapeView.bounds.height / 2
@@ -222,6 +234,7 @@ class SpinnyViewController: UIViewController {
         return path
     }
     
+    // animates circle based on the radius
     func animateCircle(radius: Double) {
         
         let newPath = drawCirclePath(radius: radius * 35)
@@ -234,6 +247,7 @@ class SpinnyViewController: UIViewController {
         animation.isRemovedOnCompletion = false
         
         circleLayer.add(animation, forKey: nil)
+        scoreLabelView.isHidden = true
         
     }
     
@@ -248,9 +262,19 @@ class SpinnyViewController: UIViewController {
         animation.duration = 1
         
         circleLayer.add(animation, forKey: nil)
-//        shapeView.alpha = 0
+        
+        scoreLabelView.isHidden = false
+        
+//        let borderAnimation = CATransition()
+//        borderAnimation.type = kCATransitionFade
+//        borderAnimation.duration = 1
+//        borderView.layer.add(borderAnimation, forKey: nil)
+//
+//        borderView.isHidden = true
     }
     
+    
+    // This function is called to initialize our circle, it is only called once
     func drawCircle() {
 //        circleLayer.fillColor = UIColor.blue.cgColor
         circleLayer.fillColor = UIColor.init(hex: "25AADC").cgColor
@@ -261,7 +285,45 @@ class SpinnyViewController: UIViewController {
         circleLayer.path = circlePath.cgPath
         shapeView.layer.addSublayer(circleLayer)
         
+        
     }
+    
+//    func drawBorderLines() {
+//        let centerX = borderView.bounds.width / 2
+//        let centerY = borderView.bounds.height / 2
+//        let offset1 = CGFloat(80)
+//        let offset2 = CGFloat(50)
+//
+//        let leftPath = UIBezierPath()
+//        leftPath.move(to: CGPoint(x: centerX - offset1, y: centerY))
+//        leftPath.addLine(to: CGPoint(x: centerX - offset2, y: centerY))
+//
+//        let rightPath = UIBezierPath()
+//        rightPath.move(to: CGPoint(x: centerX + offset1, y: centerY))
+//        rightPath.addLine(to: CGPoint(x: centerX + offset2, y: centerY))
+//
+//        leftPath.append(rightPath)
+//
+//        let topPath = UIBezierPath()
+//        topPath.move(to: CGPoint(x: centerX, y: centerY + offset1))
+//        topPath.addLine(to: CGPoint(x: centerX, y: centerY  + offset2))
+//
+//        leftPath.append(topPath)
+//
+//        let bottomPath = UIBezierPath()
+//        bottomPath.move(to: CGPoint(x: centerX, y: centerY - offset1))
+//        bottomPath.addLine(to: CGPoint(x: centerX, y: centerY  - offset2))
+//
+//        leftPath.append(bottomPath)
+//
+//        let borderLayer = CAShapeLayer()
+//        borderLayer.path = leftPath.cgPath
+//        borderLayer.strokeColor = PINK_COLOR.cgColor
+//        borderLayer.lineWidth = 3.0
+//
+//        borderView.layer.addSublayer(borderLayer)
+//
+//    }
 
     /*
     // MARK: - Navigation

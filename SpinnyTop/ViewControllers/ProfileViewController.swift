@@ -10,8 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 class ProfileViewController: UIViewController {
-
-    @IBOutlet weak var viewLeaderboardButtonOutlet: UIButton!
+    @IBOutlet weak var viewLeaderboardButtonOutlet: RoundedButton!
     
     @IBOutlet weak var recordRotationsLabel: UILabel!
     @IBOutlet weak var recordDurationLabel: UILabel!
