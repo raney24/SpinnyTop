@@ -19,6 +19,7 @@ class User {
     var max_spin_rps: Double?
     var max_spin_duration: Double?
     var max_spin_rotations: Int?
+    var lifetime_rotations: Int?
     
     init(username: String, token: String?, email: String?) {
 //        self.userId = userId

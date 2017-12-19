@@ -211,10 +211,10 @@
 			children = (
 				27FEE47F1F9AAB6400C3C596 /* images */,
 				27953C871F46A95800938C8E /* Main.storyboard */,
-				27BC29D61FE47098001596DC /* Classes */,
 				27953C831F46A95800938C8E /* AppDelegate.swift */,
 				27B6A83D1F4E57AD0052E65D /* AppManager.swift */,
 				275C2A621FC3F30700201F86 /* UserSettings.swift */,
+				27BC29D61FE47098001596DC /* Classes */,
 				2789DA4D1FB03C580078351E /* Models */,
 				276A89701FBF763700A718BB /* ViewControllers */,
 				2773B2B71FBA639300754429 /* Controllers */,
