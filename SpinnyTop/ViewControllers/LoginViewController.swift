@@ -8,8 +8,6 @@
 
 import Foundation
 import Firebase
-//import FirebaseAuth
-//import FBSDKLoginKit
 import Alamofire
 import ObjectMapper
 
@@ -18,13 +16,47 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    let progressIndicatorView = SpinnerLoaderView(frame: .zero)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        if ((UserDefaults.standard.string(forKey: "token")) != nil) {
-            AppManager.sharedInstance.showSpinnyNavCon()
+        
+        if let token = UserDefaults.standard.string(forKey: "token") {
+            if let username = UserDefaults.standard.string(forKey: "username") {
+                    
+                AppManager.sharedInstance.createUser(username: username, token: token) {
+                    (result: Bool) in
+                    let sv = UIViewController.displaySpinner(onView: self.view)
+                    
+                    
+                    if result {
+                        UIViewController.removeSpinner(spinner: sv)
+                        AppManager.sharedInstance.showSpinnyNavCon()
+                    } else {
+                        print("Not successful")
+                    }
+                    
+                }
+            }
         }
+        
+        prepTextFields()
+        
+//        emailTextField.delegate = self
+//        emailTextField.tag = 0
+//        passwordTextField.delegate = self
+//        passwordTextField.tag = 1
+        
+        // disable autocorrect for email field
         emailTextField.autocorrectionType = .no
+        // tap anywhere to exit editing
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: Selector("endEditing:")))
+    }
+    
+    
+    override func submitForm() {
+        super.submitForm()
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,6 +73,8 @@ class LoginViewController: UIViewController {
             
             self.present(alertController, animated: true, completion: nil)
         } else {
+            let sv = UIViewController.displaySpinner(onView: self.view)
+
             let username = self.emailTextField.text!
             let password = self.passwordTextField.text!
             
@@ -49,19 +83,42 @@ class LoginViewController: UIViewController {
                 "password" : password
             ]
             
-            APIController.sharedController.request(method:.post, URLString: "get-token/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
+            APIController.sharedController.request(method: .post, URLString: "get-token/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
                 guard let objResponse = response.result.value as? [String: Any] else {
                     print("Didn't get object")
                     return
                 }
                 guard let token = objResponse["token"] as? String else {
-                    print("No token returned")
+                    self.alert(message: "Credentials incorrect", title: "Server Error")
+                    UIViewController.removeSpinner(spinner: sv)
                     return
                 }
-                UserDefaults.standard.set(token, forKey: "token")
-                UserDefaults.standard.set(username, forKey: "username")
-                AppManager.sharedInstance.showSpinnyNavCon()
+                
+                AppManager.sharedInstance.createUser(username: username, token: token) {
+                    (result: Bool) in
+                    if result {
+                        UIViewController.removeSpinner(spinner: sv)
+                        AppManager.sharedInstance.showSpinnyNavCon()
+                    } else {
+                        print("Not successful")
+                    }
+                    
+                }
+                
+//                AppManager.sharedInstance.showSpinnyNavCon()
             })
+        }
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool
+        {
+            let nextTag = textField.tag + 1
+            let nextResponder = textField.superview?.viewWithTag(nextTag) as UIResponder!
+            
+            if nextResponder != nil {
+                nextResponder?.becomeFirstResponder()
+            } else {
+                textField.resignFirstResponder()
+            }
+            return false
         }
     }
     
@@ -102,6 +159,5 @@ class LoginViewController: UIViewController {
 //        homeVC
         
     }
-    
-    
 }
+

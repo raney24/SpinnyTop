@@ -54,7 +54,7 @@ class APIController {
                 if let value = response.result.value {
                     let maxOutputLength: Int = (debugPrintFullResponse ? Int.max : 30)
                     
-//                    print(String(format: "request %@ successful. Response (%i chars):\n%@\n", URLStringToUse, value.length(), (value.length() > maxOutputLength ? value[0...maxOutputLength-2] + "..." : value)))
+                    print(String(format: "request %@ successful. Response (%i chars):\n%@\n", URLStringToUse, value.count, (value.count > maxOutputLength ? value.prefix(maxOutputLength) + "..." : value)))
                 } else {
                     print(String(format: "request %@ successful. NO VALUE", URLStringToUse))
                 }
@@ -83,9 +83,12 @@ class APIController {
         // add user setting headers
         //var headersToUse: [String : String] = ["header1" : UserSettings.defaultSettings.header1()]
         var headersToUse: HTTPHeaders = [:]
-        if let token = UserDefaults.standard.string(forKey: "token") {
-            headersToUse["Authorization"] = "Token \(String(describing: token))"
+        if let user = AppManager.sharedInstance.user {
+            if let token = user.token {
+                headersToUse["Authorization"] = "Token \(String(describing: token))"
+            }
         }
+        
         
 //        if let unwrappedHeaders = headers {
 //            for tuple in unwrappedHeaders {

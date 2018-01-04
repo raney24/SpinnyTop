@@ -24,6 +24,8 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        prepTextFields()
+        
         // Do any additional setup after loading the view.
         self.emailTextField.autocorrectionType = .no
         self.usernameTextField.autocorrectionType = .no
@@ -61,45 +63,33 @@ class RegisterViewController: UIViewController {
                     print("Unable to register user")
                     return
                 }
-                UserDefaults.standard.set(username, forKey: "username")
-                UserDefaults.standard.set(username, forKey: "email")
+//                user.username = username
+//                user.email = email
+                
+                
+                APIController.sharedController.request(method:.post, URLString: "get-token/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
+                    guard let objResponse = response.result.value as? [String: Any] else {
+                        print("Didn't get object")
+                        return
+                    }
+                    guard let token = objResponse["token"] as? String else {
+                        print("No token returned")
+                        return
+                    }
+                    UserDefaults.standard.set(token, forKey: "token")
+                    
+                    AppManager.sharedInstance.createUser(username: username, token: token) {
+                        (result: Bool) in
+                        if result {
+                            AppManager.sharedInstance.showSpinnyNavCon()
+                        } else {
+                            print("Not successful")
+                        }
+                        
+                    }
+                
+                })
             })
-            
-            APIController.sharedController.request(method:.post, URLString: "get-token/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
-                guard let objResponse = response.result.value as? [String: Any] else {
-                    print("Didn't get object")
-                    return
-                }
-                guard let token = objResponse["token"] as? String else {
-                    print("No token returned")
-                    return
-                }
-                UserDefaults.standard.set(token, forKey: "token")
-                AppManager.sharedInstance.showSpinnyNavCon()
-            })
-            
-            
-            
-            
-            //            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            //
-            //                if error == nil {
-            //                    AppManager.sharedInstance.showSpinnyNavCon()
-            //
-            //                    let userID = user!.uid
-            //                    let myUser = ["provider": user?.providerID ?? "No ID", "email": email, "username": username, "high_score": high_score] as [String : Any]
-            //
-            //                    DataService.sharedInstance.createNewAccount(uid: userID, user: myUser )
-            //                } else {
-            //                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-            //
-            //                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            //                    alertController.addAction(defaultAction)
-            //
-            //                    self.present(alertController, animated: true, completion: nil)
-            //                }
-            //
-            //            }
         }
     }
     

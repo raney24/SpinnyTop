@@ -14,7 +14,7 @@ class RoundedButton: UIButton {
         super.init(coder: aDecoder)
         layer.cornerRadius = 5.0
         clipsToBounds = true
-        layer.backgroundColor = BLUE_COLOR.cgColor
+//        layer.backgroundColor = BLUE_COLOR.cgColor
         setTitleColor(UIColor.white, for: .normal)
     }
 }

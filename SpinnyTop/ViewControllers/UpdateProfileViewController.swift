@@ -11,7 +11,7 @@ import UIKit
 import Alamofire
 import ObjectMapper
 
-class UpdateProfileViewController: UIViewController, UITextFieldDelegate {
+class UpdateProfileViewController: UIViewController {
     
     @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -22,12 +22,14 @@ class UpdateProfileViewController: UIViewController, UITextFieldDelegate {
     var fieldsToChange = [String: String]()
     var errorMessages = [String]()
     
-    var user = User(
-        username: UserDefaults.standard.string(forKey: "username")!,
-        token: UserDefaults.standard.string(forKey: "token"),
-        email: UserDefaults.standard.string(forKey: "email")
-        
-    )
+//    var user = User(
+//        username: UserDefaults.standard.string(forKey: "username")!,
+//        token: UserDefaults.standard.string(forKey: "token"),
+//        email: UserDefaults.standard.string(forKey: "email")
+//
+//    )
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,13 +49,17 @@ class UpdateProfileViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
 //        let email = user?.email
 //        emailAddressTextField.text = email
-        let parameters = [
-            "username" : user.username,
-            "email" : user.email
-        ]
+        if let user = AppManager.sharedInstance.user {
         
-        self.usernameTextField.text = user.username
-        self.emailAddressTextField.text = user.email
+            let parameters = [
+                "username" : user.username,
+                "email" : user.email
+            ]
+            
+            
+            self.usernameTextField.text = user.username
+            self.emailAddressTextField.text = user.email
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,7 +106,7 @@ class UpdateProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func updateUsernameButtonAction(_ sender: Any) {
 //        DataService.sharedInstance.updateUser(uid: (self.user?.uid)!, fields: fieldsToChange)
-        updateUser(user: user, fields: fieldsToChange)
+//        updateUser(user: user, fields: fieldsToChange)
         
     }
     
@@ -151,16 +157,4 @@ class UpdateProfileViewController: UIViewController, UITextFieldDelegate {
         self.alert(message: message, title: "Field Errors")
     }
     
-}
-
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
 }

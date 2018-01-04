@@ -43,6 +43,7 @@ class SpinnyViewController: UIViewController {
     var avgRPSArray = [Double]()
     var avgLinVelArray = [Double]()
     var spin: Score? = nil
+    var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,36 +52,28 @@ class SpinnyViewController: UIViewController {
         self.drawCircle()
 //        self.drawBorderLines()
         
-        guard let username = UserDefaults.standard.string(forKey: "username") else {
-            AppManager.sharedInstance.showWelcomeNavCon()
-            return
-        }
-        var user = User(
-            username: UserDefaults.standard.string(forKey: "username")!,
-            token: UserDefaults.standard.string(forKey: "token"),
-            email: UserDefaults.standard.string(forKey: "email")
-            )
+        self.user = AppManager.sharedInstance.user
+        if self.user != nil  {
             
-        if user.username != nil {
+            let sv = UIViewController.displaySpinner(onView: self.view)
             APIController.sharedController.request(method:.get, URLString: "users/\(user.username)/", encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
                 if let jsonValue = response.result.value as? [String: Any] {
                     let json = JSON(jsonValue)
                     
-                    let max_spin_rps = json["max_spin_rps"]["speed__max"].doubleValue
-                    let max_spin_duration = json["max_spin_duration"]["duration__max"].doubleValue
-                    let max_spin_rotations = json["max_spin_rotations"]["rotations__max"].intValue
-                    let lifetime_rotations = json["lifetime_rotations"]["rotations__sum"].intValue
+                    self.user.email = json["email"].string
+                    self.user.max_spin_rps = json["max_spin_rps"]["speed__max"].doubleValue
+                    self.user.max_spin_duration = json["max_spin_duration"]["duration__max"].doubleValue
+                    self.user.max_spin_rotations = json["max_spin_rotations"]["rotations__max"].intValue
+                    self.user.lifetime_rotations = json["lifetime_rotations"]["rotations__sum"].intValue
                     
-                    user.max_spin_rps = max_spin_rps
-                    user.max_spin_rotations = max_spin_rotations
-                    user.max_spin_duration = max_spin_duration
-                    user.lifetime_rotations = lifetime_rotations
+//                    var user = AppManager.sharedInstance.user
                     
-                    self.recordRPSLabel.text = String(format: "%.2f", (user.max_spin_rps!) ?? 0.0)
-                    self.recordRotationsLabel.text = String(format: "%d", (user.max_spin_rotations) ?? 0)
-                    self.recordDurationsLabel.text = String(format: "%.2f", (user.max_spin_duration) ?? 0.0)
-                    self.lifetimeRotationsLabel.text = String(format: "%d", (user.lifetime_rotations) ?? 0)
+                    self.recordRPSLabel.text = String(format: "%.2f", (self.user.max_spin_rps) ?? 0.0)
+                    self.recordRotationsLabel.text = String(format: "%d", (self.user.max_spin_rotations) ?? 0)
+                    self.recordDurationsLabel.text = String(format: "%.2f", (self.user.max_spin_duration) ?? 0.0)
+                    self.lifetimeRotationsLabel.text = String(format: "%d", (self.user.lifetime_rotations) ?? 0)
                     
+                    UIViewController.removeSpinner(spinner: sv)
                     self.startUpdates()
                 } else {
                     print("no spins logged")
@@ -170,6 +163,7 @@ class SpinnyViewController: UIViewController {
                 if (self.spin != nil) {
                     // finalize duration
                     self.spin?.duration = Date().timeIntervalSince((self.spin?.startTime)!)
+                    
                     if (self.spin!.duration! > 1) {
                         
                         // calc rpm here
@@ -177,6 +171,9 @@ class SpinnyViewController: UIViewController {
                         let revs = avgLinVel * self.spin!.duration!
 //                        self.spin!.revolutions = Int(revs * 1.5) // need to fix this
                         self.spin!.revolutions = Int(revs)
+                        
+                        self.user!.lifetime_rotations = self.spin!.revolutions! + self.user!.lifetime_rotations!
+                        self.lifetimeRotationsLabel.text = String(format: "%d", (self.user?.lifetime_rotations) ?? 0)
                     
                         // call api and save spin
                         let parameters: Parameters = [
@@ -220,6 +217,7 @@ class SpinnyViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "username")
         UserDefaults.standard.removeObject(forKey: "token")
         UserDefaults.standard.removeObject(forKey: "email")
+        AppManager.sharedInstance.user = nil
         AppManager.sharedInstance.showWelcomeNavCon()
     }
     
