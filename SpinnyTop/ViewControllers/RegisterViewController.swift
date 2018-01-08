@@ -58,7 +58,7 @@ class RegisterViewController: UIViewController {
                 "email" : email
             ]
             
-            APIController.sharedController.request(method: .post, URLString: "register/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response: DataResponse<Any>) in
+            APIController.sharedController.request(method: .post, URLString: "register/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: false).responseJSON(queue: .main, completionHandler: { (response: DataResponse<Any>) in
                 guard let objResponse = response.result.value as? [String: Any] else {
                     print("Unable to register user")
                     return
@@ -67,7 +67,7 @@ class RegisterViewController: UIViewController {
 //                user.email = email
                 
                 
-                APIController.sharedController.request(method:.post, URLString: "get-token/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
+                APIController.sharedController.request(method:.post, URLString: "get-token/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: false).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
                     guard let objResponse = response.result.value as? [String: Any] else {
                         print("Didn't get object")
                         return

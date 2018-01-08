@@ -127,7 +127,7 @@ class UpdateProfileViewController: UIViewController {
             "email" : user.email ?? "",
             "password" : ""
         ]
-            APIController.sharedController.request(method: .put, URLString: "users/\(user.username)/", parameters: parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response: DataResponse<Any>) in
+            APIController.sharedController.request(method: .put, URLString: "users/\(user.username)/", parameters: parameters, encoding: JSONEncoding.default, debugPrintFullResponse: false).responseJSON(queue: .main, completionHandler: { (response: DataResponse<Any>) in
                 guard let objResponse = response.result.value as? [String : Any] else {
                     print("No return")
                     return

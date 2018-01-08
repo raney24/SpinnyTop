@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		273F68DB1F4A9CD300D6DD49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 273F68DA1F4A9CD300D6DD49 /* GoogleService-Info.plist */; };
 		273F68DF1F4A9EC900D6DD49 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */; };
-		274373631FFC36CD0049BBB3 /* SpinnerLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274373621FFC36CD0049BBB3 /* SpinnerLoaderView.swift */; };
 		275C2A631FC3F30700201F86 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275C2A621FC3F30700201F86 /* UserSettings.swift */; };
 		2773B2B91FBA63AA00754429 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2B81FBA63AA00754429 /* APIController.swift */; };
 		2773B2BD1FBAC86F00754429 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2BC1FBAC86F00754429 /* User.swift */; };
@@ -67,7 +66,6 @@
 /* Begin PBXFileReference section */
 		273F68DA1F4A9CD300D6DD49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		274373621FFC36CD0049BBB3 /* SpinnerLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerLoaderView.swift; sourceTree = "<group>"; };
 		275C2A621FC3F30700201F86 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		2773B2B81FBA63AA00754429 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		2773B2BC1FBAC86F00754429 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -260,7 +258,6 @@
 			children = (
 				278E37DF1FE32C3600D8A13F /* UIImageViewRounded.swift */,
 				27BC29D71FE470B3001596DC /* RoundedButton.swift */,
-				274373621FFC36CD0049BBB3 /* SpinnerLoaderView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -639,7 +636,6 @@
 				27E79CE91FE8D23E000AC36C /* UITextField+Next.swift in Sources */,
 				27B6A8361F4D40350052E65D /* RegisterViewController.swift in Sources */,
 				27BC29D51FE46F63001596DC /* ProfileViewController.swift in Sources */,
-				274373631FFC36CD0049BBB3 /* SpinnerLoaderView.swift in Sources */,
 				27E48FB71FAD147500EC6C90 /* LeaderboardTableViewController.swift in Sources */,
 				27BC29D81FE470B3001596DC /* RoundedButton.swift in Sources */,
 				2773B2B91FBA63AA00754429 /* APIController.swift in Sources */,
@@ -829,7 +825,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7Z2F42ZWZ6;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -850,10 +846,10 @@
 			baseConfigurationReference = FEA89CB376E2AFCC0FAD922C /* Pods-SpinnyTop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Spinny Top (6WKZ6BBPM3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7Z2F42ZWZ6;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

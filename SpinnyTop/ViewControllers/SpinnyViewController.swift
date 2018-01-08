@@ -56,7 +56,7 @@ class SpinnyViewController: UIViewController {
         if self.user != nil  {
             
             let sv = UIViewController.displaySpinner(onView: self.view)
-            APIController.sharedController.request(method:.get, URLString: "users/\(user.username)/", encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
+            APIController.sharedController.request(method:.get, URLString: "users/\(user.username)/", encoding: JSONEncoding.default, debugPrintFullResponse: false).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
                 if let jsonValue = response.result.value as? [String: Any] {
                     let json = JSON(jsonValue)
                     
@@ -182,7 +182,7 @@ class SpinnyViewController: UIViewController {
                             "duration" : Double(round(100 * (self.spin?.duration)!)/100),
                             "rotations" : Int(self.spin?.revolutions ?? 0)
                         ]
-                        APIController.sharedController.request(method:.post, URLString: "spins/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
+                        APIController.sharedController.request(method:.post, URLString: "spins/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: false).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
                             guard let jsonResponse = response.result.value else {
                                 print("No response from post")
                                 return

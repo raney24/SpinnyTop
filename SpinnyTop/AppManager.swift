@@ -27,7 +27,7 @@ class AppManager {
         UserDefaults.standard.set(token, forKey: "token")
         UserDefaults.standard.set(username, forKey: "username")
         var result = false
-        APIController.sharedController.request(method:.get, URLString: "users/\(user!.username)/", encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
+        APIController.sharedController.request(method:.get, URLString: "users/\(user!.username)/", encoding: JSONEncoding.default, debugPrintFullResponse: false).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
             if let jsonValue = response.result.value as? [String: Any] {
                 let json = JSON(jsonValue)
                 if let currentUser = self.user {

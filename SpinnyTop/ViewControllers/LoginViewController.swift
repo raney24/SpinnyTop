@@ -16,31 +16,30 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    let progressIndicatorView = SpinnerLoaderView(frame: .zero)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        let sv = UIViewController.displaySpinner(onView: self.view)
         if let token = UserDefaults.standard.string(forKey: "token") {
             if let username = UserDefaults.standard.string(forKey: "username") {
                     
                 AppManager.sharedInstance.createUser(username: username, token: token) {
                     (result: Bool) in
-                    let sv = UIViewController.displaySpinner(onView: self.view)
+                    
                     
                     
                     if result {
                         UIViewController.removeSpinner(spinner: sv)
                         AppManager.sharedInstance.showSpinnyNavCon()
                     } else {
+                        
                         print("Not successful")
                     }
                     
                 }
             }
         }
-        
+        UIViewController.removeSpinner(spinner: sv)
         prepTextFields()
         
 //        emailTextField.delegate = self
@@ -83,7 +82,7 @@ class LoginViewController: UIViewController {
                 "password" : password
             ]
             
-            APIController.sharedController.request(method: .post, URLString: "get-token/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: true).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
+            APIController.sharedController.request(method: .post, URLString: "get-token/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: false).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
                 guard let objResponse = response.result.value as? [String: Any] else {
                     print("Didn't get object")
                     return
