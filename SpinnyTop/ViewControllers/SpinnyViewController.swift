@@ -38,6 +38,7 @@ class SpinnyViewController: UIViewController {
     
     var motionManager = CMMotionManager()
     var timer: Timer!
+    var stopTimer: Int! = 0
     var maxGForce: Double?
     var avgSpinSpeedArray = [Double]()
     var avgRPSArray = [Double]()
@@ -122,82 +123,89 @@ class SpinnyViewController: UIViewController {
             
             
             // start tracking current spin
-            if (rps > G_FORCE_MIN && abs(acceleration.z) > 0.8) {
-                // initialize spin
-                if (self.spin == nil) {
-                    
-                    self.spin = Score(username: "admin", startTime: Date())
-                    self.spin?.maxSpeed = rps
-                } else {
-                    
-                    // calc avg spin speed
-                    let accel = rps * 9.80665
-                    let linVel = (accel * PHONE_RADIUS).squareRoot()
-                    let rps_fromLinVel = linVel / (2 * Double.pi * PHONE_RADIUS)
-                    self.avgRPSArray.append(rps_fromLinVel * 1.5)
-                    
-                    // Display speed label
-                    self.currentRPSLabel.text = String(format: "%.1f", rps)
-                    
-                    // Draw the circle
-                    if rps > 1 {
-                        UIView.transition(with: self.shapeView, duration: 0.75, animations: {
-                            self.shapeView.alpha = 1
-                        }, completion: nil)
-//                        self.scoreLabelView.isHidden = true
-//                        self.shapeView.isHidden = false
-                        self.animateCircle(radius: Double(rps))
-                    }
-                    
-                    // update gForce for the spin
-                    if (rps > self.spin!.maxSpeed) {
+            if (rps < G_FORCE_MIN) {
+                self.stopTimer = self.stopTimer + 1
+            }
+//            if ( (rps > G_FORCE_MIN && abs(acceleration.z) > 0.8) || (rps < G_FORCE_MIN && self.stopTimer < 15) ) {
+            if (abs(acceleration.z) > 0.8) {
+                if ( (rps > G_FORCE_MIN && self.stopTimer < 15) ) {
+                    // initialize spin
+                    if (self.spin == nil) {
+                        
+                        self.spin = Score(username: "admin", startTime: Date())
                         self.spin?.maxSpeed = rps
+                    } else {
+                        
+                        // calc avg spin speed
+                        let accel = rps * 9.80665
+                        let linVel = (accel * PHONE_RADIUS).squareRoot()
+                        let rps_fromLinVel = linVel / (2 * Double.pi * PHONE_RADIUS)
+                        self.avgRPSArray.append(rps_fromLinVel * 1.5)
+                        
+                        // Display speed label
+                        self.currentRPSLabel.text = String(format: "%.1f", rps)
+                        
+                        // Draw the circle
+                        if rps > 1 {
+                            UIView.transition(with: self.shapeView, duration: 0.75, animations: {
+                                self.shapeView.alpha = 1
+                            }, completion: nil)
+    //                        self.scoreLabelView.isHidden = true
+    //                        self.shapeView.isHidden = false
+                            self.animateCircle(radius: Double(rps))
+                        }
+                        
+                        // update gForce for the spin
+                        if (rps > self.spin!.maxSpeed) {
+                            self.spin?.maxSpeed = rps
+                        }
                     }
-                }
-            } else { // Spin has finished (reached less than G_FORCE_MIN)
-                self.hideCircle()
-//                self.borderView.isHidden = false
-                UIView.transition(with: self.shapeView, duration: 1, animations: {
-                    self.shapeView.alpha = 0
-                }, completion: nil)
-                if (self.spin != nil) {
-                    // finalize duration
-                    self.spin?.duration = Date().timeIntervalSince((self.spin?.startTime)!)
-                    
-                    if (self.spin!.duration! > 1) {
+                } else { // Spin has finished (reached less than G_FORCE_MIN)
+                    self.hideCircle()
+                    self.stopTimer = 0
+    //                self.borderView.isHidden = false
+                    UIView.transition(with: self.shapeView, duration: 1, animations: {
+                        self.shapeView.alpha = 0
+                    }, completion: nil)
+                    if (self.spin != nil) {
+                        // finalize duration
+                        self.spin?.duration = Date().timeIntervalSince((self.spin?.startTime)!)
                         
-                        // calc rpm here
-                        let avgLinVel = self.avgRPSArray.average
-                        let revs = avgLinVel * self.spin!.duration!
-//                        self.spin!.revolutions = Int(revs * 1.5) // need to fix this
-                        self.spin!.revolutions = Int(revs)
+                        if (self.spin!.duration! > 1) {
+                            
+                            // calc rpm here
+                            let avgLinVel = self.avgRPSArray.average
+                            let revs = avgLinVel * self.spin!.duration!
+    //                        self.spin!.revolutions = Int(revs * 1.5) // need to fix this
+                            self.spin!.revolutions = Int(revs)
+                            
+                            self.user!.lifetime_rotations = self.spin!.revolutions! + self.user!.lifetime_rotations!
+                            self.lifetimeRotationsLabel.text = String(format: "%d", (self.user?.lifetime_rotations) ?? 0)
                         
-                        self.user!.lifetime_rotations = self.spin!.revolutions! + self.user!.lifetime_rotations!
-                        self.lifetimeRotationsLabel.text = String(format: "%d", (self.user?.lifetime_rotations) ?? 0)
-                    
-                        // call api and save spin
-                        let parameters: Parameters = [
-                            "username" : UserDefaults.standard.string(forKey: "username") ?? "invalid",
-                            "speed" : Double(round(100 * (self.spin?.maxSpeed)!)/100),
-                            "duration" : Double(round(100 * (self.spin?.duration)!)/100),
-                            "rotations" : Int(self.spin?.revolutions ?? 0)
-                        ]
-                        APIController.sharedController.request(method:.post, URLString: "spins/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: false).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
-                            guard let jsonResponse = response.result.value else {
-                                print("No response from post")
-                                return
-                            }
-                        })
+                            // call api and save spin
+                            let parameters: Parameters = [
+                                "username" : UserDefaults.standard.string(forKey: "username") ?? "invalid",
+                                "speed" : Double(round(100 * (self.spin?.maxSpeed)!)/100),
+                                "duration" : Double(round(100 * (self.spin?.duration)!)/100),
+                                "rotations" : Int(self.spin?.revolutions ?? 0)
+                            ]
+                            APIController.sharedController.request(method:.post, URLString: "spins/", parameters : parameters, encoding: JSONEncoding.default, debugPrintFullResponse: false).responseJSON(queue: .main, completionHandler: { (response:DataResponse<Any>) in
+                                guard let jsonResponse = response.result.value else {
+                                    print("No response from post")
+                                    return
+                                }
+                            })
+                            
+                            // Display last spin
+                            // TODO: Make db call to get last spin
+                            self.lastSpinDurationLabel.text = String(format: "%.2f", (self.spin?.duration)!)
+                            self.lastSpinRPSLabel.text = String(format: "%.2f", (self.spin?.maxSpeed)!)
+                            self.lastSpinRotationsLabel.text = "\(String(describing: (self.spin?.revolutions)!))"
                         
-                        // Display last spin
-                        // TODO: Make db call to get last spin
-                        self.lastSpinDurationLabel.text = String(format: "%.2f", (self.spin?.duration)!)
-                        self.lastSpinRPSLabel.text = String(format: "%.2f", (self.spin?.maxSpeed)!)
-                        self.lastSpinRotationsLabel.text = "\(String(describing: (self.spin?.revolutions)!))"
-                    
+                        }
+                        self.spin = nil
+                        
                     }
-                    self.spin = nil
-                    
                 }
             }
             
