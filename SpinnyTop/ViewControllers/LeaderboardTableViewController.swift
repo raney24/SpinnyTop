@@ -25,7 +25,6 @@ class LeaderboardTableViewController: UITableViewController {
         tableView.rowHeight = 110
         
         loadHighScoreData()
-        
         searchController.searchBar.scopeButtonTitles = ["Lifetime Spins", "RPS", "Duration", "Rotations"]
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
@@ -76,6 +75,7 @@ class LeaderboardTableViewController: UITableViewController {
             currentUser = users[indexPath.row]
         }
         
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! LeaderboardTableViewCell
         
         cell.usernameLabel.text = currentUser.username
@@ -106,12 +106,20 @@ class LeaderboardTableViewController: UITableViewController {
 //                    let score = Score(username: username!, startTime: Date(), maxSpeed: speed)
 //                    self.scores.append(score)
                 }
+                self.orderUsers()
                 self.tableView.reloadData()
 
             } else {
                 print("no JSON object")
             }
         }
+    }
+    
+    func orderUsers() {
+        users.sort {
+            return $0.lifetime_rotations! > $1.lifetime_rotations!
+        }
+//        self.tableView.reloadData()
     }
     
     func searchBarIsEmpty() -> Bool {
