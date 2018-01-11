@@ -26,6 +26,7 @@ class LeaderboardTableViewController: UITableViewController {
         
         loadHighScoreData()
         searchController.searchBar.scopeButtonTitles = ["Lifetime Spins", "RPS", "Duration", "Rotations"]
+        searchController.searchBar.showsScopeBar = true
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false

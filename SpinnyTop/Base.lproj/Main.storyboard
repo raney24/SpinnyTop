@@ -643,7 +643,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="UlC-a1-5qp">
                         <barButtonItem key="rightBarButtonItem" title="Update Profile" image="gear.png" id="bAx-ai-u1S">
-                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-10" maxY="-5"/>
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-10" maxY="-10"/>
                             <color key="tintColor" red="0.0" green="0.61174315209999997" blue="0.84480744600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="URG-oA-FqD" kind="show" id="7xg-Mo-o0B"/>
