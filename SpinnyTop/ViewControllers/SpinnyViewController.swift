@@ -122,11 +122,11 @@ class SpinnyViewController: UIViewController {
             self.currentRPSLabel.text = "SPIN"
             
             
-            // start tracking current spin
+            // add to timer to see if it is a true stop
             if (rps < G_FORCE_MIN) {
                 self.stopTimer = self.stopTimer + 1
             }
-//            if ( (rps > G_FORCE_MIN && abs(acceleration.z) > 0.8) || (rps < G_FORCE_MIN && self.stopTimer < 15) ) {
+            // start tracking current spin
             if (abs(acceleration.z) > 0.8) {
                 if ( (rps > G_FORCE_MIN && self.stopTimer < 15) ) {
                     // initialize spin
@@ -159,15 +159,20 @@ class SpinnyViewController: UIViewController {
                         if (rps > self.spin!.maxSpeed) {
                             self.spin?.maxSpeed = rps
                         }
+                        // disable idle timer
+                        UIApplication.shared.isIdleTimerDisabled = true
                     }
                 } else { // Spin has finished (reached less than G_FORCE_MIN)
                     self.hideCircle()
                     self.stopTimer = 0
+                    
     //                self.borderView.isHidden = false
                     UIView.transition(with: self.shapeView, duration: 1, animations: {
                         self.shapeView.alpha = 0
                     }, completion: nil)
                     if (self.spin != nil) {
+                        // enable idle timer
+                        UIApplication.shared.isIdleTimerDisabled = false
                         // finalize duration
                         self.spin?.duration = Date().timeIntervalSince((self.spin?.startTime)!)
                         
