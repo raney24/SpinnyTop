@@ -671,29 +671,115 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="scoreCell" textLabel="rfi-Ge-SrG" detailTextLabel="W6n-MO-3Ok" style="IBUITableViewCellStyleValue1" id="sTW-nl-2c5">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="110" id="sTW-nl-2c5" customClass="LeaderboardTableViewCell" customModule="SpinnyTop" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sTW-nl-2c5" id="omI-gG-gyE">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="109.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rfi-Ge-SrG">
-                                            <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vzc-uW-Po0" userLabel="Username Label">
+                                            <rect key="frame" x="10" y="10" width="150" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="150" id="Xim-TT-kFS"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                            <color key="textColor" red="0.0" green="0.61174315209999997" blue="0.84480744600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdp-mC-C4Z" userLabel="Lifetime Rotations Label">
+                                            <rect key="frame" x="245" y="10" width="125" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="125" id="Sfi-IF-rqh"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                            <color key="textColor" red="0.99740713830000005" green="0.42490220070000001" blue="0.67504781479999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lifetime Rotations" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsp-ys-Kkd" userLabel="Lifetime Rotations">
+                                            <rect key="frame" x="135.5" y="5" width="100" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="E79-Am-yuO"/>
+                                                <constraint firstAttribute="height" constant="40" id="k3d-bp-rVt"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W6n-MO-3Ok">
-                                            <rect key="frame" x="315" y="12" width="44" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Spin RPS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVK-Kc-Ovv" userLabel="Max Spin Rps">
+                                            <rect key="frame" x="10" y="82.5" width="89.5" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14U-0l-FfP" userLabel="Max Spin RPS Label">
+                                            <rect key="frame" x="5" y="56.5" width="100" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="p8t-dY-UXm"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <color key="textColor" red="0.99740713830000005" green="0.42490220070000001" blue="0.67504781479999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1Y-s8-zUB" userLabel="Max Duration">
+                                            <rect key="frame" x="145" y="82.5" width="86" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJ2-wp-M0S" userLabel="Max Duration Label">
+                                            <rect key="frame" x="138" y="57" width="100" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="WH2-AW-XMh"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <color key="textColor" red="0.99740713830000005" green="0.42490220070000001" blue="0.67504781479999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Rotations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrF-wV-5mQ">
+                                            <rect key="frame" x="273" y="82" width="92" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhD-35-arc" userLabel="Max Rotations Label">
+                                            <rect key="frame" x="269.5" y="56" width="100" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="IO0-O4-A8p"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <color key="textColor" red="0.99740713830000005" green="0.42490220070000001" blue="0.67504781479999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="fdp-mC-C4Z" firstAttribute="leading" secondItem="Zsp-ys-Kkd" secondAttribute="trailing" constant="10" id="1gS-gh-KI1"/>
+                                        <constraint firstItem="14U-0l-FfP" firstAttribute="centerX" secondItem="JVK-Kc-Ovv" secondAttribute="centerX" id="5H3-Dp-AP6"/>
+                                        <constraint firstAttribute="trailing" secondItem="QrF-wV-5mQ" secondAttribute="trailing" constant="10" id="8yf-Aj-iXI"/>
+                                        <constraint firstItem="Zsp-ys-Kkd" firstAttribute="top" secondItem="omI-gG-gyE" secondAttribute="top" constant="5" id="DUe-ev-vke"/>
+                                        <constraint firstItem="tJ2-wp-M0S" firstAttribute="centerX" secondItem="g1Y-s8-zUB" secondAttribute="centerX" id="IYv-nn-bst"/>
+                                        <constraint firstItem="QrF-wV-5mQ" firstAttribute="top" secondItem="NhD-35-arc" secondAttribute="bottom" constant="5" id="OhX-bu-ILn"/>
+                                        <constraint firstItem="fdp-mC-C4Z" firstAttribute="top" secondItem="omI-gG-gyE" secondAttribute="top" constant="10" id="VSy-Ym-HEj"/>
+                                        <constraint firstItem="JVK-Kc-Ovv" firstAttribute="leading" secondItem="omI-gG-gyE" secondAttribute="leading" constant="10" id="Xa5-Yj-CtN"/>
+                                        <constraint firstItem="JVK-Kc-Ovv" firstAttribute="top" secondItem="14U-0l-FfP" secondAttribute="bottom" constant="5" id="Y5q-tG-JRC"/>
+                                        <constraint firstAttribute="trailing" secondItem="fdp-mC-C4Z" secondAttribute="trailing" constant="5" id="YX8-61-GRH"/>
+                                        <constraint firstItem="NhD-35-arc" firstAttribute="centerX" secondItem="QrF-wV-5mQ" secondAttribute="centerX" id="ap2-hH-DeQ"/>
+                                        <constraint firstItem="Vzc-uW-Po0" firstAttribute="top" secondItem="omI-gG-gyE" secondAttribute="top" constant="10" id="gXi-Nl-3y8"/>
+                                        <constraint firstItem="Vzc-uW-Po0" firstAttribute="leading" secondItem="omI-gG-gyE" secondAttribute="leading" constant="10" id="kWy-iL-scs"/>
+                                        <constraint firstItem="g1Y-s8-zUB" firstAttribute="centerX" secondItem="omI-gG-gyE" secondAttribute="centerX" id="nUY-mN-1rO"/>
+                                        <constraint firstAttribute="bottom" secondItem="QrF-wV-5mQ" secondAttribute="bottom" constant="10" id="tNP-C3-BcI"/>
+                                        <constraint firstAttribute="bottom" secondItem="JVK-Kc-Ovv" secondAttribute="bottom" constant="10" id="vbH-lr-qaL"/>
+                                        <constraint firstItem="g1Y-s8-zUB" firstAttribute="top" secondItem="tJ2-wp-M0S" secondAttribute="bottom" constant="4.5" id="wGv-DO-A4s"/>
+                                        <constraint firstAttribute="bottom" secondItem="g1Y-s8-zUB" secondAttribute="bottom" constant="10" id="yKK-db-7Y7"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lifetimeRotationsLabel" destination="fdp-mC-C4Z" id="Vu4-c5-U2O"/>
+                                    <outlet property="maxDurationLabel" destination="tJ2-wp-M0S" id="2sd-OY-cz7"/>
+                                    <outlet property="maxRotationsLabel" destination="NhD-35-arc" id="l9R-u5-6H7"/>
+                                    <outlet property="maxSpinRPSLabel" destination="14U-0l-FfP" id="oyq-lL-QiN"/>
+                                    <outlet property="usernameLabel" destination="Vzc-uW-Po0" id="XfV-eZ-GX9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -704,7 +790,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5v-tm-Uml" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2455" y="1068"/>
+            <point key="canvasLocation" x="2453.5999999999999" y="1067.3163418290856"/>
         </scene>
         <!--Update Profile View Controller-->
         <scene sceneID="LMc-E9-XN9">
