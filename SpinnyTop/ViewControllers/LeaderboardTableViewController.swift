@@ -14,10 +14,13 @@ import SwiftyJSON
 class LeaderboardTableViewController: UITableViewController {
     
     var scores = [Score]() // userId, topSpeed
+    var sv: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // show loading indicator
+        self.sv = UIViewController.displaySpinner(onView: self.view)
         loadHighScoreData()
         
         // Uncomment the following line to preserve selection between presentations
@@ -58,6 +61,7 @@ class LeaderboardTableViewController: UITableViewController {
                     self.scores.append(score)
                 }
                 self.tableView.reloadData()
+                UIViewController.removeSpinner(spinner: self.sv)
 
             } else {
                 print("no JSON object")

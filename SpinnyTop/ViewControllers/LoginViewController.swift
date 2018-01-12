@@ -18,28 +18,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let sv = UIViewController.displaySpinner(onView: self.view)
-        if let token = UserDefaults.standard.string(forKey: "token") {
-            if let username = UserDefaults.standard.string(forKey: "username") {
-                    
-                AppManager.sharedInstance.createUser(username: username, token: token) {
-                    (result: Bool) in
-                    
-                    
-                    
-                    if result {
-                        UIViewController.removeSpinner(spinner: sv)
-                        AppManager.sharedInstance.showSpinnyNavCon()
-                    } else {
-                        
-                        print("Not successful")
-                    }
-                    
-                }
-            }
-        }
-        UIViewController.removeSpinner(spinner: sv)
         prepTextFields()
         
 //        emailTextField.delegate = self
