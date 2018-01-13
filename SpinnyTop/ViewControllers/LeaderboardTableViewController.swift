@@ -13,7 +13,7 @@ import SwiftyJSON
 
 class LeaderboardTableViewController: UITableViewController {
     
-    
+    var sv: UIView!
     
     var scores = [Score]()
     var users = [User]()
@@ -23,7 +23,7 @@ class LeaderboardTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 120
-        
+        self.sv = UIViewController.displaySpinner(onView: self.view)
         loadHighScoreData()
         searchController.searchBar.scopeButtonTitles = ["Lifetime Spins", "RPS", "Duration", "Rotations"]
         searchController.searchBar.showsScopeBar = true
@@ -115,7 +115,7 @@ class LeaderboardTableViewController: UITableViewController {
                 }
                 self.orderUsers()
                 self.tableView.reloadData()
-
+                UIViewController.removeSpinner(spinner: self.sv)
             } else {
                 print("no JSON object")
             }
