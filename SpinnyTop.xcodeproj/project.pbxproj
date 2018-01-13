@@ -11,8 +11,7 @@
 		273F68DF1F4A9EC900D6DD49 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */; };
 		27572E532006F2FB00FDE97E /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 27572E522006F2FB00FDE97E /* AppIcon.appiconset */; };
 		27572E552006F34B00FDE97E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27572E542006F34B00FDE97E /* Images.xcassets */; };
-		27572E582008356D00FDE97E /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27572E572008356D00FDE97E /* LoadingViewController.swift */; };
-		27572E5920088C3400FDE97E /* SpinnyTopLoading.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 27572E562008353800FDE97E /* SpinnyTopLoading.m4v */; };
+		27572E582008356D00FDE97E /* (null) in Sources */ = {isa = PBXBuildFile; };
 		275C2A631FC3F30700201F86 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275C2A621FC3F30700201F86 /* UserSettings.swift */; };
 		2773B2B91FBA63AA00754429 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2B81FBA63AA00754429 /* APIController.swift */; };
 		2773B2BD1FBAC86F00754429 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2BC1FBAC86F00754429 /* User.swift */; };
@@ -39,6 +38,8 @@
 		27BB189B1FDFACAD00604BD6 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB189A1FDFACAD00604BD6 /* UIViewController+Alert.swift */; };
 		27BC29D51FE46F63001596DC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC29D41FE46F63001596DC /* ProfileViewController.swift */; };
 		27BC29D81FE470B3001596DC /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC29D71FE470B3001596DC /* RoundedButton.swift */; };
+		27C989B52009C58F00F41E07 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C989B42009C58F00F41E07 /* LoadingViewController.swift */; };
+		27C989B72009C66500F41E07 /* SpinnyTopLoading.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 27C989B62009C64200F41E07 /* SpinnyTopLoading.m4v */; };
 		27E48FB71FAD147500EC6C90 /* LeaderboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */; };
 		27E79CE51FE8BE5E000AC36C /* UIViewController+LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E79CE41FE8BE5E000AC36C /* UIViewController+LoadingScreen.swift */; };
 		27E79CE71FE8C1AE000AC36C /* UIViewController+hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E79CE61FE8C1AE000AC36C /* UIViewController+hideKeyboard.swift */; };
@@ -106,6 +107,8 @@
 		27BB189A1FDFACAD00604BD6 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		27BC29D41FE46F63001596DC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = /Users/Kyle/Documents/Kyle/SpinnyTop/Mobile/iOS/SpinnyTop/SpinnyTop/ViewControllers/ProfileViewController.swift; sourceTree = "<absolute>"; };
 		27BC29D71FE470B3001596DC /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		27C989B42009C58F00F41E07 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		27C989B62009C64200F41E07 /* SpinnyTopLoading.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpinnyTopLoading.m4v; sourceTree = "<group>"; };
 		27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewController.swift; sourceTree = "<group>"; };
 		27E79CE41FE8BE5E000AC36C /* UIViewController+LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+LoadingScreen.swift"; sourceTree = "<group>"; };
 		27E79CE61FE8C1AE000AC36C /* UIViewController+hideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+hideKeyboard.swift"; sourceTree = "<group>"; };
@@ -173,10 +176,10 @@
 				27BC29D41FE46F63001596DC /* ProfileViewController.swift */,
 				27B6A8331F4C184D0052E65D /* UpdateProfileViewController.swift */,
 				273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */,
+				27C989B42009C58F00F41E07 /* LoadingViewController.swift */,
 				27B6A8351F4D40350052E65D /* RegisterViewController.swift */,
 				27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */,
 				27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */,
-				27572E572008356D00FDE97E /* LoadingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -291,8 +294,8 @@
 		27FEE47F1F9AAB6400C3C596 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				27572E562008353800FDE97E /* SpinnyTopLoading.m4v */,
 				278E37DD1FE3124C00D8A13F /* Icon-logo.png */,
+				27C989B62009C64200F41E07 /* SpinnyTopLoading.m4v */,
 				278E37DB1FE30FD000D8A13F /* gear.png */,
 				27FEE47D1F9AAB5500C3C596 /* error.png */,
 			);
@@ -431,6 +434,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27C989B72009C66500F41E07 /* SpinnyTopLoading.m4v in Resources */,
 				27572E552006F34B00FDE97E /* Images.xcassets in Resources */,
 				27572E532006F2FB00FDE97E /* AppIcon.appiconset in Resources */,
 				273F68DB1F4A9CD300D6DD49 /* GoogleService-Info.plist in Resources */,
@@ -653,7 +657,7 @@
 				27BC29D51FE46F63001596DC /* ProfileViewController.swift in Sources */,
 				27E48FB71FAD147500EC6C90 /* LeaderboardTableViewController.swift in Sources */,
 				27BC29D81FE470B3001596DC /* RoundedButton.swift in Sources */,
-				27572E582008356D00FDE97E /* LoadingViewController.swift in Sources */,
+				27572E582008356D00FDE97E /* (null) in Sources */,
 				2773B2B91FBA63AA00754429 /* APIController.swift in Sources */,
 				27953C8C1F46A95800938C8E /* SpinnyTop.xcdatamodeld in Sources */,
 				2789DA4F1FB03C860078351E /* Score.swift in Sources */,
@@ -669,6 +673,7 @@
 				27B6A8441F4FB98F0052E65D /* Constants.swift in Sources */,
 				27BB189B1FDFACAD00604BD6 /* UIViewController+Alert.swift in Sources */,
 				27BB18991FDFAA5000604BD6 /* String+AlphaNumeric.swift in Sources */,
+				27C989B52009C58F00F41E07 /* LoadingViewController.swift in Sources */,
 				275C2A631FC3F30700201F86 /* UserSettings.swift in Sources */,
 				27FAACC41FCFA0B600B86B8E /* UIColor+Convenience.swift in Sources */,
 				278E37E01FE32C3600D8A13F /* UIImageViewRounded.swift in Sources */,

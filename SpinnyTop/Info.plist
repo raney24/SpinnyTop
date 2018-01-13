@@ -21,11 +21,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-<<<<<<< HEAD
-	<string>1.11</string>
-=======
 	<string>1.12</string>
->>>>>>> leaderboard
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
