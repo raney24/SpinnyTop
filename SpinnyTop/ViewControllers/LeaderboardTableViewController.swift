@@ -13,15 +13,38 @@ import SwiftyJSON
 
 class LeaderboardTableViewController: UITableViewController {
     
+<<<<<<< HEAD
     var scores = [Score]() // userId, topSpeed
     var sv: UIView!
+=======
+    
+    
+    var scores = [Score]()
+    var users = [User]()
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredScores = [User]()
+>>>>>>> leaderboard
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 120
         
         // show loading indicator
         self.sv = UIViewController.displaySpinner(onView: self.view)
         loadHighScoreData()
+        searchController.searchBar.scopeButtonTitles = ["Lifetime Spins", "RPS", "Duration", "Rotations"]
+        searchController.searchBar.showsScopeBar = true
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Usernames"
+        if #available(iOS 11.0, *) {
+            navigationItem.searchController = searchController
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        definesPresentationContext = true
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -44,22 +67,60 @@ class LeaderboardTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return scores.count
+        if isFiltering() {
+            return filteredScores.count
+        }
+        
+        return users.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "userCell"
+        let currentUser: User
+        if isFiltering() {
+            currentUser = filteredScores[indexPath.row]
+        } else {
+            currentUser = users[indexPath.row]
+        }
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! LeaderboardTableViewCell
+        
+        cell.usernameLabel.text = currentUser.username
+        cell.lifetimeRotationsLabel.text = String(format: "%d", currentUser.lifetime_rotations!)
+        cell.maxDurationLabel.text = String(format: "%.2f", currentUser.max_spin_duration!)
+        cell.maxSpinRPSLabel.text = String(format: "%.2f", currentUser.max_spin_rps!)
+        cell.maxRotationsLabel.text = String(format: "%d", currentUser.max_spin_rotations!)
+        
+        if (indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor.white
+        } else {
+            cell.backgroundColor = UIColor.init(hex: "F2F2F2")
+        }
+        
+        return cell
     }
     
     private func loadHighScoreData() {
         
-        Alamofire.request("https://spinny-top.herokuapp.com/api/spins/").responseJSON { response in
+        Alamofire.request("https://spinny-top.herokuapp.com/api/users/").responseJSON { response in
             
             if let jsonValue = response.result.value {
                 let json = JSON(jsonValue)
-                for (_,spin) in json {
-                    let speed = spin["speed"].doubleValue
-                    let username = spin["owner"].string
+                for (_,user) in json {
+                    let username = user["username"].stringValue
+                    let u = User(username: username, token: nil, email: nil)
+                    u.max_spin_rps = user["max_spin_rps"]["speed__max"].doubleValue
+                    u.max_spin_duration = user["max_spin_duration"]["duration__max"].doubleValue
+                    u.max_spin_rotations = user["max_spin_rotations"]["rotations__max"].intValue
+                    u.lifetime_rotations = user["lifetime_rotations"]["rotations__sum"].intValue
+                    
+                    self.users.append(u)
                     // Fix startTime
-                    let score = Score(username: username!, startTime: Date(), maxSpeed: speed)
-                    self.scores.append(score)
+//                    let score = Score(username: username!, startTime: Date(), maxSpeed: speed)
+//                    self.scores.append(score)
                 }
+                self.orderUsers()
                 self.tableView.reloadData()
                 UIViewController.removeSpinner(spinner: self.sv)
 
@@ -67,37 +128,36 @@ class LeaderboardTableViewController: UITableViewController {
                 print("no JSON object")
             }
         }
-        
-//        _BASE_REF.child("/spin").queryOrdered(byChild: "/top_speed").observeSingleEvent(of: .value, with: { (snapshot) in
-//            for child in snapshot.children {
-//                if let scoreDict = (child as! DataSnapshot).value as? [String: AnyObject] {
-//                    let uid = scoreDict["user_id"] as? String
-//                    let topspd = (scoreDict["top_speed"] as? NSNumber)?.doubleValue
-////                    self.scoresDict[userId!] = topSpeed
-//                    let score = Score(userId: uid!, topSpeed: topspd!)
-//                    self.scores.append(score)
-//
-//                    score.fetchUsername() {
-//                        (username: String) in
-//                        DispatchQueue.main.async {
-//                            self.tableView.reloadData()
-//                        }
-//                    }
-//                }
-//            }
-//            self.tableView.reloadData()
-//        })
+    }
+    
+    func orderUsers() {
+        users.sort {
+            return $0.lifetime_rotations! > $1.lifetime_rotations!
+        }
+//        self.tableView.reloadData()
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        filteredScores = users.filter({( user : User ) -> Bool in
+            let order = (scope == "Lifetime Spins")
+            
+            if searchBarIsEmpty() {
+                return order
+            } else {
+                return order && user.username.lowercased().contains(searchText.lowercased())
+            }
+            
+        })
+        tableView.reloadData()
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "scoreCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        
-        let currentScore = scores[indexPath.row]
-        cell.textLabel?.text = currentScore.username
-        cell.detailTextLabel?.text = String(currentScore.maxSpeed)
-
-        return cell
+    func isFiltering() -> Bool {
+        let searchBarIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
+        return searchController.isActive && (!searchBarIsEmpty() || searchBarIsFiltering)
     }
 
     /*
@@ -145,4 +205,19 @@ class LeaderboardTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension LeaderboardTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
+        filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+        
+    }
+}
+
+extension LeaderboardTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
+    }
 }

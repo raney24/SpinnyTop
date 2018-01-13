@@ -11,8 +11,6 @@
 		273F68DF1F4A9EC900D6DD49 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */; };
 		27572E532006F2FB00FDE97E /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 27572E522006F2FB00FDE97E /* AppIcon.appiconset */; };
 		27572E552006F34B00FDE97E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27572E542006F34B00FDE97E /* Images.xcassets */; };
-		27572E582008356D00FDE97E /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27572E572008356D00FDE97E /* LoadingViewController.swift */; };
-		27572E5920088C3400FDE97E /* SpinnyTopLoading.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 27572E562008353800FDE97E /* SpinnyTopLoading.m4v */; };
 		275C2A631FC3F30700201F86 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275C2A621FC3F30700201F86 /* UserSettings.swift */; };
 		2773B2B91FBA63AA00754429 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2B81FBA63AA00754429 /* APIController.swift */; };
 		2773B2BD1FBAC86F00754429 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2BC1FBAC86F00754429 /* User.swift */; };
@@ -176,7 +174,6 @@
 				27B6A8351F4D40350052E65D /* RegisterViewController.swift */,
 				27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */,
 				27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */,
-				27572E572008356D00FDE97E /* LoadingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -291,7 +288,6 @@
 		27FEE47F1F9AAB6400C3C596 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				27572E562008353800FDE97E /* SpinnyTopLoading.m4v */,
 				278E37DD1FE3124C00D8A13F /* Icon-logo.png */,
 				278E37DB1FE30FD000D8A13F /* gear.png */,
 				27FEE47D1F9AAB5500C3C596 /* error.png */,
@@ -653,7 +649,6 @@
 				27BC29D51FE46F63001596DC /* ProfileViewController.swift in Sources */,
 				27E48FB71FAD147500EC6C90 /* LeaderboardTableViewController.swift in Sources */,
 				27BC29D81FE470B3001596DC /* RoundedButton.swift in Sources */,
-				27572E582008356D00FDE97E /* LoadingViewController.swift in Sources */,
 				2773B2B91FBA63AA00754429 /* APIController.swift in Sources */,
 				27953C8C1F46A95800938C8E /* SpinnyTop.xcdatamodeld in Sources */,
 				2789DA4F1FB03C860078351E /* Score.swift in Sources */,
