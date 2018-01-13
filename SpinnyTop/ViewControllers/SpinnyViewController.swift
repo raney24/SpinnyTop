@@ -278,7 +278,7 @@ class SpinnyViewController: UIViewController {
     // This function is called to initialize our circle, it is only called once
     func drawCircle() {
 //        circleLayer.fillColor = UIColor.blue.cgColor
-        circleLayer.fillColor = UIColor.init(hex: "25AADC").cgColor
+        circleLayer.fillColor = BLUE_COLOR.cgColor
         let centerX = shapeView.bounds.width / 2
         let centerY = shapeView.bounds.height / 2
         let circleRadius = 55

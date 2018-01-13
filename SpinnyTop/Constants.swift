@@ -17,7 +17,7 @@ let UPDATE_INTERVAL = 0.01
 let G_FORCE_MIN = 0.5
 let DURATION_MIN = 5
 let PHONE_RADIUS = 0.0335 // meters
-let BLUE_COLOR = UIColor.init(hex: "25AADC")
-let PINK_COLOR = UIColor.init(hex: "F073A6")
+let BLUE_COLOR = UIColor.init(hex: "00AEEF")
+let PINK_COLOR = UIColor.init(hex: "EC008C")
 //let PHONE_RADIUS = 7.9
 

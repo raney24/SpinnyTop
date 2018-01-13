@@ -22,7 +22,7 @@ class LeaderboardTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 110
+        tableView.rowHeight = 120
         
         loadHighScoreData()
         searchController.searchBar.scopeButtonTitles = ["Lifetime Spins", "RPS", "Duration", "Rotations"]
@@ -84,6 +84,12 @@ class LeaderboardTableViewController: UITableViewController {
         cell.maxDurationLabel.text = String(format: "%.2f", currentUser.max_spin_duration!)
         cell.maxSpinRPSLabel.text = String(format: "%.2f", currentUser.max_spin_rps!)
         cell.maxRotationsLabel.text = String(format: "%d", currentUser.max_spin_rotations!)
+        
+        if (indexPath.row % 2 == 0) {
+            cell.backgroundColor = UIColor.white
+        } else {
+            cell.backgroundColor = UIColor.init(hex: "F2F2F2")
+        }
         
         return cell
     }
