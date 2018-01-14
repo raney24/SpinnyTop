@@ -93,6 +93,27 @@ class LeaderboardTableViewController: UITableViewController {
             cell.backgroundColor = UIColor.init(hex: "F2F2F2")
         }
         
+        let leftBorder: CGFloat = 10
+        let rightBorder: CGFloat = cell.bounds.width - 10
+        let topBorder: CGFloat = 55
+        let bottomBorder: CGFloat = cell.bounds.height - 20
+        
+        let horizLine = UIView(frame: CGRect(x: leftBorder,
+                                             y: cell.bounds.height / (1.6),
+                                             width: rightBorder - leftBorder,
+                                             height: 1.5)
+        )
+        horizLine.backgroundColor = UIColor.init(hex: "B2B2B2")
+        cell.addSubview(horizLine)
+        
+        let vertLine = UIView(frame: CGRect(x: cell.bounds.width / 2.05,
+                                            y: topBorder,
+                                            width: 1.5,
+                                            height: bottomBorder - topBorder)
+        )
+        vertLine.backgroundColor = UIColor.init(hex: "B2B2B2")
+        cell.addSubview(vertLine)
+        
         return cell
     }
     
@@ -152,6 +173,26 @@ class LeaderboardTableViewController: UITableViewController {
     func isFiltering() -> Bool {
         let searchBarIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
         return searchController.isActive && (!searchBarIsEmpty() || searchBarIsFiltering)
+    }
+    
+    func drawGridForCell(view: UIView) {
+        let horizLine = UIBezierPath()
+        let vertLine = UIBezierPath()
+        
+        horizLine.move(to: CGPoint(x: view.bounds.width / 6, y: view.bounds.height / 2))
+        horizLine.addLine(to: CGPoint(x: ( ( view.bounds.width / 6 ) * 5), y: view.bounds.height / 2))
+        horizLine.close()
+        UIColor.init(hex: "F2F2F2").set()
+        horizLine.stroke()
+        horizLine.fill()
+        
+        vertLine.move(to: CGPoint(x: view.bounds.width / 2, y: view.bounds.height / 6))
+        vertLine.addLine(to: CGPoint(x: view.bounds.width / 2, y: ( ( view.bounds.height / 6 ) * 5 ) ) )
+        vertLine.close()
+        horizLine.stroke()
+        horizLine.fill()
+        
+        
     }
 
     /*
