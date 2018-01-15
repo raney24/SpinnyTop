@@ -482,9 +482,9 @@
                                 <action selector="logoutButtonAction:" destination="kAP-1c-8Lr" id="kmg-jX-XIs"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Profile" id="2mn-ey-z4X">
+                        <barButtonItem key="rightBarButtonItem" title="Profile" style="plain" id="Lor-dL-owt">
                             <connections>
-                                <segue destination="zjT-rM-2f3" kind="show" id="8zA-ps-IWH"/>
+                                <segue destination="zjT-rM-2f3" kind="show" id="57b-eB-TZO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -499,11 +499,12 @@
                         <outlet property="recordRotationsLabel" destination="Pch-nb-Tz1" id="Oxi-ho-P5t"/>
                         <outlet property="scoreLabelView" destination="h6y-N9-ZZq" id="45u-HU-5Xl"/>
                         <outlet property="shapeView" destination="0P6-9U-in2" id="1FU-d7-Mud"/>
+                        <outlet property="showProfileButtonOutlet" destination="Lor-dL-owt" id="q8H-mu-cFc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qot-rw-iOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1685.5999999999999" y="305.39730134932535"/>
+            <point key="canvasLocation" x="1686" y="306"/>
         </scene>
         <!--Profile-->
         <scene sceneID="SiH-i0-AbX">

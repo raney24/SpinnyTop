@@ -31,6 +31,8 @@ class SpinnyViewController: UIViewController {
     @IBOutlet weak var lastSpinRPSLabel: UILabel!
     @IBOutlet weak var recordRPSLabel: UILabel!
     
+    @IBOutlet weak var showProfileButtonOutlet: UIBarButtonItem!
+    
     var circlePath = UIBezierPath()
     var circleLayer = CAShapeLayer()
     var currentCirclePath: UIBezierPath!
@@ -52,6 +54,7 @@ class SpinnyViewController: UIViewController {
         shapeView.alpha = 0
         self.drawCircle()
 //        self.drawBorderLines()
+        
         
         self.user = AppManager.sharedInstance.user
         if self.user != nil  {
@@ -100,6 +103,18 @@ class SpinnyViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintAdjustmentMode = .normal
+        self.navigationController?.navigationBar.tintAdjustmentMode = .automatic
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showProfileButtonOutlet.isEnabled = false
+        showProfileButtonOutlet.isEnabled = true
     }
     
     func startUpdates() {
