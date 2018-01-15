@@ -40,6 +40,8 @@
 		27BC29D81FE470B3001596DC /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC29D71FE470B3001596DC /* RoundedButton.swift */; };
 		27C989B52009C58F00F41E07 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C989B42009C58F00F41E07 /* LoadingViewController.swift */; };
 		27C989B72009C66500F41E07 /* SpinnyTopLoading.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 27C989B62009C64200F41E07 /* SpinnyTopLoading.m4v */; };
+		27C989B9200C0FE400F41E07 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C989B8200C0FE400F41E07 /* UpdatePasswordViewController.swift */; };
+		27C989BB200C52F600F41E07 /* String+ValidForms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C989BA200C52F600F41E07 /* String+ValidForms.swift */; };
 		27E48FB71FAD147500EC6C90 /* LeaderboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */; };
 		27E79CE51FE8BE5E000AC36C /* UIViewController+LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E79CE41FE8BE5E000AC36C /* UIViewController+LoadingScreen.swift */; };
 		27E79CE71FE8C1AE000AC36C /* UIViewController+hideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E79CE61FE8C1AE000AC36C /* UIViewController+hideKeyboard.swift */; };
@@ -109,6 +111,8 @@
 		27BC29D71FE470B3001596DC /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		27C989B42009C58F00F41E07 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		27C989B62009C64200F41E07 /* SpinnyTopLoading.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpinnyTopLoading.m4v; sourceTree = "<group>"; };
+		27C989B8200C0FE400F41E07 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
+		27C989BA200C52F600F41E07 /* String+ValidForms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ValidForms.swift"; sourceTree = "<group>"; };
 		27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewController.swift; sourceTree = "<group>"; };
 		27E79CE41FE8BE5E000AC36C /* UIViewController+LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+LoadingScreen.swift"; sourceTree = "<group>"; };
 		27E79CE61FE8C1AE000AC36C /* UIViewController+hideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+hideKeyboard.swift"; sourceTree = "<group>"; };
@@ -174,12 +178,13 @@
 			children = (
 				27B6A8311F4BE59A0052E65D /* SpinnyViewController.swift */,
 				27BC29D41FE46F63001596DC /* ProfileViewController.swift */,
-				27B6A8331F4C184D0052E65D /* UpdateProfileViewController.swift */,
 				273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */,
 				27C989B42009C58F00F41E07 /* LoadingViewController.swift */,
 				27B6A8351F4D40350052E65D /* RegisterViewController.swift */,
 				27E48FB61FAD147500EC6C90 /* LeaderboardTableViewController.swift */,
 				27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */,
+				27B6A8331F4C184D0052E65D /* UpdateProfileViewController.swift */,
+				27C989B8200C0FE400F41E07 /* UpdatePasswordViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				27E79CE41FE8BE5E000AC36C /* UIViewController+LoadingScreen.swift */,
 				27E79CE61FE8C1AE000AC36C /* UIViewController+hideKeyboard.swift */,
 				27E79CE81FE8D23E000AC36C /* UITextField+Next.swift */,
+				27C989BA200C52F600F41E07 /* String+ValidForms.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -665,9 +671,11 @@
 				27FAACC21FCE807F00B86B8E /* Array+Average.swift in Sources */,
 				27B6A8421F4E7E970052E65D /* ResetPasswordViewController.swift in Sources */,
 				273F68DF1F4A9EC900D6DD49 /* LoginViewController.swift in Sources */,
+				27C989BB200C52F600F41E07 /* String+ValidForms.swift in Sources */,
 				2773B2BD1FBAC86F00754429 /* User.swift in Sources */,
 				27B6A8321F4BE59A0052E65D /* SpinnyViewController.swift in Sources */,
 				277952E92005F16F00A3AF93 /* LeaderboardTableViewCell.swift in Sources */,
+				27C989B9200C0FE400F41E07 /* UpdatePasswordViewController.swift in Sources */,
 				27B6A8341F4C184D0052E65D /* UpdateProfileViewController.swift in Sources */,
 				27953C841F46A95800938C8E /* AppDelegate.swift in Sources */,
 				27B6A8441F4FB98F0052E65D /* Constants.swift in Sources */,
