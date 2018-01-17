@@ -766,10 +766,14 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="lifeTimeRotationsTitle" destination="Zsp-ys-Kkd" id="ziU-hM-zLR"/>
                                     <outlet property="lifetimeRotationsLabel" destination="fdp-mC-C4Z" id="Vu4-c5-U2O"/>
                                     <outlet property="maxDurationLabel" destination="tJ2-wp-M0S" id="2sd-OY-cz7"/>
+                                    <outlet property="maxDurationTitle" destination="g1Y-s8-zUB" id="VrW-rX-uu6"/>
                                     <outlet property="maxRotationsLabel" destination="NhD-35-arc" id="l9R-u5-6H7"/>
+                                    <outlet property="maxRotationsTitle" destination="QrF-wV-5mQ" id="bph-gj-wMI"/>
                                     <outlet property="maxSpinRPSLabel" destination="14U-0l-FfP" id="oyq-lL-QiN"/>
+                                    <outlet property="maxSpinRPSTitle" destination="JVK-Kc-Ovv" id="lfW-Tk-kFo"/>
                                     <outlet property="usernameLabel" destination="Vzc-uW-Po0" id="XfV-eZ-GX9"/>
                                 </connections>
                             </tableViewCell>

@@ -18,7 +18,7 @@ class LeaderboardTableViewController: UITableViewController {
     var scores = [Score]()
     var users = [User]()
     let searchController = UISearchController(searchResultsController: nil)
-    var filteredScores = [User]()
+    var filteredUsers = [User]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +27,15 @@ class LeaderboardTableViewController: UITableViewController {
         // show loading indicator
         self.sv = UIViewController.displaySpinner(onView: self.view)
         loadHighScoreData()
-        searchController.searchBar.scopeButtonTitles = ["Lifetime Spins", "RPS", "Duration", "Rotations"]
+        
+        searchController.searchBar.scopeButtonTitles = ["Lifetime", "RPS", "Duration", "Rotations"]
         searchController.searchBar.showsScopeBar = true
         searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Usernames"
+        searchController.hidesNavigationBarDuringPresentation = false
+        
         if #available(iOS 11.0, *) {
             navigationItem.searchController = searchController
         } else {
@@ -46,6 +49,11 @@ class LeaderboardTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.searchController.isActive = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,7 +71,7 @@ class LeaderboardTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if isFiltering() {
-            return filteredScores.count
+            return filteredUsers.count
         }
         
         return users.count
@@ -73,11 +81,11 @@ class LeaderboardTableViewController: UITableViewController {
         let cellIdentifier = "userCell"
         let currentUser: User
         if isFiltering() {
-            currentUser = filteredScores[indexPath.row]
+            currentUser = filteredUsers[indexPath.row]
         } else {
             currentUser = users[indexPath.row]
         }
-        
+        print()
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! LeaderboardTableViewCell
         
@@ -91,6 +99,32 @@ class LeaderboardTableViewController: UITableViewController {
             cell.backgroundColor = UIColor.white
         } else {
             cell.backgroundColor = UIColor.init(hex: "F2F2F2")
+        }
+        
+        cell.lifeTimeRotationsTitle.font = UIFont.systemFont(ofSize: 14)
+        cell.lifetimeRotationsLabel.font = UIFont.systemFont(ofSize: 14)
+        
+        cell.maxSpinRPSTitle.font = UIFont.systemFont(ofSize: 14)
+        cell.maxSpinRPSLabel.font = UIFont.systemFont(ofSize: 14)
+        
+        cell.maxDurationTitle.font = UIFont.systemFont(ofSize: 14)
+        cell.maxDurationLabel.font = UIFont.systemFont(ofSize: 14)
+        
+        cell.maxRotationsTitle.font = UIFont.systemFont(ofSize: 14)
+        cell.maxRotationsLabel.font = UIFont.systemFont(ofSize: 14)
+        
+        if searchController.searchBar.selectedScopeButtonIndex == 0 {
+            cell.lifeTimeRotationsTitle.font = UIFont.boldSystemFont(ofSize: 14)
+            cell.lifetimeRotationsLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        } else if searchController.searchBar.selectedScopeButtonIndex == 1 {
+            cell.maxSpinRPSTitle.font = UIFont.boldSystemFont(ofSize: 14)
+            cell.maxSpinRPSLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        } else if searchController.searchBar.selectedScopeButtonIndex == 2 {
+            cell.maxDurationTitle.font = UIFont.boldSystemFont(ofSize: 14)
+            cell.maxDurationLabel.font = UIFont.boldSystemFont(ofSize: 14)
+        } else if searchController.searchBar.selectedScopeButtonIndex == 3 {
+            cell.maxRotationsTitle.font = UIFont.boldSystemFont(ofSize: 14)
+            cell.maxRotationsLabel.font = UIFont.boldSystemFont(ofSize: 14)
         }
         
         let leftBorder: CGFloat = 10
@@ -136,7 +170,7 @@ class LeaderboardTableViewController: UITableViewController {
 //                    let score = Score(username: username!, startTime: Date(), maxSpeed: speed)
 //                    self.scores.append(score)
                 }
-                self.orderUsers()
+                self.orderUsers(orderBy: "Lifetime")
                 self.tableView.reloadData()
                 UIViewController.removeSpinner(spinner: self.sv)
             } else {
@@ -145,11 +179,24 @@ class LeaderboardTableViewController: UITableViewController {
         }
     }
     
-    func orderUsers() {
-        users.sort {
-            return $0.lifetime_rotations! > $1.lifetime_rotations!
+    func orderUsers(orderBy: String) {
+        if orderBy == "Lifetime" {
+            users.sort {
+                return $0.lifetime_rotations! > $1.lifetime_rotations!
+            }
+        } else if orderBy == "RPS" {
+            users.sort {
+                return $0.max_spin_rps! > $1.max_spin_rps!
+            }
+        } else if orderBy == "Duration" {
+            users.sort {
+                return $0.max_spin_duration! > $1.max_spin_duration!
+            }
+        } else if orderBy == "Rotations" {
+            users.sort {
+                return $0.max_spin_rotations! > $1.max_spin_rotations!
+            }
         }
-//        self.tableView.reloadData()
     }
     
     func searchBarIsEmpty() -> Bool {
@@ -157,44 +204,19 @@ class LeaderboardTableViewController: UITableViewController {
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String = "All") {
-        filteredScores = users.filter({( user : User ) -> Bool in
-            let order = (scope == "Lifetime Spins")
-            
-            if searchBarIsEmpty() {
-                return order
-            } else {
-                return order && user.username.lowercased().contains(searchText.lowercased())
-            }
+        filteredUsers = users.filter({( user : User ) -> Bool in
+            orderUsers(orderBy: scope)
+//            self.tableView.reloadData()
+            return user.username.lowercased().contains(searchText.lowercased())
             
         })
         tableView.reloadData()
     }
 
     func isFiltering() -> Bool {
-        let searchBarIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
-        return searchController.isActive && (!searchBarIsEmpty() || searchBarIsFiltering)
+        return searchController.isActive && (!searchBarIsEmpty())
     }
     
-    func drawGridForCell(view: UIView) {
-        let horizLine = UIBezierPath()
-        let vertLine = UIBezierPath()
-        
-        horizLine.move(to: CGPoint(x: view.bounds.width / 6, y: view.bounds.height / 2))
-        horizLine.addLine(to: CGPoint(x: ( ( view.bounds.width / 6 ) * 5), y: view.bounds.height / 2))
-        horizLine.close()
-        UIColor.init(hex: "F2F2F2").set()
-        horizLine.stroke()
-        horizLine.fill()
-        
-        vertLine.move(to: CGPoint(x: view.bounds.width / 2, y: view.bounds.height / 6))
-        vertLine.addLine(to: CGPoint(x: view.bounds.width / 2, y: ( ( view.bounds.height / 6 ) * 5 ) ) )
-        vertLine.close()
-        horizLine.stroke()
-        horizLine.fill()
-        
-        
-    }
-
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

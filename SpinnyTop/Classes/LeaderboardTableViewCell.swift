@@ -15,6 +15,12 @@ class LeaderboardTableViewCell: UITableViewCell {
     @IBOutlet weak var maxDurationLabel: UILabel!
     @IBOutlet weak var maxRotationsLabel: UILabel!
     
+    @IBOutlet weak var lifeTimeRotationsTitle: UILabel!
+    @IBOutlet weak var maxSpinRPSTitle: UILabel!
+    @IBOutlet weak var maxDurationTitle: UILabel!
+    @IBOutlet weak var maxRotationsTitle: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
