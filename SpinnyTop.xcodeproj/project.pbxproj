@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27269C34202A64F10057A587 /* UIDevice+ModelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27269C33202A64F10057A587 /* UIDevice+ModelName.swift */; };
 		273F68DB1F4A9CD300D6DD49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 273F68DA1F4A9CD300D6DD49 /* GoogleService-Info.plist */; };
 		273F68DF1F4A9EC900D6DD49 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */; };
 		27572E532006F2FB00FDE97E /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 27572E522006F2FB00FDE97E /* AppIcon.appiconset */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27269C33202A64F10057A587 /* UIDevice+ModelName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ModelName.swift"; sourceTree = "<group>"; };
 		273F68DA1F4A9CD300D6DD49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		27572E522006F2FB00FDE97E /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				27E79CE61FE8C1AE000AC36C /* UIViewController+hideKeyboard.swift */,
 				27E79CE81FE8D23E000AC36C /* UITextField+Next.swift */,
 				27C989BA200C52F600F41E07 /* String+ValidForms.swift */,
+				27269C33202A64F10057A587 /* UIDevice+ModelName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -684,6 +687,7 @@
 				27C989B52009C58F00F41E07 /* LoadingViewController.swift in Sources */,
 				275C2A631FC3F30700201F86 /* UserSettings.swift in Sources */,
 				27FAACC41FCFA0B600B86B8E /* UIColor+Convenience.swift in Sources */,
+				27269C34202A64F10057A587 /* UIDevice+ModelName.swift in Sources */,
 				278E37E01FE32C3600D8A13F /* UIImageViewRounded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

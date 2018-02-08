@@ -19,6 +19,7 @@ class LeaderboardTableViewController: UITableViewController {
     var users = [User]()
     let searchController = UISearchController(searchResultsController: nil)
     var filteredUsers = [User]()
+    let sizeGroup = UIDevice.current.sizeGroup
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +86,6 @@ class LeaderboardTableViewController: UITableViewController {
         } else {
             currentUser = users[indexPath.row]
         }
-        print()
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! LeaderboardTableViewCell
         
@@ -101,36 +101,45 @@ class LeaderboardTableViewController: UITableViewController {
             cell.backgroundColor = UIColor.init(hex: "F2F2F2")
         }
         
-        cell.lifeTimeRotationsTitle.font = UIFont.systemFont(ofSize: 14)
-        cell.lifetimeRotationsLabel.font = UIFont.systemFont(ofSize: 14)
+        var textSize: CGFloat
+        if (sizeGroup == "small") {
+            textSize = 12.0
+        } else if (sizeGroup == "plus") {
+            textSize = 15.0
+        } else {
+            textSize = 14.0
+        }
         
-        cell.maxSpinRPSTitle.font = UIFont.systemFont(ofSize: 14)
-        cell.maxSpinRPSLabel.font = UIFont.systemFont(ofSize: 14)
+        cell.lifeTimeRotationsTitle.font = UIFont.systemFont(ofSize: textSize)
+        cell.lifetimeRotationsLabel.font = UIFont.systemFont(ofSize: textSize)
         
-        cell.maxDurationTitle.font = UIFont.systemFont(ofSize: 14)
-        cell.maxDurationLabel.font = UIFont.systemFont(ofSize: 14)
+        cell.maxSpinRPSTitle.font = UIFont.systemFont(ofSize: textSize)
+        cell.maxSpinRPSLabel.font = UIFont.systemFont(ofSize: textSize)
         
-        cell.maxRotationsTitle.font = UIFont.systemFont(ofSize: 14)
-        cell.maxRotationsLabel.font = UIFont.systemFont(ofSize: 14)
+        cell.maxDurationTitle.font = UIFont.systemFont(ofSize: textSize)
+        cell.maxDurationLabel.font = UIFont.systemFont(ofSize: textSize)
+        
+        cell.maxRotationsTitle.font = UIFont.systemFont(ofSize: textSize)
+        cell.maxRotationsLabel.font = UIFont.systemFont(ofSize: textSize)
         
         if searchController.searchBar.selectedScopeButtonIndex == 0 {
-            cell.lifeTimeRotationsTitle.font = UIFont.boldSystemFont(ofSize: 14)
-            cell.lifetimeRotationsLabel.font = UIFont.boldSystemFont(ofSize: 14)
+            cell.lifeTimeRotationsTitle.font = UIFont.boldSystemFont(ofSize: textSize)
+            cell.lifetimeRotationsLabel.font = UIFont.boldSystemFont(ofSize: textSize)
         } else if searchController.searchBar.selectedScopeButtonIndex == 1 {
-            cell.maxSpinRPSTitle.font = UIFont.boldSystemFont(ofSize: 14)
-            cell.maxSpinRPSLabel.font = UIFont.boldSystemFont(ofSize: 14)
+            cell.maxSpinRPSTitle.font = UIFont.boldSystemFont(ofSize: textSize)
+            cell.maxSpinRPSLabel.font = UIFont.boldSystemFont(ofSize: textSize)
         } else if searchController.searchBar.selectedScopeButtonIndex == 2 {
-            cell.maxDurationTitle.font = UIFont.boldSystemFont(ofSize: 14)
-            cell.maxDurationLabel.font = UIFont.boldSystemFont(ofSize: 14)
+            cell.maxDurationTitle.font = UIFont.boldSystemFont(ofSize: textSize)
+            cell.maxDurationLabel.font = UIFont.boldSystemFont(ofSize: textSize)
         } else if searchController.searchBar.selectedScopeButtonIndex == 3 {
-            cell.maxRotationsTitle.font = UIFont.boldSystemFont(ofSize: 14)
-            cell.maxRotationsLabel.font = UIFont.boldSystemFont(ofSize: 14)
+            cell.maxRotationsTitle.font = UIFont.boldSystemFont(ofSize: textSize)
+            cell.maxRotationsLabel.font = UIFont.boldSystemFont(ofSize: textSize)
         }
         
         let leftBorder: CGFloat = 10
         let rightBorder: CGFloat = cell.bounds.width - 10
-        let topBorder: CGFloat = 55
-        let bottomBorder: CGFloat = cell.bounds.height - 20
+        let topBorder: CGFloat = 52
+        let bottomBorder: CGFloat = cell.bounds.height - 18
         
         let horizLine = UIView(frame: CGRect(x: leftBorder,
                                              y: cell.bounds.height / (1.6),
@@ -140,7 +149,7 @@ class LeaderboardTableViewController: UITableViewController {
         horizLine.backgroundColor = UIColor.init(hex: "B2B2B2")
         cell.addSubview(horizLine)
         
-        let vertLine = UIView(frame: CGRect(x: cell.bounds.width / 2.05,
+        let vertLine = UIView(frame: CGRect(x: cell.bounds.width / 2,
                                             y: topBorder,
                                             width: 1.5,
                                             height: bottomBorder - topBorder)
@@ -159,13 +168,16 @@ class LeaderboardTableViewController: UITableViewController {
                 let json = JSON(jsonValue)
                 for (_,user) in json {
                     let username = user["username"].stringValue
-                    let u = User(username: username, token: nil, email: nil)
-                    u.max_spin_rps = user["max_spin_rps"]["speed__max"].doubleValue
-                    u.max_spin_duration = user["max_spin_duration"]["duration__max"].doubleValue
-                    u.max_spin_rotations = user["max_spin_rotations"]["rotations__max"].intValue
-                    u.lifetime_rotations = user["lifetime_rotations"]["rotations__sum"].intValue
+                    if (username != "admin" && username != "itunesuser" && username != "superuser") {
+                        let u = User(username: username, token: nil, email: nil)
+                        u.max_spin_rps = user["max_spin_rps"]["speed__max"].doubleValue
+                        u.max_spin_duration = user["max_spin_duration"]["duration__max"].doubleValue
+                        u.max_spin_rotations = user["max_spin_rotations"]["rotations__max"].intValue
+                        u.lifetime_rotations = user["lifetime_rotations"]["rotations__sum"].intValue
+                        
+                        self.users.append(u)
+                    }
                     
-                    self.users.append(u)
                     // Fix startTime
 //                    let score = Score(username: username!, startTime: Date(), maxSpeed: speed)
 //                    self.scores.append(score)

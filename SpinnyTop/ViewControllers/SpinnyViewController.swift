@@ -145,6 +145,7 @@ class SpinnyViewController: UIViewController {
             if (abs(acceleration.z) > 0.8) {
                 if ( (rps > G_FORCE_MIN && self.stopTimer < 15) ) {
                     // initialize spin
+                    self.currentRPSLabel.isHidden = true
                     if (self.spin == nil) {
                         
                         self.spin = Score(username: "admin", startTime: Date())
@@ -180,7 +181,7 @@ class SpinnyViewController: UIViewController {
                 } else { // Spin has finished (reached less than G_FORCE_MIN)
                     self.hideCircle()
                     self.stopTimer = 0
-                    
+                    self.currentRPSLabel.isHidden = false
     //                self.borderView.isHidden = false
                     UIView.transition(with: self.shapeView, duration: 1, animations: {
                         self.shapeView.alpha = 0
