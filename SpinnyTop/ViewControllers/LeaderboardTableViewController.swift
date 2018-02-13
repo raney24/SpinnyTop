@@ -100,7 +100,8 @@ class LeaderboardTableViewController: UITableViewController {
         } else {
             cell.backgroundColor = UIColor.init(hex: "F2F2F2")
         }
-        
+        print(sizeGroup)
+        print(UIDevice.current.modelName)
         var textSize: CGFloat
         if (sizeGroup == "small") {
             textSize = 12.0
@@ -136,26 +137,30 @@ class LeaderboardTableViewController: UITableViewController {
             cell.maxRotationsLabel.font = UIFont.boldSystemFont(ofSize: textSize)
         }
         
-        let leftBorder: CGFloat = 10
-        let rightBorder: CGFloat = cell.bounds.width - 10
-        let topBorder: CGFloat = 52
-        let bottomBorder: CGFloat = cell.bounds.height - 18
-        
-        let horizLine = UIView(frame: CGRect(x: leftBorder,
-                                             y: cell.bounds.height / (1.6),
-                                             width: rightBorder - leftBorder,
-                                             height: 1.5)
-        )
-        horizLine.backgroundColor = UIColor.init(hex: "B2B2B2")
-        cell.addSubview(horizLine)
-        
-        let vertLine = UIView(frame: CGRect(x: cell.bounds.width / 2,
-                                            y: topBorder,
-                                            width: 1.5,
-                                            height: bottomBorder - topBorder)
-        )
-        vertLine.backgroundColor = UIColor.init(hex: "B2B2B2")
-        cell.addSubview(vertLine)
+        if (sizeGroup != "small" && sizeGroup != "x86_64") {
+            let leftBorder: CGFloat = 10
+            let rightBorder: CGFloat = cell.bounds.width - 10
+            let topBorder: CGFloat = 52
+            let bottomBorder: CGFloat = cell.bounds.height - 18
+            
+            let horizLine = UIView(frame: CGRect(x: leftBorder,
+                                                 y: cell.bounds.height / (1.6),
+                                                 width: rightBorder - leftBorder,
+                                                 height: 1.5)
+            )
+            horizLine.backgroundColor = UIColor.init(hex: "B2B2B2")
+            cell.addSubview(horizLine)
+            
+            let vertLine = UIView(frame: CGRect(x: cell.bounds.width / 2,
+                                                y: topBorder,
+                                                width: 1.5,
+                                                height: bottomBorder - topBorder)
+            )
+            vertLine.backgroundColor = UIColor.init(hex: "B2B2B2")
+            cell.addSubview(vertLine)
+        } else if (sizeGroup == "small" || sizeGroup == "x86_64") {
+            cell.lifeTimeRotationsTitle.text = "Lifetime Spins"
+        }
         
         return cell
     }
