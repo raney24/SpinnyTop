@@ -19,7 +19,7 @@ class LeaderboardTableViewController: UITableViewController {
     var users = [User]()
     let searchController = UISearchController(searchResultsController: nil)
     var filteredUsers = [User]()
-    let sizeGroup = UIDevice.current.sizeGroup
+    let screenSizeGroup = UIScreen.main.screenSizeGroup
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,12 +100,13 @@ class LeaderboardTableViewController: UITableViewController {
         } else {
             cell.backgroundColor = UIColor.init(hex: "F2F2F2")
         }
-        print(sizeGroup)
-        print(UIDevice.current.modelName)
+//        print(sizeGroup)
+//        print(UIDevice.current.modelName)
+        print(UIScreen.main.screenSizeGroup)
         var textSize: CGFloat
-        if (sizeGroup == "small") {
+        if (screenSizeGroup == "small") {
             textSize = 12.0
-        } else if (sizeGroup == "plus") {
+        } else if (screenSizeGroup == "plus") {
             textSize = 15.0
         } else {
             textSize = 14.0
@@ -137,11 +138,11 @@ class LeaderboardTableViewController: UITableViewController {
             cell.maxRotationsLabel.font = UIFont.boldSystemFont(ofSize: textSize)
         }
         
-        if (sizeGroup != "small" && sizeGroup != "x86_64") {
-            let leftBorder: CGFloat = 10
-            let rightBorder: CGFloat = cell.bounds.width - 10
-            let topBorder: CGFloat = 52
-            let bottomBorder: CGFloat = cell.bounds.height - 18
+        if (screenSizeGroup == "normal" || screenSizeGroup != "plus") {
+            let leftBorder: CGFloat = 10.0
+            let rightBorder: CGFloat = cell.bounds.width - 10.0
+            let topBorder: CGFloat = 52.0
+            let bottomBorder: CGFloat = cell.bounds.height - 18.0
             
             let horizLine = UIView(frame: CGRect(x: leftBorder,
                                                  y: cell.bounds.height / (1.6),
@@ -158,7 +159,7 @@ class LeaderboardTableViewController: UITableViewController {
             )
             vertLine.backgroundColor = UIColor.init(hex: "B2B2B2")
             cell.addSubview(vertLine)
-        } else if (sizeGroup == "small" || sizeGroup == "x86_64") {
+        } else if (screenSizeGroup == "small") {
             cell.lifeTimeRotationsTitle.text = "Lifetime Spins"
         }
         
