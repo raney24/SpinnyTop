@@ -18,6 +18,8 @@
 		2773B2B91FBA63AA00754429 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2B81FBA63AA00754429 /* APIController.swift */; };
 		2773B2BD1FBAC86F00754429 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2BC1FBAC86F00754429 /* User.swift */; };
 		277952E92005F16F00A3AF93 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277952E82005F16F00A3AF93 /* LeaderboardTableViewCell.swift */; };
+		277D449D20814AA800A9668C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27953C921F46A95800938C8E /* Info.plist */; };
+		277D449E20814CDA00A9668C /* kaleidoscope.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 27B7833B20812E28002D6FC2 /* kaleidoscope.mp4 */; };
 		2789DA4F1FB03C860078351E /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789DA4E1FB03C860078351E /* Score.swift */; };
 		278E37DC1FE30FD100D8A13F /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 278E37DB1FE30FD000D8A13F /* gear.png */; };
 		278E37DE1FE3124C00D8A13F /* Icon-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 278E37DD1FE3124C00D8A13F /* Icon-logo.png */; };
@@ -36,6 +38,7 @@
 		27B6A83E1F4E57AD0052E65D /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A83D1F4E57AD0052E65D /* AppManager.swift */; };
 		27B6A8421F4E7E970052E65D /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */; };
 		27B6A8441F4FB98F0052E65D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B6A8431F4FB98F0052E65D /* Constants.swift */; };
+		27B7833E20812EC1002D6FC2 /* SpinnyVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B7833D20812EC1002D6FC2 /* SpinnyVideoViewController.swift */; };
 		27BB18991FDFAA5000604BD6 /* String+AlphaNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB18981FDFAA5000604BD6 /* String+AlphaNumeric.swift */; };
 		27BB189B1FDFACAD00604BD6 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB189A1FDFACAD00604BD6 /* UIViewController+Alert.swift */; };
 		27BC29D51FE46F63001596DC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BC29D41FE46F63001596DC /* ProfileViewController.swift */; };
@@ -109,6 +112,8 @@
 		27B6A83D1F4E57AD0052E65D /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		27B6A8431F4FB98F0052E65D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		27B7833B20812E28002D6FC2 /* kaleidoscope.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = kaleidoscope.mp4; sourceTree = "<group>"; };
+		27B7833D20812EC1002D6FC2 /* SpinnyVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnyVideoViewController.swift; sourceTree = "<group>"; };
 		27BB18981FDFAA5000604BD6 /* String+AlphaNumeric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AlphaNumeric.swift"; sourceTree = "<group>"; };
 		27BB189A1FDFACAD00604BD6 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		27BC29D41FE46F63001596DC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = /Users/Kyle/Documents/Kyle/SpinnyTop/Mobile/iOS/SpinnyTop/SpinnyTop/ViewControllers/ProfileViewController.swift; sourceTree = "<absolute>"; };
@@ -189,6 +194,7 @@
 				27B6A8411F4E7E970052E65D /* ResetPasswordViewController.swift */,
 				27B6A8331F4C184D0052E65D /* UpdateProfileViewController.swift */,
 				27C989B8200C0FE400F41E07 /* UpdatePasswordViewController.swift */,
+				27B7833D20812EC1002D6FC2 /* SpinnyVideoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -213,6 +219,7 @@
 		27953C771F46A95800938C8E = {
 			isa = PBXGroup;
 			children = (
+				27B7833B20812E28002D6FC2 /* kaleidoscope.mp4 */,
 				27A9368F1FBB9BBD00E56DB9 /* Bridging-Header copy.h */,
 				27953C821F46A95800938C8E /* SpinnyTop */,
 				27953C9A1F46A95800938C8E /* SpinnyTopTests */,
@@ -446,6 +453,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				277D449E20814CDA00A9668C /* kaleidoscope.mp4 in Resources */,
+				277D449D20814AA800A9668C /* Info.plist in Resources */,
 				27C989B72009C66500F41E07 /* SpinnyTopLoading.m4v in Resources */,
 				27572E552006F34B00FDE97E /* Images.xcassets in Resources */,
 				27572E532006F2FB00FDE97E /* AppIcon.appiconset in Resources */,
@@ -679,6 +688,7 @@
 				27B6A8421F4E7E970052E65D /* ResetPasswordViewController.swift in Sources */,
 				273F68DF1F4A9EC900D6DD49 /* LoginViewController.swift in Sources */,
 				27C989BB200C52F600F41E07 /* String+ValidForms.swift in Sources */,
+				27B7833E20812EC1002D6FC2 /* SpinnyVideoViewController.swift in Sources */,
 				2773B2BD1FBAC86F00754429 /* User.swift in Sources */,
 				27B6A8321F4BE59A0052E65D /* SpinnyViewController.swift in Sources */,
 				277952E92005F16F00A3AF93 /* LeaderboardTableViewCell.swift in Sources */,

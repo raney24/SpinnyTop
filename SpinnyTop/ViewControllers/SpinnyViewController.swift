@@ -35,8 +35,6 @@ class SpinnyViewController: UIViewController {
     
     var circlePath = UIBezierPath()
     var circleLayer = CAShapeLayer()
-    var currentCirclePath: UIBezierPath!
-    var nextCirclePath: UIBezierPath!
     
     var motionManager = CMMotionManager()
     var timer: Timer!

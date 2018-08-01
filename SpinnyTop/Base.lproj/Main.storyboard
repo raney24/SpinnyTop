@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Rq-4H-J8b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Rq-4H-J8b">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -456,6 +456,14 @@
                                     <constraint firstItem="Xsj-HS-Udf" firstAttribute="centerX" secondItem="h6y-N9-ZZq" secondAttribute="centerX" id="hh0-ke-iFg"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6a-Lb-XZP">
+                                <rect key="frame" x="282" y="153" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="NXU-7q-fVa" kind="show" id="PRj-8C-eDt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -664,6 +672,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5OA-CE-56j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2444" y="305"/>
+        </scene>
+        <!--Spinny Video View Controller-->
+        <scene sceneID="SGL-He-J54">
+            <objects>
+                <viewController id="NXU-7q-fVa" customClass="SpinnyVideoViewController" customModule="SpinnyTop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q7C-Fd-9Ek"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lcj-gG-UXs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xLo-HE-NSY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpw-dz-U0k">
+                                <rect key="frame" x="159" y="703" width="57" height="30"/>
+                                <state key="normal" title="Animate"/>
+                                <connections>
+                                    <action selector="playButtonPressed:" destination="NXU-7q-fVa" eventType="touchUpInside" id="bU6-ZM-xze"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLJ-OG-A21">
+                                <rect key="frame" x="164" y="118" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVe-Td-PVI">
+                                <rect key="frame" x="0.0" y="180.66666666666663" width="375" height="451"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="451" id="1Is-eT-FyD"/>
+                                    <constraint firstAttribute="width" constant="375" id="b47-K3-d4W"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hVe-Td-PVI" firstAttribute="centerX" secondItem="xLo-HE-NSY" secondAttribute="centerX" id="61z-QB-52m"/>
+                            <constraint firstItem="xpw-dz-U0k" firstAttribute="centerX" secondItem="xLo-HE-NSY" secondAttribute="centerX" id="W3z-mW-SsE"/>
+                            <constraint firstItem="hVe-Td-PVI" firstAttribute="centerY" secondItem="xLo-HE-NSY" secondAttribute="centerY" id="X3x-oh-3WS"/>
+                            <constraint firstItem="xpw-dz-U0k" firstAttribute="top" secondItem="hVe-Td-PVI" secondAttribute="bottom" constant="71.333333333333371" id="bVV-x1-qLS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="circleViewLayer" destination="hVe-Td-PVI" id="YJh-pv-B8g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vcu-Va-3bY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1685.5999999999999" y="1066.9950738916257"/>
         </scene>
         <!--Leaderbaord-->
         <scene sceneID="GZd-gQ-3zj">

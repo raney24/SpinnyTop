@@ -14,7 +14,6 @@ target 'SpinnyTop' do
   pod 'SwiftyJSON'
   pod 'Alamofire-SwiftyJSON'
   
-  
   # Pods for Firebase
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
