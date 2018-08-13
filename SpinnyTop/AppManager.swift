@@ -54,7 +54,7 @@ class AppManager {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let appDelegate: UIApplicationDelegate? = UIApplication.shared.delegate
         
-        let spinnyNavCon: UINavigationController = storyboard.instantiateViewController(withIdentifier: "SpinnyNavCon") as! UINavigationController
+        let spinnyNavCon: UITabBarController = storyboard.instantiateViewController(withIdentifier: "SpinnyNavCon") as! UITabBarController
         
         if let window = appDelegate?.window {
             window!.rootViewController = spinnyNavCon

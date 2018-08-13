@@ -12,7 +12,7 @@
 		273F68DF1F4A9EC900D6DD49 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273F68DE1F4A9EC900D6DD49 /* LoginViewController.swift */; };
 		27572E532006F2FB00FDE97E /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 27572E522006F2FB00FDE97E /* AppIcon.appiconset */; };
 		27572E552006F34B00FDE97E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27572E542006F34B00FDE97E /* Images.xcassets */; };
-		27572E582008356D00FDE97E /* (null) in Sources */ = {isa = PBXBuildFile; };
+		27572E582008356D00FDE97E /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		275BAE5E203794F600C84EB7 /* UIScreen+Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BAE5D203794F600C84EB7 /* UIScreen+Group.swift */; };
 		275C2A631FC3F30700201F86 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275C2A621FC3F30700201F86 /* UserSettings.swift */; };
 		2773B2B91FBA63AA00754429 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2B81FBA63AA00754429 /* APIController.swift */; };
@@ -678,7 +678,7 @@
 				27BC29D51FE46F63001596DC /* ProfileViewController.swift in Sources */,
 				27E48FB71FAD147500EC6C90 /* LeaderboardTableViewController.swift in Sources */,
 				27BC29D81FE470B3001596DC /* RoundedButton.swift in Sources */,
-				27572E582008356D00FDE97E /* (null) in Sources */,
+				27572E582008356D00FDE97E /* BuildFile in Sources */,
 				2773B2B91FBA63AA00754429 /* APIController.swift in Sources */,
 				27953C8C1F46A95800938C8E /* SpinnyTop.xcdatamodeld in Sources */,
 				275BAE5E203794F600C84EB7 /* UIScreen+Group.swift in Sources */,
