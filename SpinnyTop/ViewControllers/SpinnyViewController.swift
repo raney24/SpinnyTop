@@ -76,7 +76,7 @@ class SpinnyViewController: UIViewController {
                     self.lifetimeRotationsLabel.text = String(format: "%d", (self.user.lifetime_rotations) ?? 0)
                     
                     UIViewController.removeSpinner(spinner: sv)
-                    self.startUpdates()
+//                    self.startUpdates()
                 } else {
                     print("no spins logged")
                 }
@@ -105,14 +105,24 @@ class SpinnyViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.tintAdjustmentMode = .normal
-        self.navigationController?.navigationBar.tintAdjustmentMode = .automatic
+//        self.navigationController?.navigationBar.tintAdjustmentMode = .normal
+//        self.navigationController?.navigationBar.tintAdjustmentMode = .automatic
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         showProfileButtonOutlet.isEnabled = false
         showProfileButtonOutlet.isEnabled = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.startUpdates()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        motionManager.stopAccelerometerUpdates()
     }
     
     func startUpdates() {
@@ -133,7 +143,6 @@ class SpinnyViewController: UIViewController {
             
 //            let attitude = accelerometerData.attitude
             self.currentRPSLabel.text = "SPIN"
-            
             
             // add to timer to see if it is a true stop
             if (rps < G_FORCE_MIN) {

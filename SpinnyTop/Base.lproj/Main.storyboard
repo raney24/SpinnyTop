@@ -498,7 +498,7 @@
                             <constraint firstItem="YVZ-iR-7pA" firstAttribute="centerX" secondItem="aM8-Gw-7Ec" secondAttribute="centerX" id="zxw-GR-BcE"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Spin" id="vtC-IX-ygs"/>
+                    <tabBarItem key="tabBarItem" title="Spin" image="SpinIconGrey.png" selectedImage="SpinIconGrey.png" id="vtC-IX-ygs"/>
                     <navigationItem key="navigationItem" id="TQj-Lu-vqh">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="PWa-gW-LFA">
                             <connections>
@@ -661,7 +661,7 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EAD-dQ-u2h" secondAttribute="trailing" constant="20" symbolic="YES" id="z8L-Lu-J3B"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Records" id="ZhX-C2-ep6"/>
+                    <tabBarItem key="tabBarItem" title="Records" image="LeaderIconGrey.png" selectedImage="LeaderIconGrey.png" id="ZhX-C2-ep6"/>
                     <navigationItem key="navigationItem" title="Profile" id="UlC-a1-5qp">
                         <barButtonItem key="rightBarButtonItem" title="Update Profile" image="gear.png" id="bAx-ai-u1S">
                             <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-10" maxY="-10"/>
@@ -693,7 +693,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Animate" id="QQZ-hz-S5k"/>
+                    <tabBarItem key="tabBarItem" title="Animate" image="AnimateIconGrey.png" selectedImage="AnimateIconGrey.png" id="QQZ-hz-S5k"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vcu-Va-3bY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -962,7 +962,7 @@
                             <constraint firstItem="CpZ-t0-KSH" firstAttribute="centerX" secondItem="KeN-i5-BMN" secondAttribute="centerX" id="zlR-me-CjJ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="V1s-mY-0Br"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileIconGrey.png" selectedImage="ProfileIconGrey.png" id="V1s-mY-0Br"/>
                     <connections>
                         <outlet property="emailAddressTextField" destination="9Xp-Xw-qjc" id="HgT-5Z-GJ1"/>
                         <outlet property="errorButton" destination="f6y-Eq-oUT" id="6ih-Ma-hQd"/>
@@ -1207,7 +1207,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AnimateIconGrey.png" width="49" height="37"/>
         <image name="Icon-logo.png" width="228" height="228"/>
+        <image name="LeaderIconGrey.png" width="29" height="39"/>
+        <image name="ProfileIconGrey.png" width="24" height="30"/>
+        <image name="SpinIconGrey.png" width="40" height="39"/>
         <image name="error.png" width="512" height="512"/>
         <image name="gear.png" width="65" height="65"/>
     </resources>
