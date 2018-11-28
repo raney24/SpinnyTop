@@ -14,11 +14,6 @@ target 'SpinnyTop' do
   pod 'SwiftyJSON'
   pod 'Alamofire-SwiftyJSON'
   
-  # Pods for Firebase
-  pod 'Firebase/Core'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Database'
-  
   # Pods for Facebook SDK
   pod 'Bolts'
   pod 'FBSDKCoreKit'

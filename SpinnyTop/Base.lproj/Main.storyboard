@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Rq-4H-J8b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4Rq-4H-J8b">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="88.000000000000028" width="375" height="446.66666666666674"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iBj-jW-jod" userLabel="Email">
-                                        <rect key="frame" x="38" y="75" width="300" height="40"/>
+                                        <rect key="frame" x="37.666666666666657" y="75" width="300" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Fbt-L9-pXi"/>
                                         </constraints>
@@ -36,13 +34,13 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hlZ-Ca-H9T" userLabel="Password">
-                                        <rect key="frame" x="37" y="145" width="300" height="40"/>
+                                        <rect key="frame" x="37.666666666666657" y="145" width="300" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8z-fN-kUO" userLabel="Login" customClass="RoundedButton" customModule="SpinnyTop" customModuleProvider="target">
-                                        <rect key="frame" x="113" y="225" width="150" height="36"/>
+                                        <rect key="frame" x="112.66666666666669" y="225" width="150" height="36"/>
                                         <color key="backgroundColor" red="0.99607843139999996" green="0.42352941179999998" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <state key="normal" title="Login">
@@ -71,7 +69,7 @@
                                 <rect key="frame" x="0.0" y="453.33333333333326" width="375" height="324.66666666666674"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="OVA-D1-nc1" customClass="UIImageViewRounded" customModule="SpinnyTop" customModuleProvider="target">
-                                        <rect key="frame" x="125" y="99.333333333333314" width="125" height="125"/>
+                                        <rect key="frame" x="125" y="99.666666666666686" width="125" height="125"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="125" id="cxk-WD-v3J"/>
                                             <constraint firstAttribute="height" constant="125" id="wXx-tT-StR"/>
@@ -129,7 +127,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="544"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DrJ-a1-6TK">
-                                        <rect key="frame" x="37" y="75" width="300" height="40"/>
+                                        <rect key="frame" x="37.666666666666657" y="75" width="300" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="dLI-9L-kef"/>
                                         </constraints>
@@ -138,13 +136,13 @@
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cdf-9m-RMg" userLabel="Username Text Field">
-                                        <rect key="frame" x="37" y="145" width="300" height="40"/>
+                                        <rect key="frame" x="37.666666666666657" y="145" width="300" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DDK-2G-emY">
-                                        <rect key="frame" x="37" y="215" width="300" height="40"/>
+                                        <rect key="frame" x="37.666666666666657" y="215" width="300" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -185,7 +183,7 @@
                                 <rect key="frame" x="0.0" y="510" width="375" height="268"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="fo0-9v-117" customClass="UIImageViewRounded" customModule="SpinnyTop" customModuleProvider="target">
-                                        <rect key="frame" x="125" y="71.333333333333371" width="125" height="125"/>
+                                        <rect key="frame" x="125" y="71.666666666666629" width="125" height="125"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="125" id="77p-06-QC7"/>
                                             <constraint firstAttribute="height" constant="125" id="f3X-iF-rbe"/>
@@ -270,10 +268,10 @@
                                 <rect key="frame" x="18.666666666666657" y="419.66666666666674" width="337.66666666666674" height="284.33333333333326"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xsj-HS-Udf" userLabel="First Labels">
-                                        <rect key="frame" x="33" y="35.333333333333314" width="270" height="65"/>
+                                        <rect key="frame" x="34" y="34.666666666666629" width="270" height="65"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Spin Rotations" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEl-Kv-1fJ">
-                                                <rect key="frame" x="0.0" y="5" width="175.66666666666666" height="25"/>
+                                                <rect key="frame" x="0.0" y="5" width="175.33333333333334" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="x0M-XA-BQe"/>
                                                 </constraints>
@@ -291,7 +289,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record Rotations" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRJ-Ot-3Vz">
-                                                <rect key="frame" x="0.0" y="35" width="175.66666666666666" height="25"/>
+                                                <rect key="frame" x="0.0" y="35" width="175.33333333333334" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="VjR-ti-w5Q"/>
                                                 </constraints>
@@ -330,10 +328,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jcu-fI-04G" userLabel="Second Labels">
-                                        <rect key="frame" x="33" y="110.33333333333331" width="270" height="65"/>
+                                        <rect key="frame" x="34" y="109.66666666666669" width="270" height="65"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Spin Duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQZ-61-10I">
-                                                <rect key="frame" x="0.0" y="5" width="175.66666666666666" height="25"/>
+                                                <rect key="frame" x="0.0" y="5" width="175.33333333333334" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="Gfu-7x-zuQ"/>
                                                 </constraints>
@@ -351,7 +349,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record Duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDJ-dA-UiY">
-                                                <rect key="frame" x="0.0" y="35" width="175.66666666666666" height="25"/>
+                                                <rect key="frame" x="0.0" y="35" width="175.33333333333334" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="O7x-z6-X1o"/>
                                                 </constraints>
@@ -391,10 +389,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLT-VO-CKI" userLabel="Last Labels">
-                                        <rect key="frame" x="33" y="185.33333333333331" width="270" height="65"/>
+                                        <rect key="frame" x="34" y="184.66666666666669" width="270" height="65"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Spin RPS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p59-9f-BMv">
-                                                <rect key="frame" x="0.0" y="5" width="175.66666666666666" height="25"/>
+                                                <rect key="frame" x="0.0" y="5" width="175.33333333333334" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="QXP-8a-gSQ"/>
                                                 </constraints>
@@ -403,7 +401,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9X-jM-xhu" userLabel="Last Spin RPS Label">
-                                                <rect key="frame" x="198.33333333333334" y="5" width="66.666666666666657" height="25"/>
+                                                <rect key="frame" x="197.33333333333334" y="5" width="67.666666666666657" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="nMu-np-zA8"/>
                                                 </constraints>
@@ -412,7 +410,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record RPS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAT-hh-skZ">
-                                                <rect key="frame" x="0.0" y="35" width="175.66666666666666" height="25"/>
+                                                <rect key="frame" x="0.0" y="35" width="175.33333333333334" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="dv9-mV-rin"/>
                                                 </constraints>
@@ -421,7 +419,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVG-kW-HSE" userLabel="Record RPS Label">
-                                                <rect key="frame" x="198.33333333333334" y="35" width="66.666666666666657" height="25"/>
+                                                <rect key="frame" x="197.33333333333334" y="35" width="67.666666666666657" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="Xoe-d3-bzy"/>
                                                 </constraints>
@@ -498,7 +496,7 @@
                             <constraint firstItem="YVZ-iR-7pA" firstAttribute="centerX" secondItem="aM8-Gw-7Ec" secondAttribute="centerX" id="zxw-GR-BcE"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Spin" image="SpinIconGrey.png" selectedImage="SpinIconGrey.png" id="vtC-IX-ygs"/>
+                    <tabBarItem key="tabBarItem" title="Spin" image="SpinIconBlue" selectedImage="SpinIconGrey" id="vtC-IX-ygs"/>
                     <navigationItem key="navigationItem" id="TQj-Lu-vqh">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="PWa-gW-LFA">
                             <connections>
@@ -661,7 +659,7 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EAD-dQ-u2h" secondAttribute="trailing" constant="20" symbolic="YES" id="z8L-Lu-J3B"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Records" image="LeaderIconGrey.png" selectedImage="LeaderIconGrey.png" id="ZhX-C2-ep6"/>
+                    <tabBarItem key="tabBarItem" title="Records" image="LeaderIconBlue" selectedImage="LeaderIconGrey" id="ZhX-C2-ep6"/>
                     <navigationItem key="navigationItem" title="Profile" id="UlC-a1-5qp">
                         <barButtonItem key="rightBarButtonItem" title="Update Profile" image="gear.png" id="bAx-ai-u1S">
                             <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-10" maxY="-10"/>
@@ -693,7 +691,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Animate" image="AnimateIconGrey.png" selectedImage="AnimateIconGrey.png" id="QQZ-hz-S5k"/>
+                    <tabBarItem key="tabBarItem" title="Animate" image="AnimateIconBlue" selectedImage="AnimateIconGrey" id="QQZ-hz-S5k"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vcu-Va-3bY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -919,7 +917,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cs-9J-tgR" customClass="RoundedButton" customModule="SpinnyTop" customModuleProvider="target">
-                                <rect key="frame" x="112" y="449" width="150" height="30"/>
+                                <rect key="frame" x="112.66666666666669" y="449" width="150" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Update Profile">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -962,7 +960,7 @@
                             <constraint firstItem="CpZ-t0-KSH" firstAttribute="centerX" secondItem="KeN-i5-BMN" secondAttribute="centerX" id="zlR-me-CjJ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileIconGrey.png" selectedImage="ProfileIconGrey.png" id="V1s-mY-0Br"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileIconBlue" selectedImage="ProfileIconGrey" id="V1s-mY-0Br"/>
                     <connections>
                         <outlet property="emailAddressTextField" destination="9Xp-Xw-qjc" id="HgT-5Z-GJ1"/>
                         <outlet property="errorButton" destination="f6y-Eq-oUT" id="6ih-Ma-hQd"/>
@@ -1207,11 +1205,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AnimateIconGrey.png" width="49" height="37"/>
+        <image name="AnimateIconBlue" width="23" height="23"/>
+        <image name="AnimateIconGrey" width="11" height="11"/>
         <image name="Icon-logo.png" width="228" height="228"/>
-        <image name="LeaderIconGrey.png" width="29" height="39"/>
-        <image name="ProfileIconGrey.png" width="24" height="30"/>
-        <image name="SpinIconGrey.png" width="40" height="39"/>
+        <image name="LeaderIconBlue" width="17.25" height="17.25"/>
+        <image name="LeaderIconGrey" width="17.25" height="17.25"/>
+        <image name="ProfileIconBlue" width="17.25" height="17.25"/>
+        <image name="ProfileIconGrey" width="17.25" height="17.25"/>
+        <image name="SpinIconBlue" width="11" height="11"/>
+        <image name="SpinIconGrey" width="11" height="11"/>
         <image name="error.png" width="512" height="512"/>
         <image name="gear.png" width="65" height="65"/>
     </resources>

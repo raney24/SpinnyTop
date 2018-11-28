@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27166B0C212CBB02007C297E /* AnimateIconGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 27166B04212CBAFF007C297E /* AnimateIconGrey.png */; };
-		27166B0D212CBB02007C297E /* LeaderIconGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 27166B05212CBB00007C297E /* LeaderIconGrey.png */; };
-		27166B0E212CBB02007C297E /* ProfileIconGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 27166B06212CBB00007C297E /* ProfileIconGrey.png */; };
-		27166B0F212CBB02007C297E /* LeaderIconBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 27166B07212CBB00007C297E /* LeaderIconBlue.png */; };
-		27166B10212CBB02007C297E /* SpinIconGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = 27166B08212CBB01007C297E /* SpinIconGrey.png */; };
-		27166B11212CBB02007C297E /* ProfileIconBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 27166B09212CBB01007C297E /* ProfileIconBlue.png */; };
-		27166B12212CBB02007C297E /* AnimateIconBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 27166B0A212CBB01007C297E /* AnimateIconBlue.png */; };
-		27166B13212CBB02007C297E /* SpinIconBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 27166B0B212CBB02007C297E /* SpinIconBlue.png */; };
 		27166B15212CC111007C297E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27166B14212CC111007C297E /* TabBarViewController.swift */; };
 		27269C34202A64F10057A587 /* UIDevice+ModelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27269C33202A64F10057A587 /* UIDevice+ModelName.swift */; };
 		273F68DB1F4A9CD300D6DD49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 273F68DA1F4A9CD300D6DD49 /* GoogleService-Info.plist */; };
@@ -29,7 +21,6 @@
 		2773B2B91FBA63AA00754429 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2B81FBA63AA00754429 /* APIController.swift */; };
 		2773B2BD1FBAC86F00754429 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773B2BC1FBAC86F00754429 /* User.swift */; };
 		277952E92005F16F00A3AF93 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277952E82005F16F00A3AF93 /* LeaderboardTableViewCell.swift */; };
-		277D449D20814AA800A9668C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27953C921F46A95800938C8E /* Info.plist */; };
 		277D449E20814CDA00A9668C /* kaleidoscope.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 27B7833B20812E28002D6FC2 /* kaleidoscope.mp4 */; };
 		2789DA4F1FB03C860078351E /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789DA4E1FB03C860078351E /* Score.swift */; };
 		278E37DC1FE30FD100D8A13F /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 278E37DB1FE30FD000D8A13F /* gear.png */; };
@@ -88,14 +79,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		27166B04212CBAFF007C297E /* AnimateIconGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AnimateIconGrey.png; sourceTree = "<group>"; };
-		27166B05212CBB00007C297E /* LeaderIconGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeaderIconGrey.png; sourceTree = "<group>"; };
-		27166B06212CBB00007C297E /* ProfileIconGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProfileIconGrey.png; sourceTree = "<group>"; };
-		27166B07212CBB00007C297E /* LeaderIconBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LeaderIconBlue.png; sourceTree = "<group>"; };
-		27166B08212CBB01007C297E /* SpinIconGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpinIconGrey.png; sourceTree = "<group>"; };
-		27166B09212CBB01007C297E /* ProfileIconBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ProfileIconBlue.png; sourceTree = "<group>"; };
-		27166B0A212CBB01007C297E /* AnimateIconBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AnimateIconBlue.png; sourceTree = "<group>"; };
-		27166B0B212CBB02007C297E /* SpinIconBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpinIconBlue.png; sourceTree = "<group>"; };
 		27166B14212CC111007C297E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		27269C33202A64F10057A587 /* UIDevice+ModelName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+ModelName.swift"; sourceTree = "<group>"; };
 		273F68DA1F4A9CD300D6DD49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -346,14 +329,6 @@
 		27FEE47F1F9AAB6400C3C596 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				27166B08212CBB01007C297E /* SpinIconGrey.png */,
-				27166B04212CBAFF007C297E /* AnimateIconGrey.png */,
-				27166B05212CBB00007C297E /* LeaderIconGrey.png */,
-				27166B06212CBB00007C297E /* ProfileIconGrey.png */,
-				27166B0B212CBB02007C297E /* SpinIconBlue.png */,
-				27166B0A212CBB01007C297E /* AnimateIconBlue.png */,
-				27166B07212CBB00007C297E /* LeaderIconBlue.png */,
-				27166B09212CBB01007C297E /* ProfileIconBlue.png */,
 				278E37DD1FE3124C00D8A13F /* Icon-logo.png */,
 				27C989B62009C64200F41E07 /* SpinnyTopLoading.m4v */,
 				278E37DB1FE30FD000D8A13F /* gear.png */,
@@ -386,7 +361,6 @@
 				27953C7D1F46A95800938C8E /* Frameworks */,
 				27953C7E1F46A95800938C8E /* Resources */,
 				EBD88D5FB85F488F22A845CC /* [CP] Embed Pods Frameworks */,
-				DF17F8957027A0A6BC5D7902 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -406,7 +380,6 @@
 				27953C941F46A95800938C8E /* Frameworks */,
 				27953C951F46A95800938C8E /* Resources */,
 				217378A567AB0903A58B0413 /* [CP] Embed Pods Frameworks */,
-				E3AE2EC7570E1561C4B5DBC5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -427,7 +400,6 @@
 				27953C9F1F46A95800938C8E /* Frameworks */,
 				27953CA01F46A95800938C8E /* Resources */,
 				A8CC9676F3CF400C04F800FA /* [CP] Embed Pods Frameworks */,
-				305ECC7F1CE4F0DE2E224381 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -494,18 +466,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27166B11212CBB02007C297E /* ProfileIconBlue.png in Resources */,
-				27166B12212CBB02007C297E /* AnimateIconBlue.png in Resources */,
-				27166B0C212CBB02007C297E /* AnimateIconGrey.png in Resources */,
 				277D449E20814CDA00A9668C /* kaleidoscope.mp4 in Resources */,
-				277D449D20814AA800A9668C /* Info.plist in Resources */,
-				27166B13212CBB02007C297E /* SpinIconBlue.png in Resources */,
-				27166B10212CBB02007C297E /* SpinIconGrey.png in Resources */,
-				27166B0F212CBB02007C297E /* LeaderIconBlue.png in Resources */,
 				27C989B72009C66500F41E07 /* SpinnyTopLoading.m4v in Resources */,
 				27572E552006F34B00FDE97E /* Images.xcassets in Resources */,
-				27166B0D212CBB02007C297E /* LeaderIconGrey.png in Resources */,
-				27166B0E212CBB02007C297E /* ProfileIconGrey.png in Resources */,
 				27572E532006F2FB00FDE97E /* AppIcon.appiconset in Resources */,
 				273F68DB1F4A9CD300D6DD49 /* GoogleService-Info.plist in Resources */,
 				27FEE47E1F9AAB5500C3C596 /* error.png in Resources */,
@@ -541,32 +504,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SpinnyTopTests/Pods-SpinnyTopTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-Defines-NSData+zlib/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpinnyTopTests/Pods-SpinnyTopTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		305ECC7F1CE4F0DE2E224381 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpinnyTopUITests/Pods-SpinnyTopUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		56B21F29A7244AC85665B43A /* [CP] Check Pods Manifest.lock */ = {
@@ -612,47 +560,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SpinnyTopUITests/Pods-SpinnyTopUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-Defines-NSData+zlib/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpinnyTopUITests/Pods-SpinnyTopUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DF17F8957027A0A6BC5D7902 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpinnyTop/Pods-SpinnyTop-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E3AE2EC7570E1561C4B5DBC5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpinnyTopTests/Pods-SpinnyTopTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EB9A670FD1D954EEB7ACB1EF /* [CP] Check Pods Manifest.lock */ = {
@@ -686,12 +604,8 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac-f0850809/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -701,12 +615,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -934,6 +844,7 @@
 				INFOPLIST_FILE = SpinnyTop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.SpinnyTop;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -960,6 +871,7 @@
 				INFOPLIST_FILE = SpinnyTop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.SpinnyTop;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";

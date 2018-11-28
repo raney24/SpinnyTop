@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CAC5800EA03C6BE0866681E782B6784E"
+               BlueprintIdentifier = "64818FEBECEFEC38F69C9F5CD703ED28"
                BuildableName = "Pods_SpinnyTopUITests.framework"
                BlueprintName = "Pods-SpinnyTopUITests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CAC5800EA03C6BE0866681E782B6784E"
+            BlueprintIdentifier = "64818FEBECEFEC38F69C9F5CD703ED28"
             BuildableName = "Pods_SpinnyTopUITests.framework"
             BlueprintName = "Pods-SpinnyTopUITests"
             ReferencedContainer = "container:Pods.xcodeproj">

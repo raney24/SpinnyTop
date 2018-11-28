@@ -8,8 +8,6 @@
 
 import Foundation
 import UIKit
-import Firebase
-import FirebaseAuth
 
 class Score {
     var username: String

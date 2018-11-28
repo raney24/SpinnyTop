@@ -9,9 +9,6 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
-    let arrayOfGreyImages = [ "SpinIconGrey", "AnimateIconGrey", "LeaderIconGrey", "ProfileIconGrey" ]
-    let arrayOfBlueImages = [ "SpinIconBlue", "AnimateIconBlue", "LeaderIconBlue", "ProfileIconBlue" ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
