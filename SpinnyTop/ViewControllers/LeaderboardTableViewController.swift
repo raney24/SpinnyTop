@@ -99,9 +99,7 @@ class LeaderboardTableViewController: UITableViewController {
         } else {
             cell.backgroundColor = UIColor.init(hex: "F2F2F2")
         }
-//        print(sizeGroup)
-//        print(UIDevice.current.modelName)
-        print(UIScreen.main.screenSizeGroup)
+
         var textSize: CGFloat
         if (screenSizeGroup == "small") {
             textSize = 12.0
@@ -171,7 +169,7 @@ class LeaderboardTableViewController: UITableViewController {
             
             if let jsonValue = response.result.value {
                 let json = JSON(jsonValue)
-                for (_,user) in json {
+                for (_,user) in json["results"] {
                     let username = user["username"].stringValue
                     if (username != "admin" && username != "itunesuser" && username != "superuser") {
                         let u = User(username: username, token: nil, email: nil)

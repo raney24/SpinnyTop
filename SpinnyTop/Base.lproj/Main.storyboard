@@ -265,10 +265,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h6y-N9-ZZq" userLabel="Label View">
-                                <rect key="frame" x="18.666666666666657" y="419.66666666666674" width="337.66666666666674" height="284.33333333333326"/>
+                                <rect key="frame" x="18.666666666666657" y="501" width="337.66666666666674" height="203"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xsj-HS-Udf" userLabel="First Labels">
-                                        <rect key="frame" x="34" y="34.666666666666629" width="270" height="65"/>
+                                        <rect key="frame" x="34" y="23" width="270" height="65"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Spin Rotations" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UEl-Kv-1fJ">
                                                 <rect key="frame" x="0.0" y="5" width="175.33333333333334" height="25"/>
@@ -328,7 +328,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jcu-fI-04G" userLabel="Second Labels">
-                                        <rect key="frame" x="34" y="109.66666666666669" width="270" height="65"/>
+                                        <rect key="frame" x="34" y="108" width="270" height="65"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Spin Duration" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQZ-61-10I">
                                                 <rect key="frame" x="0.0" y="5" width="175.33333333333334" height="25"/>
@@ -388,81 +388,16 @@
                                             <constraint firstItem="EDJ-dA-UiY" firstAttribute="leading" secondItem="Jcu-fI-04G" secondAttribute="leading" id="x7f-X5-bre"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLT-VO-CKI" userLabel="Last Labels">
-                                        <rect key="frame" x="34" y="184.66666666666669" width="270" height="65"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Spin RPS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p59-9f-BMv">
-                                                <rect key="frame" x="0.0" y="5" width="175.33333333333334" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="QXP-8a-gSQ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9X-jM-xhu" userLabel="Last Spin RPS Label">
-                                                <rect key="frame" x="197.33333333333334" y="5" width="67.666666666666657" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="nMu-np-zA8"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.68235294120000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record RPS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAT-hh-skZ">
-                                                <rect key="frame" x="0.0" y="35" width="175.33333333333334" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="dv9-mV-rin"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVG-kW-HSE" userLabel="Record RPS Label">
-                                                <rect key="frame" x="197.33333333333334" y="35" width="67.666666666666657" height="25"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="Xoe-d3-bzy"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <color key="textColor" red="0.99607843139999996" green="0.42352941179999998" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="tintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="DAT-hh-skZ" firstAttribute="leading" secondItem="HLT-VO-CKI" secondAttribute="leading" id="2Tq-jJ-wQw"/>
-                                            <constraint firstItem="p59-9f-BMv" firstAttribute="top" secondItem="HLT-VO-CKI" secondAttribute="top" constant="5" id="6z7-nZ-N2l"/>
-                                            <constraint firstAttribute="trailing" secondItem="r9X-jM-xhu" secondAttribute="trailing" constant="5" id="ItA-7j-af9"/>
-                                            <constraint firstItem="DAT-hh-skZ" firstAttribute="width" secondItem="HLT-VO-CKI" secondAttribute="width" multiplier="0.65" id="Rhv-Tq-0e5"/>
-                                            <constraint firstItem="rVG-kW-HSE" firstAttribute="top" secondItem="DAT-hh-skZ" secondAttribute="top" id="RmT-fm-uMY"/>
-                                            <constraint firstItem="p59-9f-BMv" firstAttribute="leading" secondItem="HLT-VO-CKI" secondAttribute="leading" id="T3r-7f-nqy"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="p59-9f-BMv" secondAttribute="trailing" constant="20" symbolic="YES" id="WsF-kY-bIg"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DAT-hh-skZ" secondAttribute="trailing" id="dJh-w1-3Qr"/>
-                                            <constraint firstAttribute="trailing" secondItem="rVG-kW-HSE" secondAttribute="trailing" constant="5" id="dlC-en-5MC"/>
-                                            <constraint firstAttribute="bottom" secondItem="DAT-hh-skZ" secondAttribute="bottom" constant="5" id="ePv-0G-nNa"/>
-                                            <constraint firstItem="rVG-kW-HSE" firstAttribute="width" secondItem="HLT-VO-CKI" secondAttribute="width" multiplier="0.25" id="fOE-PS-8n3"/>
-                                            <constraint firstItem="rVG-kW-HSE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HLT-VO-CKI" secondAttribute="leading" constant="20" symbolic="YES" id="gDA-uS-ecK"/>
-                                            <constraint firstItem="r9X-jM-xhu" firstAttribute="width" secondItem="HLT-VO-CKI" secondAttribute="width" multiplier="0.25" id="iua-AR-vBV"/>
-                                            <constraint firstItem="r9X-jM-xhu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HLT-VO-CKI" secondAttribute="leading" constant="20" symbolic="YES" id="jp9-or-KMT"/>
-                                            <constraint firstItem="r9X-jM-xhu" firstAttribute="top" secondItem="p59-9f-BMv" secondAttribute="top" id="rY5-td-NXR"/>
-                                            <constraint firstItem="p59-9f-BMv" firstAttribute="width" secondItem="HLT-VO-CKI" secondAttribute="width" multiplier="0.65" id="uDb-se-dKD"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Xsj-HS-Udf" firstAttribute="width" secondItem="Jcu-fI-04G" secondAttribute="width" id="16w-hK-DKL"/>
                                     <constraint firstItem="Xsj-HS-Udf" firstAttribute="height" secondItem="Jcu-fI-04G" secondAttribute="height" id="37P-bV-Azw"/>
-                                    <constraint firstItem="HLT-VO-CKI" firstAttribute="width" secondItem="Jcu-fI-04G" secondAttribute="width" id="IUd-sb-CqV"/>
                                     <constraint firstItem="Jcu-fI-04G" firstAttribute="width" secondItem="h6y-N9-ZZq" secondAttribute="width" multiplier="0.8" id="Kb3-3V-ecT"/>
-                                    <constraint firstItem="HLT-VO-CKI" firstAttribute="height" secondItem="Jcu-fI-04G" secondAttribute="height" id="PwP-F6-Tza"/>
-                                    <constraint firstItem="HLT-VO-CKI" firstAttribute="top" secondItem="Jcu-fI-04G" secondAttribute="bottom" constant="10" id="Rst-qW-cbN"/>
-                                    <constraint firstItem="HLT-VO-CKI" firstAttribute="centerX" secondItem="h6y-N9-ZZq" secondAttribute="centerX" id="VDJ-wh-DZe"/>
-                                    <constraint firstItem="Jcu-fI-04G" firstAttribute="top" secondItem="Xsj-HS-Udf" secondAttribute="bottom" constant="10" id="WzX-DI-li9"/>
+                                    <constraint firstItem="Jcu-fI-04G" firstAttribute="top" secondItem="Xsj-HS-Udf" secondAttribute="bottom" constant="20" id="WzX-DI-li9"/>
                                     <constraint firstItem="Jcu-fI-04G" firstAttribute="centerX" secondItem="h6y-N9-ZZq" secondAttribute="centerX" id="bm2-pl-goy"/>
-                                    <constraint firstItem="Jcu-fI-04G" firstAttribute="centerY" secondItem="h6y-N9-ZZq" secondAttribute="centerY" id="dkT-Ec-oPz"/>
                                     <constraint firstItem="Xsj-HS-Udf" firstAttribute="centerX" secondItem="h6y-N9-ZZq" secondAttribute="centerX" id="hh0-ke-iFg"/>
+                                    <constraint firstAttribute="bottom" secondItem="Jcu-fI-04G" secondAttribute="bottom" constant="30" id="zxd-W4-7C6"/>
                                 </constraints>
                             </view>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qff-yz-YS4">
@@ -484,7 +419,7 @@
                             <constraint firstItem="rVq-w0-gC4" firstAttribute="top" secondItem="yHi-HA-07D" secondAttribute="bottom" constant="135" id="J2P-0h-b6o"/>
                             <constraint firstItem="YUK-7y-fd0" firstAttribute="centerY" secondItem="aM8-Gw-7Ec" secondAttribute="centerY" id="PoJ-mS-Guz"/>
                             <constraint firstItem="rVq-w0-gC4" firstAttribute="width" secondItem="aM8-Gw-7Ec" secondAttribute="width" multiplier="0.75" id="Qrt-Zr-J79"/>
-                            <constraint firstItem="h6y-N9-ZZq" firstAttribute="height" secondItem="aM8-Gw-7Ec" secondAttribute="height" multiplier="0.35" id="RkJ-vD-C2c"/>
+                            <constraint firstItem="h6y-N9-ZZq" firstAttribute="height" secondItem="aM8-Gw-7Ec" secondAttribute="height" multiplier="0.25" id="RkJ-vD-C2c"/>
                             <constraint firstItem="YUK-7y-fd0" firstAttribute="centerX" secondItem="aM8-Gw-7Ec" secondAttribute="centerX" id="U0w-Ez-Me1"/>
                             <constraint firstItem="0P6-9U-in2" firstAttribute="centerY" secondItem="aM8-Gw-7Ec" secondAttribute="centerY" id="UqX-8M-prr"/>
                             <constraint firstItem="FKB-Ec-qcs" firstAttribute="top" secondItem="yHi-HA-07D" secondAttribute="bottom" constant="110" id="X39-32-lEn"/>
@@ -508,11 +443,9 @@
                     <connections>
                         <outlet property="currentRPSLabel" destination="YUK-7y-fd0" id="IZ3-gH-gBc"/>
                         <outlet property="lastSpinDurationLabel" destination="c8X-FC-Y2W" id="S3q-AN-Sgy"/>
-                        <outlet property="lastSpinRPSLabel" destination="r9X-jM-xhu" id="YIx-kH-o1e"/>
                         <outlet property="lastSpinRotationsLabel" destination="xBc-YU-HsA" id="qtk-Mw-TxU"/>
                         <outlet property="lifetimeRotationsLabel" destination="rVq-w0-gC4" id="mbQ-dJ-N4t"/>
                         <outlet property="recordDurationsLabel" destination="tnU-Hb-NxV" id="kub-9q-q1O"/>
-                        <outlet property="recordRPSLabel" destination="rVG-kW-HSE" id="c8s-r0-Ilh"/>
                         <outlet property="recordRotationsLabel" destination="Pch-nb-Tz1" id="Oxi-ho-P5t"/>
                         <outlet property="scoreLabelView" destination="h6y-N9-ZZq" id="45u-HU-5Xl"/>
                         <outlet property="shapeView" destination="0P6-9U-in2" id="1FU-d7-Mud"/>
@@ -536,7 +469,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QyV-rt-MVt" customClass="RoundedButton" customModule="SpinnyTop" customModuleProvider="target">
-                                <rect key="frame" x="84.333333333333329" y="164" width="206.33333333333337" height="33"/>
+                                <rect key="frame" x="84.333333333333329" y="208" width="206.33333333333337" height="33"/>
                                 <color key="backgroundColor" red="0.0" green="0.68235294120000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <state key="normal" title="View Leaderboard">
@@ -601,20 +534,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="SLc-GE-zvn" customClass="UIImageViewRounded" customModule="SpinnyTop" customModuleProvider="target">
-                                <rect key="frame" x="150" y="64" width="75" height="75"/>
+                                <rect key="frame" x="150" y="108" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="1Yr-gP-DVD"/>
                                     <constraint firstAttribute="height" constant="75" id="BLa-9r-Oy6"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lifetime Rotations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Va-xb-EjH">
-                                <rect key="frame" x="47" y="292" width="281" height="31.666666666666686"/>
+                                <rect key="frame" x="47" y="336" width="281" height="31.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vir-3e-saK" userLabel="Lifetime Rotations Label">
-                                <rect key="frame" x="47" y="338.66666666666669" width="281" height="31.333333333333314"/>
+                                <rect key="frame" x="47" y="382.66666666666669" width="281" height="31.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.42352941179999998" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -659,13 +592,7 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EAD-dQ-u2h" secondAttribute="trailing" constant="20" symbolic="YES" id="z8L-Lu-J3B"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Records" image="LeaderIconBlue" selectedImage="LeaderIconGrey" id="ZhX-C2-ep6"/>
-                    <navigationItem key="navigationItem" title="Profile" id="UlC-a1-5qp">
-                        <barButtonItem key="rightBarButtonItem" title="Update Profile" image="gear.png" id="bAx-ai-u1S">
-                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-10" maxY="-10"/>
-                            <color key="tintColor" red="0.0" green="0.61174315209999997" blue="0.84480744600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Profile" id="UlC-a1-5qp"/>
                     <connections>
                         <outlet property="lifetimeRotationsLabel" destination="Vir-3e-saK" id="lOM-za-FCS"/>
                         <outlet property="recordDurationLabel" destination="vgA-fx-tqo" id="kDG-FZ-adE"/>
@@ -676,7 +603,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5OA-CE-56j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="1731"/>
+            <point key="canvasLocation" x="2628" y="1730.5418719211823"/>
         </scene>
         <!--Animate-->
         <scene sceneID="SGL-He-J54">
@@ -969,7 +896,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7we-ix-aff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2454" y="1320"/>
+            <point key="canvasLocation" x="3396" y="1319.7044334975369"/>
         </scene>
         <!--Update Password View Controller-->
         <scene sceneID="dgO-E6-6Bz">
@@ -1105,7 +1032,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpy-LP-mT7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3314" y="1320"/>
+            <point key="canvasLocation" x="4255.1999999999998" y="1319.7044334975369"/>
         </scene>
         <!--Reset Password VC-->
         <scene sceneID="4gQ-sY-FMT">
@@ -1195,7 +1122,7 @@
                     <connections>
                         <segue destination="kAP-1c-8Lr" kind="relationship" relationship="viewControllers" id="qwH-Jn-66O"/>
                         <segue destination="NXU-7q-fVa" kind="relationship" relationship="viewControllers" id="ODU-gQ-X9G"/>
-                        <segue destination="zjT-rM-2f3" kind="relationship" relationship="viewControllers" id="aAJ-I9-N2c"/>
+                        <segue destination="wJr-zM-rtB" kind="relationship" relationship="viewControllers" id="aAJ-I9-N2c"/>
                         <segue destination="URG-oA-FqD" kind="relationship" relationship="viewControllers" id="xuV-up-2aq"/>
                     </connections>
                 </tabBarController>
@@ -1203,18 +1130,36 @@
             </objects>
             <point key="canvasLocation" x="894" y="882"/>
         </scene>
+        <!--Records-->
+        <scene sceneID="jyP-bS-xUs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wJr-zM-rtB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Records" image="LeaderIconBlue" selectedImage="LeaderIconGrey" id="ZhX-C2-ep6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kcD-5m-lve">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zjT-rM-2f3" kind="relationship" relationship="rootViewController" id="11A-I8-7Vm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W0S-To-XLO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1685.5999999999999" y="1730.5418719211823"/>
+        </scene>
     </scenes>
     <resources>
         <image name="AnimateIconBlue" width="23" height="23"/>
-        <image name="AnimateIconGrey" width="11" height="11"/>
+        <image name="AnimateIconGrey" width="33.119998931884766" height="33.119998931884766"/>
         <image name="Icon-logo.png" width="228" height="228"/>
-        <image name="LeaderIconBlue" width="17.25" height="17.25"/>
-        <image name="LeaderIconGrey" width="17.25" height="17.25"/>
-        <image name="ProfileIconBlue" width="17.25" height="17.25"/>
-        <image name="ProfileIconGrey" width="17.25" height="17.25"/>
-        <image name="SpinIconBlue" width="11" height="11"/>
-        <image name="SpinIconGrey" width="11" height="11"/>
+        <image name="LeaderIconBlue" width="51.75" height="51.75"/>
+        <image name="LeaderIconGrey" width="51.75" height="51.75"/>
+        <image name="ProfileIconBlue" width="51.75" height="51.75"/>
+        <image name="ProfileIconGrey" width="51.75" height="51.75"/>
+        <image name="SpinIconBlue" width="33.119998931884766" height="33.119998931884766"/>
+        <image name="SpinIconGrey" width="23" height="23"/>
         <image name="error.png" width="512" height="512"/>
-        <image name="gear.png" width="65" height="65"/>
     </resources>
 </document>

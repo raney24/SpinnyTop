@@ -28,8 +28,8 @@ class SpinnyViewController: UIViewController {
     @IBOutlet weak var lastSpinDurationLabel: UILabel!
     @IBOutlet weak var recordDurationsLabel: UILabel!
     
-    @IBOutlet weak var lastSpinRPSLabel: UILabel!
-    @IBOutlet weak var recordRPSLabel: UILabel!
+//    @IBOutlet weak var lastSpinRPSLabel: UILabel!
+//    @IBOutlet weak var recordRPSLabel: UILabel!
     
     @IBOutlet weak var showProfileButtonOutlet: UIBarButtonItem!
     
@@ -63,14 +63,14 @@ class SpinnyViewController: UIViewController {
                     let json = JSON(jsonValue)
                     
                     self.user.email = json["email"].string
-                    self.user.max_spin_rps = json["max_spin_rps"]["speed__max"].doubleValue
+//                    self.user.max_spin_rps = json["max_spin_rps"]["speed__max"].doubleValue
                     self.user.max_spin_duration = json["max_spin_duration"]["duration__max"].doubleValue
                     self.user.max_spin_rotations = json["max_spin_rotations"]["rotations__max"].intValue
                     self.user.lifetime_rotations = json["lifetime_rotations"]["rotations__sum"].intValue
                     
 //                    var user = AppManager.sharedInstance.user
                     
-                    self.recordRPSLabel.text = String(format: "%.2f", (self.user.max_spin_rps) ?? 0.0)
+//                    self.recordRPSLabel.text = String(format: "%.2f", (self.user.max_spin_rps) ?? 0.0)
                     self.recordRotationsLabel.text = String(format: "%d", (self.user.max_spin_rotations) ?? 0)
                     self.recordDurationsLabel.text = String(format: "%.2f", (self.user.max_spin_duration) ?? 0.0)
                     self.lifetimeRotationsLabel.text = String(format: "%d", (self.user.lifetime_rotations) ?? 0)
@@ -227,7 +227,7 @@ class SpinnyViewController: UIViewController {
                             // Display last spin
                             // TODO: Make db call to get last spin
                             self.lastSpinDurationLabel.text = String(format: "%.2f", (self.spin?.duration)!)
-                            self.lastSpinRPSLabel.text = String(format: "%.2f", (self.spin?.maxSpeed)!)
+//                            self.lastSpinRPSLabel.text = String(format: "%.2f", (self.spin?.maxSpeed)!)
                             self.lastSpinRotationsLabel.text = "\(String(describing: (self.spin?.revolutions)!))"
                         
                         }
